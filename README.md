@@ -14,12 +14,12 @@ The user describes their learning goal in plain language. The system then:
 
 ## Example
 
-Input: "I want to learn advanced machine learning, I know nothing and have 8 hours a day for 7 days"
-Output:
-Algorithm : GREEDY
-Hours     : 56h
-Coverage  : 58.3%
-Path:
+Input: "I want to learn advanced machine learning, I know nothing and have 8 hours a day for 7 days"  
+Output:  
+Algorithm : GREEDY  
+Hours     : 56h  
+Coverage  : 58.3%  
+Path:  
 1. Python for beginners (10h)
 2. Mathematics for Machine Learning (15h)
 3. Applied Statistics with Python (8h)
@@ -34,15 +34,15 @@ Path:
 
 ## Project structure
 
-learning-path-ai/
-├── data/
-│   └── resources.json       # Dataset of 20 learning resources with skills and dependencies
-├── src/
-│   ├── graph.py             # ResourceGraph: dependency detection and topological sort
-│   ├── optimizer.py         # PathOptimizer: Greedy and Beam Search algorithms
-│   ├── llm_client.py        # LLMClient: Groq API integration
-│   └── main.py              # Main pipeline connecting all components
-└── tests/
+learning-path-ai/  
+├── data/  
+│   └── resources.json       # Dataset of 20 learning resources with skills and   dependencies  
+├── src/  
+│   ├── graph.py             # ResourceGraph: dependency detection and topological sort    
+│   ├── optimizer.py         # PathOptimizer: Greedy and Beam Search algorithms  
+│   ├── llm_client.py        # LLMClient: Groq API integration  
+│   └── main.py              # Main pipeline connecting all components  
+└── tests/  
 
 ## How to run
 
