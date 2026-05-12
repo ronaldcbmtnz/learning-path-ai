@@ -1,0 +1,204 @@
+{
+  "resources": [
+    {
+      "id": "r01",
+      "name": "Python para principiantes",
+      "type": "curso",
+      "domain": "programacion",
+      "duration_hours": 10,
+      "difficulty": 1,
+      "teaches": ["python_basico", "variables", "loops", "funciones"],
+      "requires": []
+    },
+    {
+      "id": "r02",
+      "name": "Matemáticas para Machine Learning",
+      "type": "curso",
+      "domain": "matematicas",
+      "duration_hours": 15,
+      "difficulty": 2,
+      "teaches": ["algebra_lineal", "calculo", "probabilidad"],
+      "requires": []
+    },
+    {
+      "id": "r03",
+      "name": "Estadística aplicada con Python",
+      "type": "curso",
+      "domain": "datos",
+      "duration_hours": 8,
+      "difficulty": 2,
+      "teaches": ["estadistica", "numpy", "pandas"],
+      "requires": ["python_basico", "probabilidad"]
+    },
+    {
+      "id": "r04",
+      "name": "Introducción a Machine Learning",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 20,
+      "difficulty": 2,
+      "teaches": ["ml_supervisado", "sklearn", "evaluacion_modelos"],
+      "requires": ["python_basico", "algebra_lineal", "estadistica"]
+    },
+    {
+      "id": "r05",
+      "name": "Redes Neuronales desde cero",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 25,
+      "difficulty": 3,
+      "teaches": ["redes_neuronales", "backpropagation", "pytorch"],
+      "requires": ["ml_supervisado", "calculo", "algebra_lineal"]
+    },
+    {
+      "id": "r06",
+      "name": "SQL para análisis de datos",
+      "type": "curso",
+      "domain": "datos",
+      "duration_hours": 6,
+      "difficulty": 1,
+      "teaches": ["sql", "consultas", "agregaciones"],
+      "requires": []
+    },
+    {
+      "id": "r07",
+      "name": "Pandas y visualización de datos",
+      "type": "curso",
+      "domain": "datos",
+      "duration_hours": 8,
+      "difficulty": 2,
+      "teaches": ["pandas", "matplotlib", "analisis_exploratorio"],
+      "requires": ["python_basico", "estadistica"]
+    },
+    {
+      "id": "r08",
+      "name": "APIs REST con Python",
+      "type": "curso",
+      "domain": "programacion",
+      "duration_hours": 5,
+      "difficulty": 2,
+      "teaches": ["apis_rest", "requests", "json"],
+      "requires": ["python_basico", "funciones"]
+    },
+    {
+      "id": "r09",
+      "name": "Git y control de versiones",
+      "type": "curso",
+      "domain": "programacion",
+      "duration_hours": 4,
+      "difficulty": 1,
+      "teaches": ["git", "github", "control_versiones"],
+      "requires": []
+    },
+    {
+      "id": "r10",
+      "name": "Fundamentos de programación",
+      "type": "video",
+      "domain": "programacion",
+      "duration_hours": 3,
+      "difficulty": 1,
+      "teaches": ["logica_programacion", "algoritmos_basicos"],
+      "requires": []
+    },
+    {
+      "id": "r11",
+      "name": "Machine Learning avanzado",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 30,
+      "difficulty": 3,
+      "teaches": ["ml_no_supervisado", "ensemble_methods", "feature_engineering"],
+      "requires": ["ml_supervisado", "estadistica", "pandas"]
+    },
+    {
+      "id": "r12",
+      "name": "Procesamiento de lenguaje natural",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 20,
+      "difficulty": 3,
+      "teaches": ["nlp", "transformers", "embeddings"],
+      "requires": ["redes_neuronales", "python_basico"]
+    },
+    {
+      "id": "r13",
+      "name": "Despliegue de modelos ML",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 10,
+      "difficulty": 3,
+      "teaches": ["mlops", "docker", "api_modelos"],
+      "requires": ["ml_supervisado", "apis_rest"]
+    },
+    {
+      "id": "r14",
+      "name": "Álgebra lineal visual",
+      "type": "video",
+      "domain": "matematicas",
+      "duration_hours": 4,
+      "difficulty": 1,
+      "teaches": ["algebra_lineal", "vectores", "matrices"],
+      "requires": []
+    },
+    {
+      "id": "r15",
+      "name": "Probabilidad y estadística básica",
+      "type": "libro",
+      "domain": "matematicas",
+      "duration_hours": 6,
+      "difficulty": 1,
+      "teaches": ["probabilidad", "distribuciones", "estadistica_basica"],
+      "requires": []
+    },
+    {
+      "id": "r16",
+      "name": "Python orientado a objetos",
+      "type": "curso",
+      "domain": "programacion",
+      "duration_hours": 7,
+      "difficulty": 2,
+      "teaches": ["poo", "clases", "herencia"],
+      "requires": ["python_basico", "funciones"]
+    },
+    {
+      "id": "r17",
+      "name": "Estructuras de datos y algoritmos",
+      "type": "curso",
+      "domain": "programacion",
+      "duration_hours": 12,
+      "difficulty": 2,
+      "teaches": ["estructuras_datos", "complejidad", "algoritmos_busqueda"],
+      "requires": ["python_basico", "logica_programacion"]
+    },
+    {
+      "id": "r18",
+      "name": "Computer Vision con PyTorch",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 18,
+      "difficulty": 3,
+      "teaches": ["computer_vision", "cnns", "deteccion_objetos"],
+      "requires": ["redes_neuronales", "pytorch"]
+    },
+    {
+      "id": "r19",
+      "name": "Dashboard con Streamlit",
+      "type": "curso",
+      "domain": "datos",
+      "duration_hours": 5,
+      "difficulty": 2,
+      "teaches": ["streamlit", "visualizacion_web", "dashboards"],
+      "requires": ["python_basico", "pandas"]
+    },
+    {
+      "id": "r20",
+      "name": "Introducción a la nube (AWS/GCP)",
+      "type": "curso",
+      "domain": "programacion",
+      "duration_hours": 8,
+      "difficulty": 2,
+      "teaches": ["cloud_basico", "storage", "compute"],
+      "requires": ["python_basico", "apis_rest"]
+    }
+  ]
+}
