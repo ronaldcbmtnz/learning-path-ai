@@ -11,13 +11,15 @@ class LLMClient:
         self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
         self.model = "llama-3.3-70b-versatile"
 
-    def parse_user_goal(self, user_input: str) -> dict:
+    def parse_user_goal(self, user_input: str, available_skills: list) -> dict:
         """
         Recibe el objetivo en lenguaje natural del usuario y extrae:
         - habilidades objetivo
         - habilidades que ya tiene
         - horas disponibles
         """
+        skills_str = ", ".join(available_skills)
+
         response = self.client.chat.completions.create(
             model=self.model,
             max_tokens=1000,
@@ -36,17 +38,23 @@ class LLMClient:
 El usuario quiere generar una ruta de aprendizaje personalizada.
 Su objetivo en sus propias palabras es: "{user_input}"
 
+IMPORTANTE: Solo puedes usar habilidades de esta lista exacta:
+{skills_str}
+
 Extrae la siguiente información y responde ÚNICAMENTE con un JSON válido:
 
 {{
-  "target_skills": ["lista de habilidades técnicas concretas que quiere aprender"],
-  "known_skills": ["lista de habilidades que ya menciona tener, vacío si no menciona ninguna"],
+  "target_skills": ["habilidades de la lista que mejor representan lo que quiere aprender"],
+  "known_skills": ["habilidades de la lista que ya menciona tener, vacío si no menciona ninguna"],
   "max_hours": null o un número si menciona límite de tiempo,
   "goal_summary": "resumen del objetivo en una oración"
 }}
 
-Las habilidades deben ser términos técnicos en minúsculas y snake_case.
-Ejemplos válidos: python_basico, ml_supervisado, estadistica, redes_neuronales, sql, pandas.
+Reglas estrictas:
+- Usa ÚNICAMENTE habilidades que aparezcan en la lista proporcionada
+- Si el usuario menciona "machine learning", mapéalo a las habilidades relevantes de la lista
+- Si el usuario dice "no sé nada", known_skills debe ser una lista vacía
+- Selecciona todas las habilidades relevantes al objetivo, no solo una
 """
                 }
             ]
