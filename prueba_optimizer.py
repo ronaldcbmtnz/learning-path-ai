@@ -4,8 +4,9 @@ from src.optimizer import PathOptimizer
 g = ResourceGraph()
 opt = PathOptimizer(g)
 
-target = {"ml_supervisado", "redes_neuronales", "estadistica"}
-result = opt.compare(target, max_hours=80)
+target = {"mlops", "docker", "api_modelos"}
+know = {"python_basico", "funciones", "ml_supervisado"}
+result = opt.compare(target, know, max_hours=20)
 
 for algo, r in result.items():
     print(f"\n=== {algo.upper()} ===")

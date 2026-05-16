@@ -1,0 +1,423 @@
+[
+  {
+    "id": "TC01",
+    "profile": "Principiante absoluto con tiempo limitado",
+    "algorithm": "greedy",
+    "hours": 17,
+    "coverage_pct": 50.0,
+    "resources_count": 3,
+    "skills_missing": [
+      "estadistica"
+    ],
+    "time_ms": 0.5
+  },
+  {
+    "id": "TC01",
+    "profile": "Principiante absoluto con tiempo limitado",
+    "algorithm": "beam_search",
+    "hours": 10,
+    "coverage_pct": 50.0,
+    "resources_count": 1,
+    "skills_missing": [
+      "estadistica"
+    ],
+    "time_ms": 1.3
+  },
+  {
+    "id": "TC01",
+    "profile": "Principiante absoluto con tiempo limitado",
+    "algorithm": "a_star",
+    "hours": 10,
+    "coverage_pct": 50.0,
+    "resources_count": 1,
+    "skills_missing": [
+      "estadistica"
+    ],
+    "time_ms": 0.7
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "algorithm": "greedy",
+    "hours": 61,
+    "coverage_pct": 100.0,
+    "resources_count": 8,
+    "skills_missing": [],
+    "time_ms": 0.6
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "algorithm": "beam_search",
+    "hours": 61,
+    "coverage_pct": 100.0,
+    "resources_count": 8,
+    "skills_missing": [],
+    "time_ms": 1.6
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "algorithm": "a_star",
+    "hours": 48,
+    "coverage_pct": 100.0,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 4.6
+  },
+  {
+    "id": "TC03",
+    "profile": "Programador que quiere especializarse en datos",
+    "algorithm": "greedy",
+    "hours": 28,
+    "coverage_pct": 75.0,
+    "resources_count": 5,
+    "skills_missing": [
+      "analisis_exploratorio"
+    ],
+    "time_ms": 0.6
+  },
+  {
+    "id": "TC03",
+    "profile": "Programador que quiere especializarse en datos",
+    "algorithm": "beam_search",
+    "hours": 25,
+    "coverage_pct": 75.0,
+    "resources_count": 4,
+    "skills_missing": [
+      "analisis_exploratorio"
+    ],
+    "time_ms": 2.3
+  },
+  {
+    "id": "TC03",
+    "profile": "Programador que quiere especializarse en datos",
+    "algorithm": "a_star",
+    "hours": 25,
+    "coverage_pct": 75.0,
+    "resources_count": 4,
+    "skills_missing": [
+      "analisis_exploratorio"
+    ],
+    "time_ms": 8.5
+  },
+  {
+    "id": "TC04",
+    "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "algorithm": "greedy",
+    "hours": 23,
+    "coverage_pct": 0.0,
+    "resources_count": 5,
+    "skills_missing": [
+      "backpropagation",
+      "pytorch",
+      "redes_neuronales"
+    ],
+    "time_ms": 1.0
+  },
+  {
+    "id": "TC04",
+    "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "backpropagation",
+      "pytorch",
+      "redes_neuronales"
+    ],
+    "time_ms": 2.1
+  },
+  {
+    "id": "TC04",
+    "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "algorithm": "a_star",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "backpropagation",
+      "pytorch",
+      "redes_neuronales"
+    ],
+    "time_ms": 33.6
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "algorithm": "greedy",
+    "hours": 16,
+    "coverage_pct": 0.0,
+    "resources_count": 4,
+    "skills_missing": [
+      "docker",
+      "mlops",
+      "api_modelos"
+    ],
+    "time_ms": 0.5
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "docker",
+      "mlops",
+      "api_modelos"
+    ],
+    "time_ms": 1.7
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "algorithm": "a_star",
+    "hours": 15,
+    "coverage_pct": 100.0,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.1
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "algorithm": "greedy",
+    "hours": 11,
+    "coverage_pct": 0.0,
+    "resources_count": 3,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 0.3
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 1.2
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "algorithm": "a_star",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 0.5
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "algorithm": "greedy",
+    "hours": 44,
+    "coverage_pct": 0.0,
+    "resources_count": 8,
+    "skills_missing": [
+      "computer_vision",
+      "cnns",
+      "deteccion_objetos"
+    ],
+    "time_ms": 1.4
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "computer_vision",
+      "cnns",
+      "deteccion_objetos"
+    ],
+    "time_ms": 3.3
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "algorithm": "a_star",
+    "hours": 58,
+    "coverage_pct": 100.0,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 43.1
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.7
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "algorithm": "beam_search",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.7
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.1
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "algorithm": "greedy",
+    "hours": 44,
+    "coverage_pct": 0.0,
+    "resources_count": 8,
+    "skills_missing": [
+      "embeddings",
+      "nlp",
+      "transformers"
+    ],
+    "time_ms": 0.9
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "embeddings",
+      "nlp",
+      "transformers"
+    ],
+    "time_ms": 3.4
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "algorithm": "a_star",
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 28.4
+  },
+  {
+    "id": "TC10",
+    "profile": "Principiante que quiere dominar programación desde cero",
+    "algorithm": "greedy",
+    "hours": 36,
+    "coverage_pct": 100.0,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 1.2
+  },
+  {
+    "id": "TC10",
+    "profile": "Principiante que quiere dominar programación desde cero",
+    "algorithm": "beam_search",
+    "hours": 36,
+    "coverage_pct": 100.0,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 1.9
+  },
+  {
+    "id": "TC10",
+    "profile": "Principiante que quiere dominar programación desde cero",
+    "algorithm": "a_star",
+    "hours": 36,
+    "coverage_pct": 100.0,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 1.6
+  },
+  {
+    "id": "TC11",
+    "profile": "ML engineer que quiere ir a cloud",
+    "algorithm": "greedy",
+    "hours": 8,
+    "coverage_pct": 100.0,
+    "resources_count": 1,
+    "skills_missing": [],
+    "time_ms": 0.3
+  },
+  {
+    "id": "TC11",
+    "profile": "ML engineer que quiere ir a cloud",
+    "algorithm": "beam_search",
+    "hours": 8,
+    "coverage_pct": 100.0,
+    "resources_count": 1,
+    "skills_missing": [],
+    "time_ms": 0.2
+  },
+  {
+    "id": "TC11",
+    "profile": "ML engineer que quiere ir a cloud",
+    "algorithm": "a_star",
+    "hours": 8,
+    "coverage_pct": 100.0,
+    "resources_count": 1,
+    "skills_missing": [],
+    "time_ms": 0.1
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "algorithm": "greedy",
+    "hours": 182,
+    "coverage_pct": 100.0,
+    "resources_count": 18,
+    "skills_missing": [],
+    "time_ms": 1.5
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "algorithm": "beam_search",
+    "hours": 182,
+    "coverage_pct": 100.0,
+    "resources_count": 18,
+    "skills_missing": [],
+    "time_ms": 6.8
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "algorithm": "a_star",
+    "hours": 63,
+    "coverage_pct": 40.0,
+    "resources_count": 7,
+    "skills_missing": [
+      "nlp",
+      "computer_vision",
+      "redes_neuronales"
+    ],
+    "time_ms": 39.1
+  }
+]

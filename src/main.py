@@ -4,7 +4,12 @@ from src.llm_client import LLMClient
 
 
 def print_path(result: dict, graph: ResourceGraph):
-    print(f"\n  Algoritmo : {result['algorithm'].upper()}")
+    algo_labels = {
+        "greedy": "GREEDY",
+        "beam_search": "BEAM SEARCH",
+        "a_star": "A* (ÓPTIMO)"
+    }
+    print(f"\n  Algoritmo : {algo_labels.get(result['algorithm'], result['algorithm'])}")
     print(f"  Horas     : {result['total_hours']}h")
     print(f"  Cobertura : {result['coverage_pct']}%")
     print(f"\n  Ruta:")
@@ -20,12 +25,10 @@ def run():
     print("   GENERADOR DE RUTAS DE APRENDIZAJE CON IA")
     print("=" * 60)
 
-    # Inicializar componentes
     graph = ResourceGraph()
     optimizer = PathOptimizer(graph)
     llm = LLMClient()
 
-    # Paso 1: objetivo del usuario
     print("\nEscribe tu objetivo de aprendizaje en tus propias palabras.")
     print("Ejemplo: 'quiero aprender machine learning, se python basico y tengo 50 horas'\n")
     user_input = input("Tu objetivo: ").strip()
@@ -34,12 +37,12 @@ def run():
         print("No ingresaste ningún objetivo.")
         return
 
-    # Paso 2: LLM parsea el objetivo conociendo las habilidades disponibles
     print("\nAnalizando tu objetivo...")
-    available_skills = []
-    for r in graph.resources.values():
-        available_skills.extend(r["teaches"])
-    available_skills = sorted(set(available_skills))
+    available_skills = sorted(set(
+        skill
+        for r in graph.resources.values()
+        for skill in r["teaches"]
+    ))
 
     parsed = llm.parse_user_goal(user_input, available_skills)
 
@@ -56,12 +59,12 @@ def run():
         print("\nNo se detectaron habilidades objetivo. Intenta ser más específico.")
         return
 
-    # Paso 3: generar rutas con ambos algoritmos
     print("\nGenerando rutas de aprendizaje...")
     comparison = optimizer.compare(target_skills, known_skills, max_hours)
 
     greedy_result = comparison["greedy"]
     beam_result = comparison["beam_search"]
+    astar_result = comparison["a_star"]
 
     print("\n" + "=" * 60)
     print("RUTAS GENERADAS")
@@ -69,21 +72,23 @@ def run():
     print_path(greedy_result, graph)
     print()
     print_path(beam_result, graph)
+    print()
+    print_path(astar_result, graph)
 
-    # Paso 4: LLM compara y recomienda
     print("\n" + "=" * 60)
     print("ANÁLISIS COMPARATIVO (IA)")
     print("=" * 60)
-    analysis = llm.compare_algorithms(greedy_result, beam_result, parsed["goal_summary"])
+    analysis = llm.compare_algorithms(
+        greedy_result, beam_result, astar_result, parsed["goal_summary"]
+    )
     print(f"\n  Recomendación : {analysis['recommended'].upper()}")
     print(f"  Razón         : {analysis['reason']}")
     print(f"  Trade-off     : {analysis['tradeoff']}")
 
-    # Paso 5: LLM explica la ruta recomendada
-    recommended = greedy_result if analysis["recommended"] == "greedy" else beam_result
+    recommended = comparison[analysis["recommended"]]
 
     print("\n" + "=" * 60)
-    print("EXPLICACIÓN DE TU RUTA")
+    print("EXPLICACIÓN DE TU RUTA RECOMENDADA")
     print("=" * 60)
     explanation = llm.explain_path(
         recommended,

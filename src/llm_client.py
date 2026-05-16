@@ -12,14 +12,7 @@ class LLMClient:
         self.model = "llama-3.3-70b-versatile"
 
     def parse_user_goal(self, user_input: str, available_skills: list) -> dict:
-        """
-        Recibe el objetivo en lenguaje natural del usuario y extrae:
-        - habilidades objetivo
-        - habilidades que ya tiene
-        - horas disponibles
-        """
         skills_str = ", ".join(available_skills)
-
         response = self.client.chat.completions.create(
             model=self.model,
             max_tokens=1000,
@@ -59,17 +52,12 @@ Reglas estrictas:
                 }
             ]
         )
-
         raw = response.choices[0].message.content.strip()
         raw = raw.replace("```json", "").replace("```", "").strip()
         return json.loads(raw)
 
     def explain_path(self, path_result: dict, goal_summary: str,
                      get_resource_fn) -> str:
-        """
-        Recibe la ruta generada por el optimizador y produce una
-        explicación en lenguaje natural para el usuario.
-        """
         resources_detail = []
         for rid in path_result["path"]:
             r = get_resource_fn(rid)
@@ -77,7 +65,6 @@ Reglas estrictas:
                 f"- {r['name']} ({r['duration_hours']}h, {r['type']}): "
                 f"enseña {', '.join(r['teaches'])}"
             )
-
         resources_str = "\n".join(resources_detail)
 
         response = self.client.chat.completions.create(
@@ -110,15 +97,10 @@ Máximo 200 palabras. Habla directamente al usuario (usa "tú").
                 }
             ]
         )
-
         return response.choices[0].message.content.strip()
 
     def compare_algorithms(self, greedy_result: dict, beam_result: dict,
-                           goal_summary: str) -> dict:
-        """
-        Pide al LLM que analice y compare los dos resultados
-        y recomiende cuál es mejor para el usuario.
-        """
+                           astar_result: dict, goal_summary: str) -> dict:
         response = self.client.chat.completions.create(
             model=self.model,
             max_tokens=1000,
@@ -136,7 +118,7 @@ Máximo 200 palabras. Habla directamente al usuario (usa "tú").
                     "content": f"""
 El usuario quiere: {goal_summary}
 
-Se generaron dos rutas con algoritmos distintos:
+Se generaron tres rutas con algoritmos distintos:
 
 GREEDY:
 - Horas totales: {greedy_result['total_hours']}h
@@ -152,10 +134,17 @@ BEAM SEARCH:
 - Habilidades cubiertas: {', '.join(beam_result['skills_covered'])}
 - Habilidades faltantes: {', '.join(beam_result['skills_missing']) or 'ninguna'}
 
+A* (ÓPTIMO):
+- Horas totales: {astar_result['total_hours']}h
+- Cobertura: {astar_result['coverage_pct']}%
+- Recursos: {len(astar_result['path'])}
+- Habilidades cubiertas: {', '.join(astar_result['skills_covered'])}
+- Habilidades faltantes: {', '.join(astar_result['skills_missing']) or 'ninguna'}
+
 Responde ÚNICAMENTE con un JSON válido:
 
 {{
-  "recommended": "greedy" o "beam_search",
+  "recommended": "greedy", "beam_search" o "a_star",
   "reason": "explicación breve de por qué uno es mejor para este caso",
   "tradeoff": "qué sacrifica cada algoritmo en este caso concreto"
 }}
@@ -163,7 +152,6 @@ Responde ÚNICAMENTE con un JSON válido:
                 }
             ]
         )
-
         raw = response.choices[0].message.content.strip()
         raw = raw.replace("```json", "").replace("```", "").strip()
         return json.loads(raw)
