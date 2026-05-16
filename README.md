@@ -59,6 +59,23 @@ python -m src.main
 
 ## Algorithms
 
-**Greedy** — at each step selects the resource that teaches the most new relevant skills. Fast and reliable but commits to early choices without reconsidering.
+Three algorithms are implemented and compared:
 
-**Beam Search** — maintains the K best partial paths simultaneously (beam width = 3), exploring more of the solution space before committing. More thorough but sensitive to the scoring function.
+**Greedy** — at each step selects the resource that maximizes future target coverage 
+using a forward simulation. Fast (avg 0.8ms) but commits to early decisions 
+without backtracking. Achieves 100% coverage in 5/12 test cases.
+
+**Beam Search** — maintains the K best partial paths simultaneously (beam width 3-6), 
+exploring more of the solution space before committing. Similar coverage to greedy 
+but uses fewer hours on average. Achieves 100% coverage in 5/12 test cases.
+
+**A\* (recommended)** — guarantees the optimal path using an admissible heuristic 
+(number of missing target skills). Finds maximum coverage with minimum hours. 
+Achieves 100% coverage in 7/12 test cases, outperforming both heuristic approaches. 
+Trade-off: slower on large search spaces (avg 13ms).
+
+| Algorithm   | Avg Coverage | Avg Hours | Perfect (100%) |
+|-------------|-------------|-----------|----------------|
+| Greedy      | 52.1%       | 40.2h     | 5/12           |
+| Beam Search | 52.1%       | 27.9h     | 5/12           |
+| A*          | 72.1%       | 28.0h     | 7/12           |
