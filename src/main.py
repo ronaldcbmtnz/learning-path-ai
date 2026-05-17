@@ -7,7 +7,7 @@ def print_path(result: dict, graph: ResourceGraph):
     algo_labels = {
         "greedy": "GREEDY",
         "beam_search": "BEAM SEARCH",
-        "a_star": "A* (ÓPTIMO)"
+        "a_star": "A* (heurístico)"
     }
     print(f"\n  Algoritmo : {algo_labels.get(result['algorithm'], result['algorithm'])}")
     print(f"  Horas     : {result['total_hours']}h")
@@ -26,8 +26,7 @@ def run():
     print("=" * 60)
 
     graph = ResourceGraph()
-    optimizer = PathOptimizer(graph)
-    llm = LLMClient()
+    llm = LLMClient()                          # 1. llm primero
 
     print("\nEscribe tu objetivo de aprendizaje en tus propias palabras.")
     print("Ejemplo: 'quiero aprender machine learning, se python basico y tengo 50 horas'\n")
@@ -37,13 +36,13 @@ def run():
         print("No ingresaste ningún objetivo.")
         return
 
+    # 2. Parsear objetivo → obtener parsed
     print("\nAnalizando tu objetivo...")
     available_skills = sorted(set(
         skill
         for r in graph.resources.values()
         for skill in r["teaches"]
     ))
-
     parsed = llm.parse_user_goal(user_input, available_skills)
 
     print(f"\nObjetivo detectado  : {parsed['goal_summary']}")
@@ -59,6 +58,37 @@ def run():
         print("\nNo se detectaron habilidades objetivo. Intenta ser más específico.")
         return
 
+    
+    # 3. Ahora sí: evaluar relevancia con LLM y crear optimizer
+    print("\nEvaluando relevancia de recursos con IA...")
+    all_resources = list(graph.resources.values())
+    llm_scores = llm.score_resources_for_goal(parsed["goal_summary"], all_resources)
+    optimizer = PathOptimizer(graph, llm_scores=llm_scores)
+
+    top_resources = sorted(llm_scores.items(), key=lambda x: x[1], reverse=True)[:5]
+    print("\nRecursos más relevantes según IA:")
+    for rid, score in top_resources:
+        r = graph.get_resource(rid)
+        print(f"  {r['name']:<45} relevancia: {score:.2f}")
+
+    print("\nVerificando factibilidad del objetivo...")
+    feasibility = optimizer.check_feasibility(target_skills, known_skills, max_hours)
+    print(f"\n  {feasibility['message']}")
+
+    if feasibility["unreachable_skills"]:
+        print(f"  Habilidades inalcanzables ignoradas: {', '.join(feasibility['unreachable_skills'])}")
+        # Continuar solo con las habilidades alcanzables
+        target_skills = set(feasibility["reachable_skills"])
+        if not target_skills:
+            print("\nNinguna habilidad objetivo es alcanzable con los recursos disponibles.")
+            return
+
+    if not feasibility["is_feasible"] and max_hours:
+        print(f"  Horas mínimas necesarias : {feasibility['min_hours_needed']}h")
+        print(f"  Horas disponibles        : {max_hours}h")
+        print("  Se generará la mejor ruta posible dentro del presupuesto.\n")
+    
+    # 4. Generar rutas
     print("\nGenerando rutas de aprendizaje...")
     comparison = optimizer.compare(target_skills, known_skills, max_hours)
 

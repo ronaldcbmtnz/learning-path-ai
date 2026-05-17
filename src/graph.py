@@ -29,6 +29,14 @@ class ResourceGraph:
                 for provider in skill_providers.get(skill, []):
                     if provider != rid:
                         self.adjacency[rid].add(provider)
+        
+        # Validar que no hay ciclos en el grafo
+        cycles = self.detect_cycles()
+        if cycles:
+            raise ValueError(
+                f"Se detectaron ciclos en el grafo de dependencias: {cycles}. "
+                "Revisa la estructura de prerequisitos en resources.json"
+            )
 
     def get_resource(self, rid: str) -> dict:
         return self.resources.get(rid)
@@ -73,6 +81,37 @@ class ResourceGraph:
             visit(rid)
 
         return result
+
+    def detect_cycles(self) -> list:
+        """
+        Detecta ciclos en el grafo de dependencias usando DFS.
+        Retorna lista de ciclos encontrados, vacía si no hay ciclos.
+        """
+        visited = set()
+        rec_stack = set()
+        cycles = []
+
+        def dfs(node, path):
+            visited.add(node)
+            rec_stack.add(node)
+            path.append(node)
+
+            for neighbor in self.adjacency.get(node, set()):
+                if neighbor not in visited:
+                    dfs(neighbor, path[:])
+                elif neighbor in rec_stack:
+                    # Encontramos un ciclo
+                    cycle_start = path.index(neighbor)
+                    cycle = path[cycle_start:] + [neighbor]
+                    cycles.append(cycle)
+
+            rec_stack.remove(node)
+
+        for node in self.resources.keys():
+            if node not in visited:
+                dfs(node, [])
+
+        return cycles
 
     def summary(self):
         print(f"Recursos cargados : {len(self.resources)}")

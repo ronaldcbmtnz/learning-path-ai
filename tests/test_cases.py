@@ -90,4 +90,18 @@ TEST_CASES = [
         "known_skills": set(),
         "max_hours": 200,
     },
+    {
+        "id": "TC13",
+        "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+        "target_skills": {"python_basico", "logica_programacion", "funciones"},
+        "known_skills": {"funciones"},
+        "max_hours": 50,
+    },
+    {
+        "id": "TC14",
+        "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+        "target_skills": {"json", "numpy", "consultas", "poo", "streamlit", "storage"},
+        "known_skills": {"ml_supervisado"},
+        "max_hours": 56,
+    },
 ]

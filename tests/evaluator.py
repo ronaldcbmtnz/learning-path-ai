@@ -2,21 +2,35 @@ import time
 import json
 from src.graph import ResourceGraph
 from src.optimizer import PathOptimizer
+from src.llm_client import LLMClient
 from tests.test_cases import TEST_CASES
 
 
 def run_evaluation():
     graph = ResourceGraph()
-    optimizer = PathOptimizer(graph)
+    llm = LLMClient()
     results = []
+    all_resources = list(graph.resources.values())
 
-    print("=" * 78)
+    print("=" * 85)
     print("EVALUACIÓN COMPARATIVA DE ALGORITMOS")
-    print("=" * 78)
-    print(f"{'ID':<6} {'Perfil':<40} {'Alg':<12} {'Horas':>6} {'Cob%':>6} {'t(ms)':>7}")
-    print("-" * 78)
+    print("=" * 85)
+    print(f"{'ID':<6} {'Perfil':<35} {'Alg':<12} {'Horas':>6} {'Cob%':>6} {'LLM':>3} {'t(ms)':>7}")
+    print("-" * 85)
 
     for tc in TEST_CASES:
+        # Generar scores de relevancia para este test case
+        llm_used = False
+        try:
+            llm_scores = llm.score_resources_for_goal(tc["profile"], all_resources)
+            llm_used = True
+        except Exception:
+            # Fallback silencioso si LLM falla
+            llm_scores = {}
+        
+        optimizer = PathOptimizer(graph, llm_scores=llm_scores)
+        llm_indicator = "Y" if llm_used else "N"
+        
         for algo in ["greedy", "beam_search", "a_star"]:
             start = time.time()
 
@@ -25,6 +39,10 @@ def run_evaluation():
                     tc["target_skills"], tc["known_skills"], tc["max_hours"]
                 )
             elif algo == "beam_search":
+                # beam_width = max(3, min(6, num_skills)) asegura:
+                # - Mínimo 3 para evitar búsqueda demasiado estrecha
+                # - Máximo 6 para no explorar excesivamente
+                # - Proporcional a complejidad del problema (cantidad de habilidades objetivo)
                 beam_width = max(3, min(6, len(tc["target_skills"])))
                 result = optimizer.beam_search(
                     tc["target_skills"], tc["known_skills"],
@@ -45,16 +63,17 @@ def run_evaluation():
                 "coverage_pct": result["coverage_pct"],
                 "resources_count": len(result["path"]),
                 "skills_missing": result["skills_missing"],
-                "time_ms": elapsed_ms
+                "time_ms": elapsed_ms,
+                "llm_used": llm_used
             }
             results.append(row)
 
-            profile_short = tc["profile"][:39]
-            print(f"{tc['id']:<6} {profile_short:<40} {algo:<12} "
-                  f"{result['total_hours']:>6} {result['coverage_pct']:>6} "
+            profile_short = tc["profile"][:34]
+            print(f"{tc['id']:<6} {profile_short:<35} {algo:<12} "
+                  f"{result['total_hours']:>6} {result['coverage_pct']:>6} {llm_indicator:>3} "
                   f"{elapsed_ms:>7}")
 
-    print("=" * 78)
+    print("=" * 85)
     _print_summary(results)
 
     with open("data/evaluation_results.json", "w", encoding="utf-8") as f:
