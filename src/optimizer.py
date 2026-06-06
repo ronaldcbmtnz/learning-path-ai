@@ -350,14 +350,24 @@ class PathOptimizer:
         }
 
     # ------------------------------------------------------------------
-    # Algoritmo 3: A* - búsqueda A*-inspirada con heurística aproximada
-    # Estado: (horas_usadas, -cobertura, path, known_skills)
-    # Heurística: habilidades objetivo aún faltantes desde el estado actual
+    # Algoritmo 3: A* con heurística ADMISIBLE y consistente
     #
-    # Nota: A* NO usa _score_resource. Su f = g + h·5 - boost - penalización es un
-    # COSTO (menor = mejor), de estructura distinta al score de greedy/beam
-    # (mayor = mejor). Forzarlo por el scorer común distorsionaría la búsqueda.
-    # Solo comparte _llm_boost y _difficulty_jump_penalty.
+    # Objetivo: ruta de MÍNIMAS HORAS que cubra todas las skills objetivo,
+    # respetando prerequisitos. Estado = conjunto de skills conocidas.
+    # Coste g = horas acumuladas. f = g + h, sin más términos.
+    #
+    # Heurística h(estado) = máx, sobre las skills objetivo que aún faltan, del
+    # recurso más barato (en horas) que enseña esa skill. Es ADMISIBLE: cualquier
+    # ruta que cubra el objetivo debe incluir al menos un recurso que enseñe la
+    # skill "más cara de obtener", y su duración ya es <= al total de horas de la
+    # ruta; ignorar prerequisitos solo sube el coste real, así que h nunca lo
+    # sobreestima. Es CONSISTENTE (la acción que enseña la skill que domina h
+    # cuesta >= ese mínimo), por lo que A* no necesita reabrir estados y el primer
+    # estado-meta extraído de la cola es óptimo en horas.
+    #
+    # NOTA: no entran ni el boost del LLM ni la penalización por dificultad en f.
+    # Cualquier término extra rompería la admisibilidad (era el bug de la versión
+    # anterior). Coincide con el hallazgo experimental de que el LLM no aporta a A*.
     # ------------------------------------------------------------------
     def astar(self, target_skills: set, known_skills: set = None,
               max_hours: float = None) -> dict:
@@ -365,30 +375,41 @@ class PathOptimizer:
         known_base = frozenset(known_skills) if known_skills else frozenset()
         all_candidates_list = list(self.graph.resources.keys())
 
-        def heuristic(known: frozenset) -> int:
-            """Habilidades objetivo que aún faltan."""
-            return len(target_skills - known)
+        # Coste directo más barato por skill (precálculo para la heurística):
+        # cheapest[s] = mínima duration_hours entre los recursos que enseñan s.
+        cheapest = {}
+        for r in self.graph.resources.values():
+            for s in r["teaches"]:
+                d = r["duration_hours"]
+                if s not in cheapest or d < cheapest[s]:
+                    cheapest[s] = d
 
-        initial_h = heuristic(known_base)
-        heap = [(initial_h, 0.0, 0, [], known_base)]
+        def heuristic(known: frozenset) -> float:
+            remaining = target_skills - known
+            costs = [cheapest[s] for s in remaining if s in cheapest]
+            return max(costs) if costs else 0.0
 
+        # Cola: (f, horas, -cobertura_directa, contador, path, known).
+        # El contador (como en _min_hours_to_cover) evita comparar paths/frozensets
+        # cuando f, horas y cobertura empatan.
+        counter = itertools.count()
+        heap = [(heuristic(known_base), 0.0, 0, next(counter), [], known_base)]
+
+        # known -> mínimas horas con que se alcanzó. Termina seguro: el nº de
+        # conjuntos de skills alcanzables es finito y cada uno se expande una vez.
         visited = {}
 
         best_result = ([], known_base, 0.0)
         best_coverage = len(known_base & target_skills) / len(target_skills) if target_skills else 0
 
-        iterations = 0
-        max_iterations = max(5000, len(all_candidates_list) ** 3 * 5)
+        while heap:
+            _, hours, _, _, path, known = heapq.heappop(heap)
 
-        while heap and iterations < max_iterations:
-            iterations += 1
-            _, hours, _, path, known = heapq.heappop(heap)
-
-            state_key = known
-            if state_key in visited and visited[state_key] <= hours:
+            if known in visited and visited[known] <= hours:
                 continue
-            visited[state_key] = hours
+            visited[known] = hours
 
+            # Mejor parcial vista (para presupuestos infactibles).
             coverage = len(known & target_skills) / len(target_skills) if target_skills else 0
             if coverage > best_coverage or (
                 coverage == best_coverage and hours < best_result[2]
@@ -396,6 +417,8 @@ class PathOptimizer:
                 best_coverage = coverage
                 best_result = (list(path), known, hours)
 
+            # Objetivo cubierto: con h admisible y consistente, el primer
+            # estado-meta extraído de la cola es óptimo en horas.
             if target_skills.issubset(known):
                 break
 
@@ -416,23 +439,20 @@ class PathOptimizer:
                     continue
 
                 new_known = known | frozenset(r["teaches"])
-
                 if new_known == known:
+                    continue
+                if new_known in visited and visited[new_known] <= new_hours:
                     continue
 
                 new_path = path + [rid]
-                h = heuristic(new_known)
                 direct = len(new_known & target_skills)
-
-                # f = costo real + heurística - boost del LLM - penalización
-                new_f = (new_hours + (h * 5)
-                         - self._llm_boost(rid)
-                         - self._difficulty_jump_penalty(rid, path))
+                new_f = new_hours + heuristic(new_known)   # f = g + h
 
                 heapq.heappush(heap, (
                     new_f,
                     new_hours,
                     -direct,
+                    next(counter),
                     new_path,
                     new_known
                 ))

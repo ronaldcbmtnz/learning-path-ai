@@ -7,7 +7,7 @@ def print_path(result: dict, graph: ResourceGraph):
     algo_labels = {
         "greedy": "GREEDY",
         "beam_search": "BEAM SEARCH",
-        "a_star": "A* (heurístico)"
+        "a_star": " A* "
     }
     print(f"\n  Algoritmo : {algo_labels.get(result['algorithm'], result['algorithm'])}")
     print(f"  Horas     : {result['total_hours']}h")

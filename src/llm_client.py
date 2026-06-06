@@ -233,7 +233,7 @@ class LLMClient:
                 f"- Recursos: {len(beam_result['path'])}\n"
                 f"- Habilidades cubiertas: {', '.join(beam_result['skills_covered'])}\n"
                 f"- Habilidades faltantes: {', '.join(beam_result['skills_missing']) or 'ninguna'}\n\n"
-                f"A* (heurístico):\n"
+                f" A* :\n"
                 f"- Horas totales: {astar_result['total_hours']}h\n"
                 f"- Cobertura: {astar_result['coverage_pct']}%\n"
                 f"- Recursos: {len(astar_result['path'])}\n"

@@ -31,7 +31,7 @@ Path:
 - Python 3.13
 - OpenRouter API (LLaMA 3.3 70B Instruct) — natural language understanding + resource scoring
 - Custom graph engine — dependency resolution, cycle detection, topological sorting
-- Three optimization algorithms — Greedy, Beam Search, and A* (heuristic-based)
+- Three optimization algorithms — Greedy, Beam Search, and A* 
 - Difficulty-aware path optimization — penalizes abrupt difficulty jumps
 - LLM response caching — reduces API calls and costs
 
@@ -79,7 +79,7 @@ exploring more of the solution space before committing. Similar coverage to Gree
 but uses fewer hours on average. Also respects difficulty levels. 
 Achieves 100% coverage in 6/14 test cases.
 
-**A* (heuristic)** — Heuristic-based search using a non-admissible heuristics 
+** A* ** — Heuristic-based search using a non-admissible heuristics 
 on missing skills and resource difficulty. Explores paths more intelligently than Greedy/Beam.
 Outperforms both in coverage while maintaining efficiency. 
 Trade-off: slightly slower on large search spaces but still practical (avg 0.7ms).
@@ -91,7 +91,7 @@ Achieves 100% coverage in 8/14 test cases.
 |-------------|-------------|-----------|----------------|----------|
 | Greedy      | 57.7%       | 45.4h     | 6/14           | 0.5ms    |
 | Beam Search | 57.7%       | 28.6h     | 6/14           | 2.0ms    |
-| A* (heuristic)| **66.1%** | **25.3h** | **8/14**       | **0.7ms**|
+| A* | **66.1%** | **25.3h** | **8/14**       | **0.7ms**|
 
 ## Optimizations
 
