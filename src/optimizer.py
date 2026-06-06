@@ -4,13 +4,55 @@ from src.graph import ResourceGraph
 
 
 class PathOptimizer:
-    def __init__(self, graph: ResourceGraph, llm_scores: dict= None):
+    def __init__(self, graph: ResourceGraph, llm_scores: dict = None):
         self.graph = graph
         self.llm_scores = llm_scores or {}  # {rid: 0.0-1.0}
 
     def _llm_boost(self, rid: str) -> float:
-        """Retorna el boost del LLM para un recurso (0.0 si no hay score)."""
+        """Retorna el boost del LLM para un recurso (neutro 0.5 si no hay score)."""
         return self.llm_scores.get(rid, 0.5) * 20  # escala el score al rango del scoring
+
+    # ------------------------------------------------------------------
+    # Política de puntuación compartida (greedy y beam)
+    # ------------------------------------------------------------------
+    def _difficulty_jump_penalty(self, rid: str, selected: list) -> float:
+        """
+        Penaliza elegir un recurso mucho más difícil que lo visto hasta ahora en
+        la ruta parcial 'selected'. Se permite subir un nivel de dificultad sin
+        coste; cada nivel extra de salto resta 5 puntos.
+
+        Multiplicador afinado empíricamente a 5 (un 15 degradaba la cobertura).
+        Lo usan los tres algoritmos, de ahí que viva en un solo lugar.
+        """
+        resource_difficulty = self.graph.get_resource(rid).get("difficulty", 1)
+        max_difficulty_so_far = self._get_max_difficulty(selected)
+        return max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
+
+    def _score_resource(self, *, future: int, direct: int, hours: float,
+                        rid: str, selected: list) -> float:
+        """
+        Política de puntuación común a greedy y beam_search (mayor = mejor).
+
+        Centraliza los PESOS de la decisión, no las ENTRADAS: cada algoritmo
+        calcula 'future', 'direct' y 'hours' a su manera (greedy razona en
+        marginal por-recurso; beam en acumulado por-ruta) y aquí solo se combinan
+        con el mismo criterio. Así se elimina la duplicación de la fórmula sin
+        alterar el comportamiento de ninguno de los dos.
+
+          - future : cobertura objetivo alcanzable por simulación hacia adelante
+                     (lo más importante: resuelve la miopía del greedy puro)
+          - direct : habilidades objetivo cubiertas de forma directa
+          - hours  : coste temporal asociado a la decisión (se penaliza suave)
+          - boost  : prior de relevancia del LLM (0-20)
+          - pen.   : penalización por salto de dificultad
+        """
+        return (
+            (future * 100)
+            + (direct * 10)
+            - (hours * 0.1)
+            + self._llm_boost(rid)
+            - self._difficulty_jump_penalty(rid, selected)
+        )
 
     def _get_useful_candidates(self, known: frozenset, target: set) -> set:
         """
@@ -19,19 +61,18 @@ class PathOptimizer:
         TRANSITIVA, los que enseñan cualquier prerequisito (directo o indirecto)
         de esos recursos.
 
-        A diferencia de la versión anterior, recorre la cadena COMPLETA de
-        prerequisitos hasta el punto fijo, no solo un nivel. Cortar la cadena en
-        un nivel dejaba al A* sin los prerequisitos profundos (p.ej. álgebra y
-        cálculo bajo redes neuronales), provocando rutas vacías en objetivos
-        que sí eran alcanzables.
+        Recorre la cadena COMPLETA de prerequisitos hasta el punto fijo, no solo
+        un nivel. Cortar la cadena en un nivel dejaba al A* sin los prerequisitos
+        profundos (p.ej. álgebra y cálculo bajo redes neuronales), provocando
+        rutas vacías en objetivos que sí eran alcanzables.
         """
         remaining_target = target - known
         if not remaining_target:
             return set()
 
         useful = set()
-        needed_skills = set(remaining_target)   # skills para las que buscamos proveedores
-        resolved_skills = set(known)            # ya conocidas: no necesitan proveedor
+        needed_skills = set(remaining_target)
+        resolved_skills = set(known)
 
         while needed_skills:
             skill = needed_skills.pop()
@@ -40,7 +81,6 @@ class PathOptimizer:
             resolved_skills.add(skill)
             for r in self.graph.get_resources_teaching(skill):
                 useful.add(r["id"])
-                # los prerequisitos de este recurso también deben ser alcanzables
                 for req in r["requires"]:
                     if req not in resolved_skills:
                         needed_skills.add(req)
@@ -172,14 +212,13 @@ class PathOptimizer:
                     new_known, set(selected + [rid]),
                     target_skills, max_hours, total_hours + hours
                 )
+                # greedy razona en marginal: cobertura directa = skills nuevas
+                # que entran en lo que aún falta; coste = horas de ESTE recurso.
                 direct = len(new_skills & remaining)
-
-                # Penalización por salto de dificultad
-                resource_difficulty = r.get("difficulty", 1)
-                max_difficulty_so_far = self._get_max_difficulty(selected)
-                difficulty_jump_penalty = max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
-
-                score = (future * 100) + (direct * 10) - (hours * 0.1) + self._llm_boost(rid) - difficulty_jump_penalty
+                score = self._score_resource(
+                    future=future, direct=direct, hours=hours,
+                    rid=rid, selected=selected
+                )
 
                 if score > best_score:
                     best_score = score
@@ -254,19 +293,23 @@ class PathOptimizer:
                         new_known, set(new_path),
                         target_skills, max_hours, new_hours
                     )
+                    # beam razona en acumulado: cobertura directa = todas las
+                    # skills objetivo ya conocidas por la ruta; coste = horas
+                    # acumuladas de toda la ruta.
                     direct = len(new_known & target_skills)
-
-                    # Penalización por salto de dificultad
-                    resource_difficulty = r.get("difficulty", 1)
-                    max_difficulty_so_far = self._get_max_difficulty(path)
-                    difficulty_jump_penalty = max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
-
-                    score = (future * 100) + (direct * 10) - (new_hours * 0.1) + self._llm_boost(rid) - difficulty_jump_penalty
+                    score = self._score_resource(
+                        future=future, direct=direct, hours=new_hours,
+                        rid=rid, selected=path
+                    )
 
                     candidates.append((new_path, new_known, new_hours, score))
                     added_any = True
 
                 if not added_any:
+                    # Estado terminal del beam (no se puede extender): se puntúa
+                    # solo por cobertura futura y coste, sin boost ni penalización
+                    # (no hay recurso nuevo que puntuar). No pasa por
+                    # _score_resource a propósito: su contrato espera un 'rid'.
                     future = self._forward_coverage(
                         known, set(path), target_skills, max_hours, hours
                     )
@@ -310,6 +353,11 @@ class PathOptimizer:
     # Algoritmo 3: A* - búsqueda A*-inspirada con heurística aproximada
     # Estado: (horas_usadas, -cobertura, path, known_skills)
     # Heurística: habilidades objetivo aún faltantes desde el estado actual
+    #
+    # Nota: A* NO usa _score_resource. Su f = g + h·5 - boost - penalización es un
+    # COSTO (menor = mejor), de estructura distinta al score de greedy/beam
+    # (mayor = mejor). Forzarlo por el scorer común distorsionaría la búsqueda.
+    # Solo comparte _llm_boost y _difficulty_jump_penalty.
     # ------------------------------------------------------------------
     def astar(self, target_skills: set, known_skills: set = None,
               max_hours: float = None) -> dict:
@@ -321,31 +369,26 @@ class PathOptimizer:
             """Habilidades objetivo que aún faltan."""
             return len(target_skills - known)
 
-        # Cola de prioridad: (f, horas, -cobertura_directa, path, known)
         initial_h = heuristic(known_base)
         heap = [(initial_h, 0.0, 0, [], known_base)]
 
-        # Visitados: known_skills → mejor costo encontrado
         visited = {}
 
         best_result = ([], known_base, 0.0)
         best_coverage = len(known_base & target_skills) / len(target_skills) if target_skills else 0
 
         iterations = 0
-        # Escala con el espacio de búsqueda real
         max_iterations = max(5000, len(all_candidates_list) ** 3 * 5)
 
         while heap and iterations < max_iterations:
             iterations += 1
             _, hours, _, path, known = heapq.heappop(heap)
 
-            # Clave de estado: habilidades conocidas (no el path exacto)
             state_key = known
             if state_key in visited and visited[state_key] <= hours:
                 continue
             visited[state_key] = hours
 
-            # Actualizar mejor resultado encontrado
             coverage = len(known & target_skills) / len(target_skills) if target_skills else 0
             if coverage > best_coverage or (
                 coverage == best_coverage and hours < best_result[2]
@@ -353,14 +396,11 @@ class PathOptimizer:
                 best_coverage = coverage
                 best_result = (list(path), known, hours)
 
-            # Si cubrimos todo el objetivo, terminamos
             if target_skills.issubset(known):
                 break
 
-            # Optimización: filtrar candidatos útiles para ahorrar evaluaciones
             useful_candidates = self._get_useful_candidates(known, target_skills)
 
-            # Expandir vecinos
             for rid in all_candidates_list:
                 if rid in path:
                     continue
@@ -377,7 +417,6 @@ class PathOptimizer:
 
                 new_known = known | frozenset(r["teaches"])
 
-                # Solo expandir si aporta habilidades nuevas
                 if new_known == known:
                     continue
 
@@ -385,13 +424,10 @@ class PathOptimizer:
                 h = heuristic(new_known)
                 direct = len(new_known & target_skills)
 
-                # Penalización por salto de dificultad
-                resource_difficulty = r.get("difficulty", 1)
-                max_difficulty_so_far = self._get_max_difficulty(path)
-                difficulty_jump_penalty = max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
-
                 # f = costo real + heurística - boost del LLM - penalización
-                new_f = new_hours + (h * 5) - self._llm_boost(rid) - difficulty_jump_penalty
+                new_f = (new_hours + (h * 5)
+                         - self._llm_boost(rid)
+                         - self._difficulty_jump_penalty(rid, path))
 
                 heapq.heappush(heap, (
                     new_f,
@@ -426,7 +462,6 @@ class PathOptimizer:
         """
         known = set(known_skills) if known_skills else set()
 
-        # Calcular todas las habilidades alcanzables sin restricción de tiempo
         reachable = known.copy()
         changed = True
         while changed:
@@ -440,17 +475,13 @@ class PathOptimizer:
         unreachable = target_skills - reachable
         reachable_targets = target_skills & reachable
 
-        # Horas mínimas EXACTAS para cubrir las habilidades alcanzables, vía
-        # búsqueda de costo uniforme (no la heurística no-admisible del A*).
         min_hours = self._min_hours_to_cover(reachable_targets, known_skills, max_hours=None)
         if min_hours is None:
-            min_hours = 0  # reachable_targets siempre cubrible con presupuesto infinito
+            min_hours = 0
 
-        # Determinar si es factible dentro del presupuesto de horas
         hours_feasible = (max_hours is None) or (min_hours <= max_hours)
         fully_feasible = not unreachable and hours_feasible
 
-        # Construir mensaje explicativo
         messages = []
         if unreachable:
             messages.append(
