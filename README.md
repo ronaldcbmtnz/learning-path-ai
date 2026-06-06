@@ -29,7 +29,7 @@ Path:
 ## Tech stack
 
 - Python 3.13
-- Groq API (LLaMA 3.3 70B) — natural language understanding + resource scoring
+- OpenRouter API (LLaMA 3.3 70B Instruct) — natural language understanding + resource scoring
 - Custom graph engine — dependency resolution, cycle detection, topological sorting
 - Three optimization algorithms — Greedy, Beam Search, and A* (heuristic-based)
 - Difficulty-aware path optimization — penalizes abrupt difficulty jumps
@@ -44,22 +44,22 @@ learning-path-ai/
 ├── src/  
 │   ├── graph.py                  # ResourceGraph: cycle detection, dependency resolution, topological sort    
 │   ├── optimizer.py              # PathOptimizer: Greedy, Beam Search, and A* algorithms
-│   ├── llm_client.py             # LLMClient: Groq API integration with caching
+│   ├── llm_client.py             # LLMClient: OpenRouter API integration with caching
 │   └── main.py                   # Main pipeline connecting all components  
 ├── tests/  
 │   ├── evaluator.py              # Comparative benchmarking of all algorithms
 │   ├── test_cases.py             # 14 test profiles for evaluation
-│   └── evaluator.py              # Runs tests with LLM resource scoring
+│   
 └── CAMBIOS_IMPLEMENTADOS.md      # Detailed changelog of improvements  
 
 ## How to run
 
 ```bash
 # Install dependencies
-pip install groq python-dotenv
+pip install openai python-dotenv
 
 # Add your Groq API key to .env
-echo "GROQ_API_KEY=your-key-here" > .env
+echo "OPENROUTER_API_KEY=your-key-here" > .env
 
 # Run
 python -m src.main
@@ -79,7 +79,7 @@ exploring more of the solution space before committing. Similar coverage to Gree
 but uses fewer hours on average. Also respects difficulty levels. 
 Achieves 100% coverage in 6/14 test cases.
 
-**A* (heuristic)** — Heuristic-based search using admissible heuristics 
+**A* (heuristic)** — Heuristic-based search using a non-admissible heuristics 
 on missing skills and resource difficulty. Explores paths more intelligently than Greedy/Beam.
 Outperforms both in coverage while maintaining efficiency. 
 Trade-off: slightly slower on large search spaces but still practical (avg 0.7ms).
@@ -114,7 +114,7 @@ Achieves 100% coverage in 8/14 test cases.
 ### Optimized A* Search
 - Filters candidates to only resources that help achieve targets
 - 2-3x performance improvement over naive A* implementation
-- Maintains optimality while being practical for large resource sets
+- Explores more intelligently than Greedy/Beam while keeping runtime practical.
 
 ## Evaluation & Testing
 
@@ -146,7 +146,7 @@ python -m tests.evaluator
 
 ### Quality
 - **Difficulty-Aware**: Smoother learning progressions (no jarring jumps)
-- **Better Coverage**: A* achieves 66.1% avg coverage (vs 52.1% for Greedy/Beam)
+- **Better Coverage**: A* achieves 66.1% avg coverage (vs 57.7% for Greedy/Beam)
 - **More Efficient**: A* uses 25.3h on average (vs 45.4h for Greedy)
 
 ## License

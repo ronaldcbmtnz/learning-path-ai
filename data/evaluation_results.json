@@ -22,7 +22,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 1.2,
+    "time_ms": 1.4,
     "llm_used": true
   },
   {
@@ -46,7 +46,7 @@
     "coverage_pct": 100.0,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 0.7,
+    "time_ms": 1.9,
     "llm_used": true
   },
   {
@@ -57,7 +57,7 @@
     "coverage_pct": 100.0,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 1.7,
+    "time_ms": 2.7,
     "llm_used": true
   },
   {
@@ -68,7 +68,7 @@
     "coverage_pct": 100.0,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 1.6,
+    "time_ms": 1.3,
     "llm_used": true
   },
   {
@@ -81,7 +81,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 0.6,
+    "time_ms": 0.7,
     "llm_used": true
   },
   {
@@ -94,7 +94,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 2.3,
+    "time_ms": 3.1,
     "llm_used": true
   },
   {
@@ -107,7 +107,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 1.0,
+    "time_ms": 1.2,
     "llm_used": true
   },
   {
@@ -122,7 +122,7 @@
       "pytorch",
       "backpropagation"
     ],
-    "time_ms": 0.6,
+    "time_ms": 0.7,
     "llm_used": true
   },
   {
@@ -137,7 +137,7 @@
       "pytorch",
       "backpropagation"
     ],
-    "time_ms": 1.7,
+    "time_ms": 2.2,
     "llm_used": true
   },
   {
@@ -152,7 +152,7 @@
       "pytorch",
       "backpropagation"
     ],
-    "time_ms": 0.2,
+    "time_ms": 0.1,
     "llm_used": true
   },
   {
@@ -163,11 +163,11 @@
     "coverage_pct": 0.0,
     "resources_count": 4,
     "skills_missing": [
-      "mlops",
+      "api_modelos",
       "docker",
-      "api_modelos"
+      "mlops"
     ],
-    "time_ms": 0.6,
+    "time_ms": 0.4,
     "llm_used": true
   },
   {
@@ -178,11 +178,11 @@
     "coverage_pct": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "mlops",
+      "api_modelos",
       "docker",
-      "api_modelos"
+      "mlops"
     ],
-    "time_ms": 1.4,
+    "time_ms": 1.5,
     "llm_used": true
   },
   {
@@ -193,7 +193,7 @@
     "coverage_pct": 100.0,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.2,
+    "time_ms": 0.1,
     "llm_used": true
   },
   {
@@ -204,8 +204,8 @@
     "coverage_pct": 0.0,
     "resources_count": 3,
     "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
+      "ml_supervisado",
+      "redes_neuronales"
     ],
     "time_ms": 0.3,
     "llm_used": true
@@ -218,10 +218,10 @@
     "coverage_pct": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
+      "ml_supervisado",
+      "redes_neuronales"
     ],
-    "time_ms": 0.9,
+    "time_ms": 1.0,
     "llm_used": true
   },
   {
@@ -232,10 +232,10 @@
     "coverage_pct": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
+      "ml_supervisado",
+      "redes_neuronales"
     ],
-    "time_ms": 0.3,
+    "time_ms": 0.5,
     "llm_used": true
   },
   {
@@ -246,11 +246,11 @@
     "coverage_pct": 0.0,
     "resources_count": 11,
     "skills_missing": [
+      "computer_vision",
       "cnns",
-      "deteccion_objetos",
-      "computer_vision"
+      "deteccion_objetos"
     ],
-    "time_ms": 1.2,
+    "time_ms": 1.5,
     "llm_used": true
   },
   {
@@ -261,11 +261,11 @@
     "coverage_pct": 0.0,
     "resources_count": 0,
     "skills_missing": [
+      "computer_vision",
       "cnns",
-      "deteccion_objetos",
-      "computer_vision"
+      "deteccion_objetos"
     ],
-    "time_ms": 3.0,
+    "time_ms": 3.5,
     "llm_used": true
   },
   {
@@ -276,9 +276,9 @@
     "coverage_pct": 0.0,
     "resources_count": 0,
     "skills_missing": [
+      "computer_vision",
       "cnns",
-      "deteccion_objetos",
-      "computer_vision"
+      "deteccion_objetos"
     ],
     "time_ms": 0.2,
     "llm_used": true
@@ -302,7 +302,7 @@
     "coverage_pct": 100.0,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.4,
+    "time_ms": 1.4,
     "llm_used": true
   },
   {
@@ -313,7 +313,7 @@
     "coverage_pct": 100.0,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.1,
+    "time_ms": 0.2,
     "llm_used": true
   },
   {
@@ -324,11 +324,11 @@
     "coverage_pct": 0.0,
     "resources_count": 12,
     "skills_missing": [
-      "nlp",
+      "embeddings",
       "transformers",
-      "embeddings"
+      "nlp"
     ],
-    "time_ms": 1.0,
+    "time_ms": 1.6,
     "llm_used": true
   },
   {
@@ -339,11 +339,11 @@
     "coverage_pct": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "nlp",
+      "embeddings",
       "transformers",
-      "embeddings"
+      "nlp"
     ],
-    "time_ms": 2.9,
+    "time_ms": 4.2,
     "llm_used": true
   },
   {
@@ -354,11 +354,11 @@
     "coverage_pct": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "nlp",
+      "embeddings",
       "transformers",
-      "embeddings"
+      "nlp"
     ],
-    "time_ms": 0.2,
+    "time_ms": 0.4,
     "llm_used": true
   },
   {
@@ -369,7 +369,7 @@
     "coverage_pct": 100.0,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.8,
+    "time_ms": 0.6,
     "llm_used": true
   },
   {
@@ -380,7 +380,7 @@
     "coverage_pct": 100.0,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 1.8,
+    "time_ms": 1.9,
     "llm_used": true
   },
   {
@@ -391,7 +391,7 @@
     "coverage_pct": 100.0,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.6,
+    "time_ms": 0.5,
     "llm_used": true
   },
   {
@@ -435,7 +435,7 @@
     "coverage_pct": 100.0,
     "resources_count": 18,
     "skills_missing": [],
-    "time_ms": 1.8,
+    "time_ms": 1.7,
     "llm_used": true
   },
   {
@@ -446,7 +446,7 @@
     "coverage_pct": 100.0,
     "resources_count": 18,
     "skills_missing": [],
-    "time_ms": 7.8,
+    "time_ms": 7.7,
     "llm_used": true
   },
   {
@@ -457,7 +457,7 @@
     "coverage_pct": 100.0,
     "resources_count": 9,
     "skills_missing": [],
-    "time_ms": 7.5,
+    "time_ms": 5.3,
     "llm_used": true
   },
   {
@@ -468,7 +468,7 @@
     "coverage_pct": 100.0,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.3,
+    "time_ms": 0.8,
     "llm_used": true
   },
   {
@@ -479,7 +479,7 @@
     "coverage_pct": 100.0,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.5,
+    "time_ms": 0.6,
     "llm_used": true
   },
   {
@@ -503,7 +503,7 @@
     "skills_missing": [
       "streamlit"
     ],
-    "time_ms": 0.8,
+    "time_ms": 0.9,
     "llm_used": true
   },
   {
@@ -516,7 +516,7 @@
     "skills_missing": [
       "streamlit"
     ],
-    "time_ms": 4.4,
+    "time_ms": 7.7,
     "llm_used": true
   },
   {
@@ -527,7 +527,7 @@
     "coverage_pct": 100.0,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 2.7,
+    "time_ms": 3.8,
     "llm_used": true
   }
 ]
