@@ -1,7 +1,8 @@
 import os
 import json
+import time
 import hashlib
-from openai import OpenAI
+from openai import OpenAI, RateLimitError
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,10 +14,14 @@ class LLMClient:
             api_key=os.getenv("OPENROUTER_API_KEY"),
             base_url="https://openrouter.ai/api/v1"
         )
-        self.model_name = os.getenv(
+        # OPENROUTER_MODEL puede ser una lista separada por comas para rotación
+        # Ejemplo: "openai/gpt-oss-120b:free, qwen/qwen3-coder:free"
+        models_str = os.getenv(
             "OPENROUTER_MODEL",
-            "meta-llama/llama-3.3-70b-instruct:free"
+            "openai/gpt-oss-120b:free, qwen/qwen3-coder:free"
         )
+        self.model_list = [m.strip() for m in models_str.split(",") if m.strip()]
+        self.model_name = self.model_list[0]  # modelo activo (para logs)
         # Caché para evitar múltiples llamadas a la API con los mismos inputs
         self._cache = {
             "parse_user_goal": {},
@@ -34,9 +39,48 @@ class LLMClient:
         return hashlib.sha256(data.encode()).hexdigest()[:16]
 
     def _call_llm(self, prompt: str) -> str:
-        """Llamada base al LLM. Lanza excepción si falla."""
+        """
+        Llamada base al LLM con rotación automática de modelos ante rate limit (429).
+
+        Estrategia: si el modelo activo devuelve 429 por límite del proveedor
+        (Venice, Together, etc.), rotar al siguiente de model_list SIN esperar —
+        el rate limit de proveedor no se resuelve esperando, solo cambiando de modelo.
+        Solo espera si todos los modelos de la lista fallan (caso extremo).
+        """
+        last_error = None
+        for model in self.model_list:
+            try:
+                response = self.client.chat.completions.create(
+                    model=model,
+                    messages=[{"role": "user", "content": prompt}]
+                )
+                if model != self.model_name:
+                    print(f"\n[Info] Respondió: {model}")
+                return response.choices[0].message.content.strip()
+            except RateLimitError as e:
+                last_error = e
+                idx = self.model_list.index(model)
+                if idx < len(self.model_list) - 1:
+                    print(f"\n[Rate limit en {model}] "
+                          f"Rotando a {self.model_list[idx + 1]}...")
+                # si es el último, salimos del bucle y gestionamos abajo
+
+        # Todos los modelos fallaron: esperar y hacer un último intento
+        retry_after = 25.0
+        try:
+            body = (last_error.body or {}) if last_error else {}
+            retry_after = float(
+                body.get("error", {})
+                    .get("metadata", {})
+                    .get("retry_after_seconds", 25)
+            )
+        except Exception:
+            pass
+        wait = round(retry_after + 2, 1)
+        print(f"\n[Rate limit en todos los modelos] Esperando {wait}s y reintentando...")
+        time.sleep(wait)
         response = self.client.chat.completions.create(
-            model=self.model_name,
+            model=self.model_list[0],
             messages=[{"role": "user", "content": prompt}]
         )
         return response.choices[0].message.content.strip()

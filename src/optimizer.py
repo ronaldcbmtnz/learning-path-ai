@@ -1,4 +1,5 @@
 import heapq
+import itertools
 from src.graph import ResourceGraph
 
 
@@ -6,37 +7,85 @@ class PathOptimizer:
     def __init__(self, graph: ResourceGraph, llm_scores: dict= None):
         self.graph = graph
         self.llm_scores = llm_scores or {}  # {rid: 0.0-1.0}
-        
+
     def _llm_boost(self, rid: str) -> float:
         """Retorna el boost del LLM para un recurso (0.0 si no hay score)."""
         return self.llm_scores.get(rid, 0.5) * 20  # escala el score al rango del scoring
-    
+
     def _get_useful_candidates(self, known: frozenset, target: set) -> set:
         """
-        Retorna solo recursos que potencialmente ayuden a alcanzar el objetivo.
-        Optimización: evita evaluar recursos que no enseñan habilidades relevantes.
+        Retorna los recursos que podrían formar parte de una ruta válida hacia el
+        objetivo: los que enseñan habilidades objetivo pendientes MÁS, de forma
+        TRANSITIVA, los que enseñan cualquier prerequisito (directo o indirecto)
+        de esos recursos.
+
+        A diferencia de la versión anterior, recorre la cadena COMPLETA de
+        prerequisitos hasta el punto fijo, no solo un nivel. Cortar la cadena en
+        un nivel dejaba al A* sin los prerequisitos profundos (p.ej. álgebra y
+        cálculo bajo redes neuronales), provocando rutas vacías en objetivos
+        que sí eran alcanzables.
         """
-        useful = set()
         remaining_target = target - known
-        
-        # Paso 1: Recursos que enseñan directamente habilidades objetivo pendientes
-        for rid, r in self.graph.resources.items():
-            if set(r["teaches"]) & remaining_target:
-                useful.add(rid)
-        
-        # Paso 2: Recursos que son prerequisitos de los anteriores
-        if useful:
-            for rid, r in self.graph.resources.items():
-                if rid not in useful:
-                    teaches = set(r["teaches"])
-                    # Si este recurso enseña algo requerido por algún recurso útil
-                    for useful_rid in useful:
-                        useful_r = self.graph.get_resource(useful_rid)
-                        if teaches & set(useful_r["requires"]):
-                            useful.add(rid)
-                            break
-        
+        if not remaining_target:
+            return set()
+
+        useful = set()
+        needed_skills = set(remaining_target)   # skills para las que buscamos proveedores
+        resolved_skills = set(known)            # ya conocidas: no necesitan proveedor
+
+        while needed_skills:
+            skill = needed_skills.pop()
+            if skill in resolved_skills:
+                continue
+            resolved_skills.add(skill)
+            for r in self.graph.get_resources_teaching(skill):
+                useful.add(r["id"])
+                # los prerequisitos de este recurso también deben ser alcanzables
+                for req in r["requires"]:
+                    if req not in resolved_skills:
+                        needed_skills.add(req)
+
         return useful if useful else set(self.graph.resources.keys())
+
+    def _min_hours_to_cover(self, target_skills: set, known_skills: set = None,
+                            max_hours: float = None):
+        """
+        Mínimo EXACTO de horas para cubrir target_skills, vía búsqueda de costo
+        uniforme (Dijkstra) sobre el espacio de estados = conjunto de habilidades
+        conocidas, con costo = horas. Como todas las aristas tienen costo >= 0, el
+        primer estado que cubre el objetivo es óptimo en horas.
+
+        Devuelve el mínimo de horas, o None si no se puede cubrir (dentro de
+        max_hours, si se especifica). Se usa para la verificación de factibilidad,
+        donde necesitamos un límite inferior fiable y no la heurística del A*.
+        """
+        known_base = frozenset(known_skills) if known_skills else frozenset()
+        if target_skills.issubset(known_base):
+            return 0.0
+
+        counter = itertools.count()  # desempate para no comparar frozensets en el heap
+        heap = [(0.0, next(counter), known_base)]
+        best_cost = {known_base: 0.0}
+
+        while heap:
+            cost, _, known = heapq.heappop(heap)
+            if cost > best_cost.get(known, float("inf")):
+                continue
+            if target_skills.issubset(known):
+                return cost
+            for rid, r in self.graph.resources.items():
+                if not set(r["requires"]).issubset(known):
+                    continue
+                new_known = known | frozenset(r["teaches"])
+                if new_known == known:
+                    continue
+                new_cost = cost + r["duration_hours"]
+                if max_hours is not None and new_cost > max_hours:
+                    continue
+                if new_cost < best_cost.get(new_known, float("inf")):
+                    best_cost[new_known] = new_cost
+                    heapq.heappush(heap, (new_cost, next(counter), new_known))
+        return None
 
     def _get_skills_from_resources(self, resource_ids: list) -> set:
         skills = set()
@@ -49,7 +98,7 @@ class PathOptimizer:
     def _can_unlock(self, rid: str, current_skills: set) -> bool:
         r = self.graph.get_resource(rid)
         return set(r["requires"]).issubset(current_skills)
-    
+
     def _get_max_difficulty(self, selected: list) -> int:
         """Retorna la dificultad máxima alcanzada en el path actual.
         Si el path está vacío, inicia en 1 para no penalizar recursos básicos."""
@@ -124,12 +173,12 @@ class PathOptimizer:
                     target_skills, max_hours, total_hours + hours
                 )
                 direct = len(new_skills & remaining)
-                
+
                 # Penalización por salto de dificultad
                 resource_difficulty = r.get("difficulty", 1)
                 max_difficulty_so_far = self._get_max_difficulty(selected)
                 difficulty_jump_penalty = max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
-                
+
                 score = (future * 100) + (direct * 10) - (hours * 0.1) + self._llm_boost(rid) - difficulty_jump_penalty
 
                 if score > best_score:
@@ -206,12 +255,12 @@ class PathOptimizer:
                         target_skills, max_hours, new_hours
                     )
                     direct = len(new_known & target_skills)
-                    
+
                     # Penalización por salto de dificultad
                     resource_difficulty = r.get("difficulty", 1)
                     max_difficulty_so_far = self._get_max_difficulty(path)
                     difficulty_jump_penalty = max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
-                    
+
                     score = (future * 100) + (direct * 10) - (new_hours * 0.1) + self._llm_boost(rid) - difficulty_jump_penalty
 
                     candidates.append((new_path, new_known, new_hours, score))
@@ -258,9 +307,9 @@ class PathOptimizer:
         }
 
     # ------------------------------------------------------------------
-    # Algoritmo 3: A* - búsqueda A*-inspirada con heurística admisible aproximada
+    # Algoritmo 3: A* - búsqueda A*-inspirada con heurística aproximada
     # Estado: (horas_usadas, -cobertura, path, known_skills)
-    # Heurística: habilidades objetivo aún alcanzables desde el estado actual
+    # Heurística: habilidades objetivo aún faltantes desde el estado actual
     # ------------------------------------------------------------------
     def astar(self, target_skills: set, known_skills: set = None,
               max_hours: float = None) -> dict:
@@ -269,14 +318,13 @@ class PathOptimizer:
         all_candidates_list = list(self.graph.resources.keys())
 
         def heuristic(known: frozenset) -> int:
-            """Habilidades objetivo que aún faltan (admisible: nunca sobreestima)."""
+            """Habilidades objetivo que aún faltan."""
             return len(target_skills - known)
 
         # Cola de prioridad: (f, horas, -cobertura_directa, path, known)
-        # f = horas_usadas + heurística (minimizamos horas, maximizamos cobertura)
         initial_h = heuristic(known_base)
         heap = [(initial_h, 0.0, 0, [], known_base)]
-        
+
         # Visitados: known_skills → mejor costo encontrado
         visited = {}
 
@@ -342,8 +390,7 @@ class PathOptimizer:
                 max_difficulty_so_far = self._get_max_difficulty(path)
                 difficulty_jump_penalty = max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
 
-                # f = costo real + heurística - penalización por dificultad
-                # Usamos horas como costo y heurística de habilidades faltantes
+                # f = costo real + heurística - boost del LLM - penalización
                 new_f = new_hours + (h * 5) - self._llm_boost(rid) - difficulty_jump_penalty
 
                 heapq.heappush(heap, (
@@ -369,7 +416,7 @@ class PathOptimizer:
             "skills_missing": list(target_skills - covered),
             "coverage_pct": round(coverage * 100, 1)
         }
-        
+
     def check_feasibility(self, target_skills: set, known_skills: set = None,
                       max_hours: float = None) -> dict:
         """
@@ -393,9 +440,11 @@ class PathOptimizer:
         unreachable = target_skills - reachable
         reachable_targets = target_skills & reachable
 
-        # Calcular horas mínimas necesarias para cubrir las habilidades alcanzables
-        min_result = self.astar(reachable_targets, known_skills, max_hours=None)
-        min_hours = min_result["total_hours"]
+        # Horas mínimas EXACTAS para cubrir las habilidades alcanzables, vía
+        # búsqueda de costo uniforme (no la heurística no-admisible del A*).
+        min_hours = self._min_hours_to_cover(reachable_targets, known_skills, max_hours=None)
+        if min_hours is None:
+            min_hours = 0  # reachable_targets siempre cubrible con presupuesto infinito
 
         # Determinar si es factible dentro del presupuesto de horas
         hours_feasible = (max_hours is None) or (min_hours <= max_hours)
@@ -426,7 +475,7 @@ class PathOptimizer:
             "min_hours_needed": min_hours,
             "hours_available": max_hours,
             "message": " ".join(messages)
-        }    
+        }
 
     def compare(self, target_skills: set, known_skills: set = None,
                 max_hours: float = None) -> dict:

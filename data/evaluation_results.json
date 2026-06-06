@@ -2,532 +2,1286 @@
   {
     "id": "TC01",
     "profile": "Principiante absoluto con tiempo limitado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
     "algorithm": "greedy",
     "hours": 17,
     "coverage_pct": 50.0,
+    "efficiency": 2.94,
     "resources_count": 3,
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.5,
-    "llm_used": true
+    "time_ms": 0.317,
+    "llm_active": true
   },
   {
     "id": "TC01",
     "profile": "Principiante absoluto con tiempo limitado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
     "algorithm": "beam_search",
     "hours": 10,
     "coverage_pct": 50.0,
+    "efficiency": 5.0,
     "resources_count": 1,
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 1.4,
-    "llm_used": true
+    "time_ms": 1.482,
+    "llm_active": true
   },
   {
     "id": "TC01",
     "profile": "Principiante absoluto con tiempo limitado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 10,
     "coverage_pct": 50.0,
+    "efficiency": 5.0,
     "resources_count": 1,
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.3,
-    "llm_used": true
+    "time_ms": 0.07,
+    "llm_active": true
   },
   {
-    "id": "TC02",
-    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "id": "TC01",
+    "profile": "Principiante absoluto con tiempo limitado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "greedy",
-    "hours": 61,
-    "coverage_pct": 100.0,
-    "resources_count": 8,
-    "skills_missing": [],
-    "time_ms": 1.9,
-    "llm_used": true
+    "hours": 17,
+    "coverage_pct": 50.0,
+    "efficiency": 2.94,
+    "resources_count": 3,
+    "skills_missing": [
+      "estadistica"
+    ],
+    "time_ms": 0.352,
+    "llm_active": true
   },
   {
-    "id": "TC02",
-    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "id": "TC01",
+    "profile": "Principiante absoluto con tiempo limitado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "beam_search",
-    "hours": 61,
-    "coverage_pct": 100.0,
-    "resources_count": 8,
-    "skills_missing": [],
-    "time_ms": 2.7,
-    "llm_used": true
+    "hours": 10,
+    "coverage_pct": 50.0,
+    "efficiency": 5.0,
+    "resources_count": 1,
+    "skills_missing": [
+      "estadistica"
+    ],
+    "time_ms": 1.53,
+    "llm_active": true
+  },
+  {
+    "id": "TC01",
+    "profile": "Principiante absoluto con tiempo limitado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 10,
+    "coverage_pct": 50.0,
+    "efficiency": 5.0,
+    "resources_count": 1,
+    "skills_missing": [
+      "estadistica"
+    ],
+    "time_ms": 0.072,
+    "llm_active": true
   },
   {
     "id": "TC02",
     "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 63,
+    "coverage_pct": 100.0,
+    "efficiency": 1.59,
+    "resources_count": 6,
+    "skills_missing": [],
+    "time_ms": 0.911,
+    "llm_active": true
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 48,
+    "coverage_pct": 100.0,
+    "efficiency": 2.08,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 2.024,
+    "llm_active": true
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 48,
     "coverage_pct": 100.0,
+    "efficiency": 2.08,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 1.3,
-    "llm_used": true
+    "time_ms": 0.379,
+    "llm_active": true
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 61,
+    "coverage_pct": 100.0,
+    "efficiency": 1.64,
+    "resources_count": 8,
+    "skills_missing": [],
+    "time_ms": 0.799,
+    "llm_active": true
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 61,
+    "coverage_pct": 100.0,
+    "efficiency": 1.64,
+    "resources_count": 8,
+    "skills_missing": [],
+    "time_ms": 2.255,
+    "llm_active": true
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 48,
+    "coverage_pct": 100.0,
+    "efficiency": 2.08,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 0.374,
+    "llm_active": true
   },
   {
     "id": "TC03",
     "profile": "Programador que quiere especializarse en datos",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
     "algorithm": "greedy",
     "hours": 28,
     "coverage_pct": 75.0,
+    "efficiency": 2.68,
+    "resources_count": 4,
+    "skills_missing": [
+      "dashboards"
+    ],
+    "time_ms": 0.624,
+    "llm_active": true
+  },
+  {
+    "id": "TC03",
+    "profile": "Programador que quiere especializarse en datos",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 28,
+    "coverage_pct": 75.0,
+    "efficiency": 2.68,
+    "resources_count": 4,
+    "skills_missing": [
+      "dashboards"
+    ],
+    "time_ms": 3.004,
+    "llm_active": true
+  },
+  {
+    "id": "TC03",
+    "profile": "Programador que quiere especializarse en datos",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 25,
+    "coverage_pct": 75.0,
+    "efficiency": 3.0,
+    "resources_count": 4,
+    "skills_missing": [
+      "analisis_exploratorio"
+    ],
+    "time_ms": 0.283,
+    "llm_active": true
+  },
+  {
+    "id": "TC03",
+    "profile": "Programador que quiere especializarse en datos",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 28,
+    "coverage_pct": 75.0,
+    "efficiency": 2.68,
     "resources_count": 5,
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 0.7,
-    "llm_used": true
+    "time_ms": 0.645,
+    "llm_active": true
   },
   {
     "id": "TC03",
     "profile": "Programador que quiere especializarse en datos",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "beam_search",
     "hours": 25,
     "coverage_pct": 75.0,
+    "efficiency": 3.0,
     "resources_count": 4,
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 3.1,
-    "llm_used": true
+    "time_ms": 3.019,
+    "llm_active": true
   },
   {
     "id": "TC03",
     "profile": "Programador que quiere especializarse en datos",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "a_star",
     "hours": 25,
     "coverage_pct": 75.0,
+    "efficiency": 3.0,
     "resources_count": 4,
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 1.2,
-    "llm_used": true
+    "time_ms": 0.278,
+    "llm_active": true
   },
   {
     "id": "TC04",
     "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 57,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 9,
+    "skills_missing": [
+      "redes_neuronales",
+      "backpropagation",
+      "pytorch"
+    ],
+    "time_ms": 0.889,
+    "llm_active": true
+  },
+  {
+    "id": "TC04",
+    "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "redes_neuronales",
+      "backpropagation",
+      "pytorch"
+    ],
+    "time_ms": 2.737,
+    "llm_active": true
+  },
+  {
+    "id": "TC04",
+    "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "redes_neuronales",
+      "backpropagation",
+      "pytorch"
+    ],
+    "time_ms": 0.077,
+    "llm_active": true
+  },
+  {
+    "id": "TC04",
+    "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "greedy",
     "hours": 58,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 10,
     "skills_missing": [
       "redes_neuronales",
-      "pytorch",
-      "backpropagation"
+      "backpropagation",
+      "pytorch"
     ],
-    "time_ms": 0.7,
-    "llm_used": true
+    "time_ms": 0.683,
+    "llm_active": true
   },
   {
     "id": "TC04",
     "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "beam_search",
     "hours": 0,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
       "redes_neuronales",
-      "pytorch",
-      "backpropagation"
+      "backpropagation",
+      "pytorch"
     ],
     "time_ms": 2.2,
-    "llm_used": true
+    "llm_active": true
   },
   {
     "id": "TC04",
     "profile": "Estudiante con base matemática que quiere ML avanzado",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "a_star",
     "hours": 0,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
       "redes_neuronales",
-      "pytorch",
-      "backpropagation"
+      "backpropagation",
+      "pytorch"
     ],
-    "time_ms": 0.1,
-    "llm_used": true
+    "time_ms": 0.075,
+    "llm_active": true
   },
   {
     "id": "TC05",
     "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "greedy",
-    "hours": 16,
-    "coverage_pct": 0.0,
-    "resources_count": 4,
-    "skills_missing": [
-      "api_modelos",
-      "docker",
-      "mlops"
-    ],
-    "time_ms": 0.4,
-    "llm_used": true
+    "hours": 15,
+    "coverage_pct": 100.0,
+    "efficiency": 6.67,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.328,
+    "llm_active": true
   },
   {
     "id": "TC05",
     "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "beam_search",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "api_modelos",
-      "docker",
-      "mlops"
-    ],
-    "time_ms": 1.5,
-    "llm_used": true
+    "hours": 15,
+    "coverage_pct": 100.0,
+    "efficiency": 6.67,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.652,
+    "llm_active": true
   },
   {
     "id": "TC05",
     "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 15,
     "coverage_pct": 100.0,
+    "efficiency": 6.67,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.1,
-    "llm_used": true
+    "time_ms": 0.04,
+    "llm_active": true
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 16,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 4,
+    "skills_missing": [
+      "docker",
+      "mlops",
+      "api_modelos"
+    ],
+    "time_ms": 0.6,
+    "llm_active": true
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "docker",
+      "mlops",
+      "api_modelos"
+    ],
+    "time_ms": 1.849,
+    "llm_active": true
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 15,
+    "coverage_pct": 100.0,
+    "efficiency": 6.67,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.042,
+    "llm_active": true
   },
   {
     "id": "TC06",
     "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 2,
+    "skills_missing": [
+      "redes_neuronales",
+      "ml_supervisado"
+    ],
+    "time_ms": 0.17,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "redes_neuronales",
+      "ml_supervisado"
+    ],
+    "time_ms": 1.162,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "redes_neuronales",
+      "ml_supervisado"
+    ],
+    "time_ms": 0.161,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "greedy",
     "hours": 11,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 3,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 0.3,
-    "llm_used": true
+    "time_ms": 0.226,
+    "llm_active": true
   },
   {
     "id": "TC06",
     "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "beam_search",
     "hours": 0,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 1.0,
-    "llm_used": true
+    "time_ms": 1.238,
+    "llm_active": true
   },
   {
     "id": "TC06",
     "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
     "algorithm": "a_star",
     "hours": 0,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 0.5,
-    "llm_used": true
+    "time_ms": 0.169,
+    "llm_active": true
   },
   {
     "id": "TC07",
     "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 100,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 10,
+    "skills_missing": [
+      "cnns",
+      "computer_vision",
+      "deteccion_objetos"
+    ],
+    "time_ms": 1.208,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "cnns",
+      "computer_vision",
+      "deteccion_objetos"
+    ],
+    "time_ms": 4.079,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 58,
+    "coverage_pct": 100.0,
+    "efficiency": 1.72,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.117,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_off",
     "algorithm": "greedy",
     "hours": 66,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 11,
     "skills_missing": [
-      "computer_vision",
       "cnns",
+      "computer_vision",
       "deteccion_objetos"
     ],
-    "time_ms": 1.5,
-    "llm_used": true
+    "time_ms": 1.231,
+    "llm_active": true
   },
   {
     "id": "TC07",
     "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_off",
     "algorithm": "beam_search",
     "hours": 0,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "computer_vision",
       "cnns",
+      "computer_vision",
       "deteccion_objetos"
     ],
-    "time_ms": 3.5,
-    "llm_used": true
+    "time_ms": 4.082,
+    "llm_active": true
   },
   {
     "id": "TC07",
     "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_off",
     "algorithm": "a_star",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "computer_vision",
-      "cnns",
-      "deteccion_objetos"
-    ],
-    "time_ms": 0.2,
-    "llm_used": true
+    "hours": 58,
+    "coverage_pct": 100.0,
+    "efficiency": 1.72,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.119,
+    "llm_active": true
   },
   {
     "id": "TC08",
     "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "greedy",
     "hours": 13,
     "coverage_pct": 100.0,
+    "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.3,
-    "llm_used": true
+    "time_ms": 0.265,
+    "llm_active": true
   },
   {
     "id": "TC08",
     "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "beam_search",
     "hours": 13,
     "coverage_pct": 100.0,
+    "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 1.4,
-    "llm_used": true
+    "time_ms": 0.425,
+    "llm_active": true
   },
   {
     "id": "TC08",
     "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 13,
     "coverage_pct": 100.0,
+    "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.2,
-    "llm_used": true
+    "time_ms": 0.045,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.277,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.553,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.042,
+    "llm_active": true
   },
   {
     "id": "TC09",
     "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "efficiency": 1.67,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.501,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "efficiency": 1.67,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 1.212,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "efficiency": 1.67,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.109,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_off",
     "algorithm": "greedy",
     "hours": 74,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 12,
     "skills_missing": [
-      "embeddings",
+      "nlp",
       "transformers",
-      "nlp"
+      "embeddings"
     ],
-    "time_ms": 1.6,
-    "llm_used": true
+    "time_ms": 1.202,
+    "llm_active": true
   },
   {
     "id": "TC09",
     "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_off",
     "algorithm": "beam_search",
     "hours": 0,
     "coverage_pct": 0.0,
+    "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "embeddings",
+      "nlp",
       "transformers",
-      "nlp"
+      "embeddings"
     ],
-    "time_ms": 4.2,
-    "llm_used": true
+    "time_ms": 3.787,
+    "llm_active": true
   },
   {
     "id": "TC09",
     "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_off",
     "algorithm": "a_star",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "embeddings",
-      "transformers",
-      "nlp"
-    ],
-    "time_ms": 0.4,
-    "llm_used": true
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "efficiency": 1.67,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.131,
+    "llm_active": true
   },
   {
     "id": "TC10",
     "profile": "Principiante que quiere dominar programación desde cero",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "greedy",
     "hours": 36,
     "coverage_pct": 100.0,
+    "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.6,
-    "llm_used": true
+    "time_ms": 0.566,
+    "llm_active": true
   },
   {
     "id": "TC10",
     "profile": "Principiante que quiere dominar programación desde cero",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "beam_search",
     "hours": 36,
     "coverage_pct": 100.0,
+    "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 1.9,
-    "llm_used": true
+    "time_ms": 1.975,
+    "llm_active": true
   },
   {
     "id": "TC10",
     "profile": "Principiante que quiere dominar programación desde cero",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 36,
     "coverage_pct": 100.0,
+    "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.5,
-    "llm_used": true
+    "time_ms": 0.253,
+    "llm_active": true
+  },
+  {
+    "id": "TC10",
+    "profile": "Principiante que quiere dominar programación desde cero",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 36,
+    "coverage_pct": 100.0,
+    "efficiency": 2.78,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 0.568,
+    "llm_active": true
+  },
+  {
+    "id": "TC10",
+    "profile": "Principiante que quiere dominar programación desde cero",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 36,
+    "coverage_pct": 100.0,
+    "efficiency": 2.78,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 1.93,
+    "llm_active": true
+  },
+  {
+    "id": "TC10",
+    "profile": "Principiante que quiere dominar programación desde cero",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 36,
+    "coverage_pct": 100.0,
+    "efficiency": 2.78,
+    "resources_count": 5,
+    "skills_missing": [],
+    "time_ms": 0.266,
+    "llm_active": true
   },
   {
     "id": "TC11",
     "profile": "ML engineer que quiere ir a cloud",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "greedy",
     "hours": 8,
     "coverage_pct": 100.0,
+    "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.2,
-    "llm_used": true
+    "time_ms": 0.144,
+    "llm_active": true
   },
   {
     "id": "TC11",
     "profile": "ML engineer que quiere ir a cloud",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "beam_search",
     "hours": 8,
     "coverage_pct": 100.0,
+    "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.2,
-    "llm_used": true
+    "time_ms": 0.156,
+    "llm_active": true
   },
   {
     "id": "TC11",
     "profile": "ML engineer que quiere ir a cloud",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 8,
     "coverage_pct": 100.0,
+    "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.1,
-    "llm_used": true
+    "time_ms": 0.027,
+    "llm_active": true
+  },
+  {
+    "id": "TC11",
+    "profile": "ML engineer que quiere ir a cloud",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 8,
+    "coverage_pct": 100.0,
+    "efficiency": 12.5,
+    "resources_count": 1,
+    "skills_missing": [],
+    "time_ms": 0.135,
+    "llm_active": true
+  },
+  {
+    "id": "TC11",
+    "profile": "ML engineer que quiere ir a cloud",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 8,
+    "coverage_pct": 100.0,
+    "efficiency": 12.5,
+    "resources_count": 1,
+    "skills_missing": [],
+    "time_ms": 0.145,
+    "llm_active": true
+  },
+  {
+    "id": "TC11",
+    "profile": "ML engineer que quiere ir a cloud",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 8,
+    "coverage_pct": 100.0,
+    "efficiency": 12.5,
+    "resources_count": 1,
+    "skills_missing": [],
+    "time_ms": 0.025,
+    "llm_active": true
   },
   {
     "id": "TC12",
     "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "greedy",
-    "hours": 182,
+    "hours": 186,
     "coverage_pct": 100.0,
+    "efficiency": 0.54,
     "resources_count": 18,
     "skills_missing": [],
-    "time_ms": 1.7,
-    "llm_used": true
+    "time_ms": 2.106,
+    "llm_active": true
   },
   {
     "id": "TC12",
     "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "beam_search",
-    "hours": 182,
+    "hours": 186,
     "coverage_pct": 100.0,
+    "efficiency": 0.54,
     "resources_count": 18,
     "skills_missing": [],
-    "time_ms": 7.7,
-    "llm_used": true
+    "time_ms": 10.922,
+    "llm_active": true
   },
   {
     "id": "TC12",
     "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 131,
     "coverage_pct": 100.0,
+    "efficiency": 0.76,
     "resources_count": 9,
     "skills_missing": [],
-    "time_ms": 5.3,
-    "llm_used": true
+    "time_ms": 2.678,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 182,
+    "coverage_pct": 100.0,
+    "efficiency": 0.55,
+    "resources_count": 18,
+    "skills_missing": [],
+    "time_ms": 1.904,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 182,
+    "coverage_pct": 100.0,
+    "efficiency": 0.55,
+    "resources_count": 18,
+    "skills_missing": [],
+    "time_ms": 9.232,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 131,
+    "coverage_pct": 100.0,
+    "efficiency": 0.76,
+    "resources_count": 9,
+    "skills_missing": [],
+    "time_ms": 2.748,
+    "llm_active": true
   },
   {
     "id": "TC13",
     "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "greedy",
     "hours": 13,
     "coverage_pct": 100.0,
+    "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.8,
-    "llm_used": true
+    "time_ms": 0.271,
+    "llm_active": true
   },
   {
     "id": "TC13",
     "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "beam_search",
     "hours": 13,
     "coverage_pct": 100.0,
+    "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.6,
-    "llm_used": true
+    "time_ms": 0.589,
+    "llm_active": true
   },
   {
     "id": "TC13",
     "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 13,
     "coverage_pct": 100.0,
+    "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.1,
-    "llm_used": true
+    "time_ms": 0.032,
+    "llm_active": true
   },
   {
-    "id": "TC14",
-    "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_off",
     "algorithm": "greedy",
-    "hours": 53,
-    "coverage_pct": 83.3,
-    "resources_count": 8,
-    "skills_missing": [
-      "streamlit"
-    ],
-    "time_ms": 0.9,
-    "llm_used": true
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.252,
+    "llm_active": true
   },
   {
-    "id": "TC14",
-    "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_off",
     "algorithm": "beam_search",
-    "hours": 53,
-    "coverage_pct": 83.3,
-    "resources_count": 8,
-    "skills_missing": [
-      "streamlit"
-    ],
-    "time_ms": 7.7,
-    "llm_used": true
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.575,
+    "llm_active": true
+  },
+  {
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.032,
+    "llm_active": true
   },
   {
     "id": "TC14",
     "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 54,
+    "coverage_pct": 50.0,
+    "efficiency": 0.93,
+    "resources_count": 7,
+    "skills_missing": [
+      "storage",
+      "poo",
+      "json"
+    ],
+    "time_ms": 0.744,
+    "llm_active": true
+  },
+  {
+    "id": "TC14",
+    "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 52,
+    "coverage_pct": 66.7,
+    "efficiency": 1.28,
+    "resources_count": 7,
+    "skills_missing": [
+      "storage",
+      "poo"
+    ],
+    "time_ms": 5.506,
+    "llm_active": true
+  },
+  {
+    "id": "TC14",
+    "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+    "feasibility": "factible",
+    "condition": "llm_on",
     "algorithm": "a_star",
     "hours": 55,
     "coverage_pct": 100.0,
+    "efficiency": 1.82,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 3.8,
-    "llm_used": true
+    "time_ms": 1.915,
+    "llm_active": true
+  },
+  {
+    "id": "TC14",
+    "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 53,
+    "coverage_pct": 83.3,
+    "efficiency": 1.57,
+    "resources_count": 8,
+    "skills_missing": [
+      "streamlit"
+    ],
+    "time_ms": 0.871,
+    "llm_active": true
+  },
+  {
+    "id": "TC14",
+    "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 53,
+    "coverage_pct": 83.3,
+    "efficiency": 1.57,
+    "resources_count": 8,
+    "skills_missing": [
+      "streamlit"
+    ],
+    "time_ms": 5.915,
+    "llm_active": true
+  },
+  {
+    "id": "TC14",
+    "profile": "Ingeniero con ML que quiere especializarse en análisis de datos avanzado",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 55,
+    "coverage_pct": 100.0,
+    "efficiency": 1.82,
+    "resources_count": 8,
+    "skills_missing": [],
+    "time_ms": 1.828,
+    "llm_active": true
   }
 ]
