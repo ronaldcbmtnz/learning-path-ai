@@ -5,14 +5,14 @@
     "feasibility": "infactible_presupuesto",
     "condition": "llm_on",
     "algorithm": "greedy",
-    "hours": 17,
+    "hours": 10,
     "coverage_pct": 50.0,
-    "efficiency": 2.94,
-    "resources_count": 3,
+    "efficiency": 5.0,
+    "resources_count": 1,
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.317,
+    "time_ms": 0.403,
     "llm_active": true
   },
   {
@@ -28,7 +28,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 1.482,
+    "time_ms": 1.497,
     "llm_active": true
   },
   {
@@ -44,7 +44,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.07,
+    "time_ms": 0.083,
     "llm_active": true
   },
   {
@@ -53,14 +53,14 @@
     "feasibility": "infactible_presupuesto",
     "condition": "llm_off",
     "algorithm": "greedy",
-    "hours": 17,
+    "hours": 10,
     "coverage_pct": 50.0,
-    "efficiency": 2.94,
-    "resources_count": 3,
+    "efficiency": 5.0,
+    "resources_count": 1,
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.352,
+    "time_ms": 0.328,
     "llm_active": true
   },
   {
@@ -76,7 +76,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 1.53,
+    "time_ms": 1.517,
     "llm_active": true
   },
   {
@@ -101,26 +101,26 @@
     "feasibility": "factible",
     "condition": "llm_on",
     "algorithm": "greedy",
-    "hours": 63,
+    "hours": 59,
     "coverage_pct": 100.0,
-    "efficiency": 1.59,
+    "efficiency": 1.69,
+    "resources_count": 7,
+    "skills_missing": [],
+    "time_ms": 1.354,
+    "llm_active": true
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 51,
+    "coverage_pct": 100.0,
+    "efficiency": 1.96,
     "resources_count": 6,
     "skills_missing": [],
-    "time_ms": 0.911,
-    "llm_active": true
-  },
-  {
-    "id": "TC02",
-    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 48,
-    "coverage_pct": 100.0,
-    "efficiency": 2.08,
-    "resources_count": 5,
-    "skills_missing": [],
-    "time_ms": 2.024,
+    "time_ms": 3.334,
     "llm_active": true
   },
   {
@@ -134,7 +134,7 @@
     "efficiency": 2.08,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.379,
+    "time_ms": 0.413,
     "llm_active": true
   },
   {
@@ -148,7 +148,7 @@
     "efficiency": 1.64,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 0.799,
+    "time_ms": 0.962,
     "llm_active": true
   },
   {
@@ -162,7 +162,7 @@
     "efficiency": 1.64,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 2.255,
+    "time_ms": 2.658,
     "llm_active": true
   },
   {
@@ -176,7 +176,7 @@
     "efficiency": 2.08,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.374,
+    "time_ms": 0.431,
     "llm_active": true
   },
   {
@@ -192,7 +192,7 @@
     "skills_missing": [
       "dashboards"
     ],
-    "time_ms": 0.624,
+    "time_ms": 0.629,
     "llm_active": true
   },
   {
@@ -208,7 +208,7 @@
     "skills_missing": [
       "dashboards"
     ],
-    "time_ms": 3.004,
+    "time_ms": 3.089,
     "llm_active": true
   },
   {
@@ -224,7 +224,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 0.283,
+    "time_ms": 0.31,
     "llm_active": true
   },
   {
@@ -233,14 +233,14 @@
     "feasibility": "infactible_presupuesto",
     "condition": "llm_off",
     "algorithm": "greedy",
-    "hours": 28,
+    "hours": 25,
     "coverage_pct": 75.0,
-    "efficiency": 2.68,
-    "resources_count": 5,
+    "efficiency": 3.0,
+    "resources_count": 4,
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 0.645,
+    "time_ms": 0.668,
     "llm_active": true
   },
   {
@@ -256,7 +256,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 3.019,
+    "time_ms": 3.146,
     "llm_active": true
   },
   {
@@ -272,7 +272,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 0.278,
+    "time_ms": 0.284,
     "llm_active": true
   },
   {
@@ -281,16 +281,16 @@
     "feasibility": "infactible_presupuesto",
     "condition": "llm_on",
     "algorithm": "greedy",
-    "hours": 57,
+    "hours": 0,
     "coverage_pct": 0.0,
     "efficiency": 0.0,
-    "resources_count": 9,
+    "resources_count": 0,
     "skills_missing": [
-      "redes_neuronales",
       "backpropagation",
-      "pytorch"
+      "pytorch",
+      "redes_neuronales"
     ],
-    "time_ms": 0.889,
+    "time_ms": 0.899,
     "llm_active": true
   },
   {
@@ -304,11 +304,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "redes_neuronales",
       "backpropagation",
-      "pytorch"
+      "pytorch",
+      "redes_neuronales"
     ],
-    "time_ms": 2.737,
+    "time_ms": 3.322,
     "llm_active": true
   },
   {
@@ -322,11 +322,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "redes_neuronales",
       "backpropagation",
-      "pytorch"
+      "pytorch",
+      "redes_neuronales"
     ],
-    "time_ms": 0.077,
+    "time_ms": 0.108,
     "llm_active": true
   },
   {
@@ -335,16 +335,16 @@
     "feasibility": "infactible_presupuesto",
     "condition": "llm_off",
     "algorithm": "greedy",
-    "hours": 58,
+    "hours": 0,
     "coverage_pct": 0.0,
     "efficiency": 0.0,
-    "resources_count": 10,
+    "resources_count": 0,
     "skills_missing": [
-      "redes_neuronales",
       "backpropagation",
-      "pytorch"
+      "pytorch",
+      "redes_neuronales"
     ],
-    "time_ms": 0.683,
+    "time_ms": 0.85,
     "llm_active": true
   },
   {
@@ -358,11 +358,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "redes_neuronales",
       "backpropagation",
-      "pytorch"
+      "pytorch",
+      "redes_neuronales"
     ],
-    "time_ms": 2.2,
+    "time_ms": 2.69,
     "llm_active": true
   },
   {
@@ -376,449 +376,449 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "redes_neuronales",
       "backpropagation",
-      "pytorch"
+      "pytorch",
+      "redes_neuronales"
     ],
-    "time_ms": 0.075,
-    "llm_active": true
-  },
-  {
-    "id": "TC05",
-    "profile": "Desarrollador que quiere desplegar modelos en producción",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 15,
-    "coverage_pct": 100.0,
-    "efficiency": 6.67,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.328,
-    "llm_active": true
-  },
-  {
-    "id": "TC05",
-    "profile": "Desarrollador que quiere desplegar modelos en producción",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 15,
-    "coverage_pct": 100.0,
-    "efficiency": 6.67,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.652,
-    "llm_active": true
-  },
-  {
-    "id": "TC05",
-    "profile": "Desarrollador que quiere desplegar modelos en producción",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 15,
-    "coverage_pct": 100.0,
-    "efficiency": 6.67,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.04,
-    "llm_active": true
-  },
-  {
-    "id": "TC05",
-    "profile": "Desarrollador que quiere desplegar modelos en producción",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "greedy",
-    "hours": 16,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 4,
-    "skills_missing": [
-      "docker",
-      "mlops",
-      "api_modelos"
-    ],
-    "time_ms": 0.6,
-    "llm_active": true
-  },
-  {
-    "id": "TC05",
-    "profile": "Desarrollador que quiere desplegar modelos en producción",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "beam_search",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "docker",
-      "mlops",
-      "api_modelos"
-    ],
-    "time_ms": 1.849,
-    "llm_active": true
-  },
-  {
-    "id": "TC05",
-    "profile": "Desarrollador que quiere desplegar modelos en producción",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "a_star",
-    "hours": 15,
-    "coverage_pct": 100.0,
-    "efficiency": 6.67,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.042,
-    "llm_active": true
-  },
-  {
-    "id": "TC06",
-    "profile": "Principiante con tiempo muy restrictivo",
-    "feasibility": "infactible_presupuesto",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 13,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 2,
-    "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
-    ],
-    "time_ms": 0.17,
-    "llm_active": true
-  },
-  {
-    "id": "TC06",
-    "profile": "Principiante con tiempo muy restrictivo",
-    "feasibility": "infactible_presupuesto",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
-    ],
-    "time_ms": 1.162,
-    "llm_active": true
-  },
-  {
-    "id": "TC06",
-    "profile": "Principiante con tiempo muy restrictivo",
-    "feasibility": "infactible_presupuesto",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
-    ],
-    "time_ms": 0.161,
-    "llm_active": true
-  },
-  {
-    "id": "TC06",
-    "profile": "Principiante con tiempo muy restrictivo",
-    "feasibility": "infactible_presupuesto",
-    "condition": "llm_off",
-    "algorithm": "greedy",
-    "hours": 11,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 3,
-    "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
-    ],
-    "time_ms": 0.226,
-    "llm_active": true
-  },
-  {
-    "id": "TC06",
-    "profile": "Principiante con tiempo muy restrictivo",
-    "feasibility": "infactible_presupuesto",
-    "condition": "llm_off",
-    "algorithm": "beam_search",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
-    ],
-    "time_ms": 1.238,
-    "llm_active": true
-  },
-  {
-    "id": "TC06",
-    "profile": "Principiante con tiempo muy restrictivo",
-    "feasibility": "infactible_presupuesto",
-    "condition": "llm_off",
-    "algorithm": "a_star",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "redes_neuronales",
-      "ml_supervisado"
-    ],
-    "time_ms": 0.169,
-    "llm_active": true
-  },
-  {
-    "id": "TC07",
-    "profile": "Científico de datos que quiere visión artificial",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 100,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 10,
-    "skills_missing": [
-      "cnns",
-      "computer_vision",
-      "deteccion_objetos"
-    ],
-    "time_ms": 1.208,
-    "llm_active": true
-  },
-  {
-    "id": "TC07",
-    "profile": "Científico de datos que quiere visión artificial",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "cnns",
-      "computer_vision",
-      "deteccion_objetos"
-    ],
-    "time_ms": 4.079,
-    "llm_active": true
-  },
-  {
-    "id": "TC07",
-    "profile": "Científico de datos que quiere visión artificial",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 58,
-    "coverage_pct": 100.0,
-    "efficiency": 1.72,
-    "resources_count": 3,
-    "skills_missing": [],
-    "time_ms": 0.117,
-    "llm_active": true
-  },
-  {
-    "id": "TC07",
-    "profile": "Científico de datos que quiere visión artificial",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "greedy",
-    "hours": 66,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 11,
-    "skills_missing": [
-      "cnns",
-      "computer_vision",
-      "deteccion_objetos"
-    ],
-    "time_ms": 1.231,
-    "llm_active": true
-  },
-  {
-    "id": "TC07",
-    "profile": "Científico de datos que quiere visión artificial",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "beam_search",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "cnns",
-      "computer_vision",
-      "deteccion_objetos"
-    ],
-    "time_ms": 4.082,
-    "llm_active": true
-  },
-  {
-    "id": "TC07",
-    "profile": "Científico de datos que quiere visión artificial",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "a_star",
-    "hours": 58,
-    "coverage_pct": 100.0,
-    "efficiency": 1.72,
-    "resources_count": 3,
-    "skills_missing": [],
-    "time_ms": 0.119,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.265,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.425,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.045,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "greedy",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.277,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "beam_search",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.553,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "a_star",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.042,
-    "llm_active": true
-  },
-  {
-    "id": "TC09",
-    "profile": "Desarrollador que quiere entrar a NLP",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 60,
-    "coverage_pct": 100.0,
-    "efficiency": 1.67,
-    "resources_count": 3,
-    "skills_missing": [],
-    "time_ms": 0.501,
-    "llm_active": true
-  },
-  {
-    "id": "TC09",
-    "profile": "Desarrollador que quiere entrar a NLP",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 60,
-    "coverage_pct": 100.0,
-    "efficiency": 1.67,
-    "resources_count": 3,
-    "skills_missing": [],
-    "time_ms": 1.212,
-    "llm_active": true
-  },
-  {
-    "id": "TC09",
-    "profile": "Desarrollador que quiere entrar a NLP",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 60,
-    "coverage_pct": 100.0,
-    "efficiency": 1.67,
-    "resources_count": 3,
-    "skills_missing": [],
     "time_ms": 0.109,
     "llm_active": true
   },
   {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 15,
+    "coverage_pct": 100.0,
+    "efficiency": 6.67,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.421,
+    "llm_active": true
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 15,
+    "coverage_pct": 100.0,
+    "efficiency": 6.67,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.738,
+    "llm_active": true
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 15,
+    "coverage_pct": 100.0,
+    "efficiency": 6.67,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.057,
+    "llm_active": true
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "api_modelos",
+      "mlops",
+      "docker"
+    ],
+    "time_ms": 0.639,
+    "llm_active": true
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "api_modelos",
+      "mlops",
+      "docker"
+    ],
+    "time_ms": 2.26,
+    "llm_active": true
+  },
+  {
+    "id": "TC05",
+    "profile": "Desarrollador que quiere desplegar modelos en producción",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 15,
+    "coverage_pct": 100.0,
+    "efficiency": 6.67,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.064,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 0.231,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 1.932,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 0.234,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 0.366,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 1.542,
+    "llm_active": true
+  },
+  {
+    "id": "TC06",
+    "profile": "Principiante con tiempo muy restrictivo",
+    "feasibility": "infactible_presupuesto",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "ml_supervisado",
+      "redes_neuronales"
+    ],
+    "time_ms": 0.222,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "cnns",
+      "computer_vision",
+      "deteccion_objetos"
+    ],
+    "time_ms": 0.766,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 58,
+    "coverage_pct": 100.0,
+    "efficiency": 1.72,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 1.596,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 58,
+    "coverage_pct": 100.0,
+    "efficiency": 1.72,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.126,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "cnns",
+      "computer_vision",
+      "deteccion_objetos"
+    ],
+    "time_ms": 1.536,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "cnns",
+      "computer_vision",
+      "deteccion_objetos"
+    ],
+    "time_ms": 4.428,
+    "llm_active": true
+  },
+  {
+    "id": "TC07",
+    "profile": "Científico de datos que quiere visión artificial",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 58,
+    "coverage_pct": 100.0,
+    "efficiency": 1.72,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.126,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.268,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.499,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.063,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.256,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.493,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.062,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "transformers",
+      "embeddings",
+      "nlp"
+    ],
+    "time_ms": 1.636,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "efficiency": 1.67,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 1.571,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "efficiency": 1.67,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.134,
+    "llm_active": true
+  },
+  {
     "id": "TC09",
     "profile": "Desarrollador que quiere entrar a NLP",
     "feasibility": "factible",
     "condition": "llm_off",
     "algorithm": "greedy",
-    "hours": 74,
+    "hours": 0,
     "coverage_pct": 0.0,
     "efficiency": 0.0,
-    "resources_count": 12,
+    "resources_count": 0,
     "skills_missing": [
-      "nlp",
       "transformers",
-      "embeddings"
+      "embeddings",
+      "nlp"
     ],
-    "time_ms": 1.202,
+    "time_ms": 1.462,
     "llm_active": true
   },
   {
@@ -832,11 +832,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "nlp",
       "transformers",
-      "embeddings"
+      "embeddings",
+      "nlp"
     ],
-    "time_ms": 3.787,
+    "time_ms": 4.457,
     "llm_active": true
   },
   {
@@ -850,7 +850,7 @@
     "efficiency": 1.67,
     "resources_count": 3,
     "skills_missing": [],
-    "time_ms": 0.131,
+    "time_ms": 0.135,
     "llm_active": true
   },
   {
@@ -864,7 +864,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.566,
+    "time_ms": 0.753,
     "llm_active": true
   },
   {
@@ -878,7 +878,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 1.975,
+    "time_ms": 2.502,
     "llm_active": true
   },
   {
@@ -892,7 +892,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.253,
+    "time_ms": 0.316,
     "llm_active": true
   },
   {
@@ -906,7 +906,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.568,
+    "time_ms": 0.704,
     "llm_active": true
   },
   {
@@ -920,7 +920,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 1.93,
+    "time_ms": 2.349,
     "llm_active": true
   },
   {
@@ -934,7 +934,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.266,
+    "time_ms": 0.484,
     "llm_active": true
   },
   {
@@ -962,7 +962,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.156,
+    "time_ms": 0.165,
     "llm_active": true
   },
   {
@@ -976,7 +976,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.027,
+    "time_ms": 0.038,
     "llm_active": true
   },
   {
@@ -990,7 +990,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.135,
+    "time_ms": 0.141,
     "llm_active": true
   },
   {
@@ -1004,7 +1004,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.145,
+    "time_ms": 0.149,
     "llm_active": true
   },
   {
@@ -1018,7 +1018,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.025,
+    "time_ms": 0.035,
     "llm_active": true
   },
   {
@@ -1032,7 +1032,7 @@
     "efficiency": 0.54,
     "resources_count": 18,
     "skills_missing": [],
-    "time_ms": 2.106,
+    "time_ms": 2.256,
     "llm_active": true
   },
   {
@@ -1046,7 +1046,7 @@
     "efficiency": 0.54,
     "resources_count": 18,
     "skills_missing": [],
-    "time_ms": 10.922,
+    "time_ms": 11.176,
     "llm_active": true
   },
   {
@@ -1060,7 +1060,7 @@
     "efficiency": 0.76,
     "resources_count": 9,
     "skills_missing": [],
-    "time_ms": 2.678,
+    "time_ms": 2.779,
     "llm_active": true
   },
   {
@@ -1074,7 +1074,7 @@
     "efficiency": 0.55,
     "resources_count": 18,
     "skills_missing": [],
-    "time_ms": 1.904,
+    "time_ms": 2.042,
     "llm_active": true
   },
   {
@@ -1088,7 +1088,7 @@
     "efficiency": 0.55,
     "resources_count": 18,
     "skills_missing": [],
-    "time_ms": 9.232,
+    "time_ms": 10.332,
     "llm_active": true
   },
   {
@@ -1102,7 +1102,7 @@
     "efficiency": 0.76,
     "resources_count": 9,
     "skills_missing": [],
-    "time_ms": 2.748,
+    "time_ms": 2.734,
     "llm_active": true
   },
   {
@@ -1116,7 +1116,7 @@
     "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.271,
+    "time_ms": 0.347,
     "llm_active": true
   },
   {
@@ -1130,7 +1130,7 @@
     "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.589,
+    "time_ms": 0.61,
     "llm_active": true
   },
   {
@@ -1144,7 +1144,7 @@
     "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.032,
+    "time_ms": 0.049,
     "llm_active": true
   },
   {
@@ -1158,7 +1158,7 @@
     "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.252,
+    "time_ms": 0.487,
     "llm_active": true
   },
   {
@@ -1172,7 +1172,7 @@
     "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.575,
+    "time_ms": 0.616,
     "llm_active": true
   },
   {
@@ -1186,7 +1186,7 @@
     "efficiency": 7.69,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.032,
+    "time_ms": 0.049,
     "llm_active": true
   },
   {
@@ -1201,10 +1201,10 @@
     "resources_count": 7,
     "skills_missing": [
       "storage",
-      "poo",
-      "json"
+      "json",
+      "poo"
     ],
-    "time_ms": 0.744,
+    "time_ms": 0.968,
     "llm_active": true
   },
   {
@@ -1213,15 +1213,12 @@
     "feasibility": "factible",
     "condition": "llm_on",
     "algorithm": "beam_search",
-    "hours": 52,
-    "coverage_pct": 66.7,
-    "efficiency": 1.28,
-    "resources_count": 7,
-    "skills_missing": [
-      "storage",
-      "poo"
-    ],
-    "time_ms": 5.506,
+    "hours": 55,
+    "coverage_pct": 100.0,
+    "efficiency": 1.82,
+    "resources_count": 8,
+    "skills_missing": [],
+    "time_ms": 5.055,
     "llm_active": true
   },
   {
@@ -1235,7 +1232,7 @@
     "efficiency": 1.82,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 1.915,
+    "time_ms": 2.272,
     "llm_active": true
   },
   {
@@ -1251,7 +1248,7 @@
     "skills_missing": [
       "streamlit"
     ],
-    "time_ms": 0.871,
+    "time_ms": 1.509,
     "llm_active": true
   },
   {
@@ -1267,7 +1264,7 @@
     "skills_missing": [
       "streamlit"
     ],
-    "time_ms": 5.915,
+    "time_ms": 6.985,
     "llm_active": true
   },
   {
@@ -1281,7 +1278,7 @@
     "efficiency": 1.82,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 1.828,
+    "time_ms": 3.011,
     "llm_active": true
   }
 ]

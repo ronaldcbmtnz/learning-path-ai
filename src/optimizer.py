@@ -185,6 +185,12 @@ class PathOptimizer:
         iterations = 0
         max_iterations = len(all_candidates) * 3
 
+        # item 3: recordar el prefijo más corto que logra la mejor cobertura,
+        # para descartar después la cola de recursos que no aportan al objetivo.
+        # (La cobertura de greedy solo crece, así que el máximo es siempre el final.)
+        best_cov_count = len(target_skills & known)   # cobertura de partida (solo known)
+        best_prefix_len = 0                            # nº de recursos hasta esa cobertura
+
         while remaining and iterations < max_iterations:
             iterations += 1
             best = None
@@ -232,6 +238,19 @@ class PathOptimizer:
             known.update(r["teaches"])
             remaining -= set(r["teaches"])
             total_hours += r["duration_hours"]
+
+            # item 3: si este recurso subió la cobertura objetivo, este es el
+            # nuevo prefijo "útil"; lo que venga después y no suba cobertura sobra.
+            cur_cov_count = len(target_skills & known)
+            if cur_cov_count > best_cov_count:
+                best_cov_count = cur_cov_count
+                best_prefix_len = len(selected)
+
+        # item 3: quedarse solo con el prefijo que logró la mejor cobertura.
+        # Un prefijo de una construcción greedy válida sigue siendo válido
+        # (cada recurso era desbloqueable con solo los anteriores), así que no
+        # se rompe ningún prerequisito. Si nada subió cobertura, queda vacío.
+        selected = selected[:best_prefix_len]
 
         ordered = self.graph.topological_sort(selected)
         covered = self._get_skills_from_resources(ordered)
