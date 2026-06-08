@@ -12,7 +12,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.403,
+    "time_ms": 0.405,
     "llm_active": true
   },
   {
@@ -28,7 +28,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 1.497,
+    "time_ms": 1.602,
     "llm_active": true
   },
   {
@@ -44,7 +44,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.083,
+    "time_ms": 0.061,
     "llm_active": true
   },
   {
@@ -60,7 +60,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.328,
+    "time_ms": 0.373,
     "llm_active": true
   },
   {
@@ -76,7 +76,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 1.517,
+    "time_ms": 1.467,
     "llm_active": true
   },
   {
@@ -92,7 +92,7 @@
     "skills_missing": [
       "estadistica"
     ],
-    "time_ms": 0.072,
+    "time_ms": 0.078,
     "llm_active": true
   },
   {
@@ -101,26 +101,26 @@
     "feasibility": "factible",
     "condition": "llm_on",
     "algorithm": "greedy",
-    "hours": 59,
+    "hours": 53,
     "coverage_pct": 100.0,
-    "efficiency": 1.69,
+    "efficiency": 1.89,
+    "resources_count": 4,
+    "skills_missing": [],
+    "time_ms": 1.105,
+    "llm_active": true
+  },
+  {
+    "id": "TC02",
+    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 66,
+    "coverage_pct": 100.0,
+    "efficiency": 1.52,
     "resources_count": 7,
     "skills_missing": [],
-    "time_ms": 1.354,
-    "llm_active": true
-  },
-  {
-    "id": "TC02",
-    "profile": "Principiante que quiere entrar a ML con tiempo amplio",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 51,
-    "coverage_pct": 100.0,
-    "efficiency": 1.96,
-    "resources_count": 6,
-    "skills_missing": [],
-    "time_ms": 3.334,
+    "time_ms": 5.105,
     "llm_active": true
   },
   {
@@ -134,7 +134,7 @@
     "efficiency": 2.08,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.413,
+    "time_ms": 0.539,
     "llm_active": true
   },
   {
@@ -148,7 +148,7 @@
     "efficiency": 1.64,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 0.962,
+    "time_ms": 1.423,
     "llm_active": true
   },
   {
@@ -162,7 +162,7 @@
     "efficiency": 1.64,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 2.658,
+    "time_ms": 3.332,
     "llm_active": true
   },
   {
@@ -176,7 +176,7 @@
     "efficiency": 2.08,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.431,
+    "time_ms": 0.415,
     "llm_active": true
   },
   {
@@ -192,7 +192,7 @@
     "skills_missing": [
       "dashboards"
     ],
-    "time_ms": 0.629,
+    "time_ms": 0.8,
     "llm_active": true
   },
   {
@@ -208,7 +208,7 @@
     "skills_missing": [
       "dashboards"
     ],
-    "time_ms": 3.089,
+    "time_ms": 3.393,
     "llm_active": true
   },
   {
@@ -224,7 +224,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 0.31,
+    "time_ms": 0.292,
     "llm_active": true
   },
   {
@@ -240,7 +240,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 0.668,
+    "time_ms": 0.874,
     "llm_active": true
   },
   {
@@ -256,7 +256,7 @@
     "skills_missing": [
       "analisis_exploratorio"
     ],
-    "time_ms": 3.146,
+    "time_ms": 3.764,
     "llm_active": true
   },
   {
@@ -286,11 +286,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
+      "redes_neuronales",
       "backpropagation",
-      "pytorch",
-      "redes_neuronales"
+      "pytorch"
     ],
-    "time_ms": 0.899,
+    "time_ms": 0.603,
     "llm_active": true
   },
   {
@@ -304,11 +304,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
+      "redes_neuronales",
       "backpropagation",
-      "pytorch",
-      "redes_neuronales"
+      "pytorch"
     ],
-    "time_ms": 3.322,
+    "time_ms": 2.649,
     "llm_active": true
   },
   {
@@ -322,11 +322,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
+      "redes_neuronales",
       "backpropagation",
-      "pytorch",
-      "redes_neuronales"
+      "pytorch"
     ],
-    "time_ms": 0.108,
+    "time_ms": 0.091,
     "llm_active": true
   },
   {
@@ -340,11 +340,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
+      "redes_neuronales",
       "backpropagation",
-      "pytorch",
-      "redes_neuronales"
+      "pytorch"
     ],
-    "time_ms": 0.85,
+    "time_ms": 0.731,
     "llm_active": true
   },
   {
@@ -358,11 +358,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
+      "redes_neuronales",
       "backpropagation",
-      "pytorch",
-      "redes_neuronales"
+      "pytorch"
     ],
-    "time_ms": 2.69,
+    "time_ms": 2.645,
     "llm_active": true
   },
   {
@@ -376,11 +376,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
+      "redes_neuronales",
       "backpropagation",
-      "pytorch",
-      "redes_neuronales"
+      "pytorch"
     ],
-    "time_ms": 0.109,
+    "time_ms": 0.104,
     "llm_active": true
   },
   {
@@ -394,7 +394,7 @@
     "efficiency": 6.67,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.421,
+    "time_ms": 0.36,
     "llm_active": true
   },
   {
@@ -408,7 +408,7 @@
     "efficiency": 6.67,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.738,
+    "time_ms": 0.675,
     "llm_active": true
   },
   {
@@ -422,7 +422,7 @@
     "efficiency": 6.67,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.057,
+    "time_ms": 0.067,
     "llm_active": true
   },
   {
@@ -436,11 +436,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "api_modelos",
       "mlops",
+      "api_modelos",
       "docker"
     ],
-    "time_ms": 0.639,
+    "time_ms": 0.599,
     "llm_active": true
   },
   {
@@ -454,11 +454,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "api_modelos",
       "mlops",
+      "api_modelos",
       "docker"
     ],
-    "time_ms": 2.26,
+    "time_ms": 2.604,
     "llm_active": true
   },
   {
@@ -472,7 +472,7 @@
     "efficiency": 6.67,
     "resources_count": 2,
     "skills_missing": [],
-    "time_ms": 0.064,
+    "time_ms": 0.058,
     "llm_active": true
   },
   {
@@ -486,10 +486,10 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 0.231,
+    "time_ms": 0.202,
     "llm_active": true
   },
   {
@@ -503,10 +503,10 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 1.932,
+    "time_ms": 1.394,
     "llm_active": true
   },
   {
@@ -520,10 +520,10 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 0.234,
+    "time_ms": 0.127,
     "llm_active": true
   },
   {
@@ -537,10 +537,10 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 0.366,
+    "time_ms": 0.391,
     "llm_active": true
   },
   {
@@ -554,10 +554,10 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 1.542,
+    "time_ms": 0.95,
     "llm_active": true
   },
   {
@@ -571,10 +571,10 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "ml_supervisado",
-      "redes_neuronales"
+      "redes_neuronales",
+      "ml_supervisado"
     ],
-    "time_ms": 0.222,
+    "time_ms": 0.155,
     "llm_active": true
   },
   {
@@ -583,16 +583,12 @@
     "feasibility": "factible",
     "condition": "llm_on",
     "algorithm": "greedy",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "cnns",
-      "computer_vision",
-      "deteccion_objetos"
-    ],
-    "time_ms": 0.766,
+    "hours": 58,
+    "coverage_pct": 100.0,
+    "efficiency": 1.72,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.764,
     "llm_active": true
   },
   {
@@ -606,7 +602,7 @@
     "efficiency": 1.72,
     "resources_count": 3,
     "skills_missing": [],
-    "time_ms": 1.596,
+    "time_ms": 1.835,
     "llm_active": true
   },
   {
@@ -620,7 +616,7 @@
     "efficiency": 1.72,
     "resources_count": 3,
     "skills_missing": [],
-    "time_ms": 0.126,
+    "time_ms": 0.146,
     "llm_active": true
   },
   {
@@ -635,10 +631,10 @@
     "resources_count": 0,
     "skills_missing": [
       "cnns",
-      "computer_vision",
-      "deteccion_objetos"
+      "deteccion_objetos",
+      "computer_vision"
     ],
-    "time_ms": 1.536,
+    "time_ms": 2.195,
     "llm_active": true
   },
   {
@@ -653,10 +649,10 @@
     "resources_count": 0,
     "skills_missing": [
       "cnns",
-      "computer_vision",
-      "deteccion_objetos"
+      "deteccion_objetos",
+      "computer_vision"
     ],
-    "time_ms": 4.428,
+    "time_ms": 5.929,
     "llm_active": true
   },
   {
@@ -668,142 +664,142 @@
     "hours": 58,
     "coverage_pct": 100.0,
     "efficiency": 1.72,
-    "resources_count": 3,
-    "skills_missing": [],
-    "time_ms": 0.126,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.268,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.499,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.063,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "greedy",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.256,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "beam_search",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.493,
-    "llm_active": true
-  },
-  {
-    "id": "TC08",
-    "profile": "Analista que quiere automatizar reportes",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "a_star",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.062,
-    "llm_active": true
-  },
-  {
-    "id": "TC09",
-    "profile": "Desarrollador que quiere entrar a NLP",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 0,
-    "coverage_pct": 0.0,
-    "efficiency": 0.0,
-    "resources_count": 0,
-    "skills_missing": [
-      "transformers",
-      "embeddings",
-      "nlp"
-    ],
-    "time_ms": 1.636,
-    "llm_active": true
-  },
-  {
-    "id": "TC09",
-    "profile": "Desarrollador que quiere entrar a NLP",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 60,
-    "coverage_pct": 100.0,
-    "efficiency": 1.67,
-    "resources_count": 3,
-    "skills_missing": [],
-    "time_ms": 1.571,
-    "llm_active": true
-  },
-  {
-    "id": "TC09",
-    "profile": "Desarrollador que quiere entrar a NLP",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 60,
-    "coverage_pct": 100.0,
-    "efficiency": 1.67,
     "resources_count": 3,
     "skills_missing": [],
     "time_ms": 0.134,
     "llm_active": true
   },
   {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.254,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.436,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.055,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.236,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.402,
+    "llm_active": true
+  },
+  {
+    "id": "TC08",
+    "profile": "Analista que quiere automatizar reportes",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.048,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 0,
+    "coverage_pct": 0.0,
+    "efficiency": 0.0,
+    "resources_count": 0,
+    "skills_missing": [
+      "embeddings",
+      "nlp",
+      "transformers"
+    ],
+    "time_ms": 1.245,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "efficiency": 1.67,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 1.62,
+    "llm_active": true
+  },
+  {
+    "id": "TC09",
+    "profile": "Desarrollador que quiere entrar a NLP",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 60,
+    "coverage_pct": 100.0,
+    "efficiency": 1.67,
+    "resources_count": 3,
+    "skills_missing": [],
+    "time_ms": 0.104,
+    "llm_active": true
+  },
+  {
     "id": "TC09",
     "profile": "Desarrollador que quiere entrar a NLP",
     "feasibility": "factible",
@@ -814,11 +810,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "transformers",
       "embeddings",
-      "nlp"
+      "nlp",
+      "transformers"
     ],
-    "time_ms": 1.462,
+    "time_ms": 1.372,
     "llm_active": true
   },
   {
@@ -832,11 +828,11 @@
     "efficiency": 0.0,
     "resources_count": 0,
     "skills_missing": [
-      "transformers",
       "embeddings",
-      "nlp"
+      "nlp",
+      "transformers"
     ],
-    "time_ms": 4.457,
+    "time_ms": 4.358,
     "llm_active": true
   },
   {
@@ -850,7 +846,7 @@
     "efficiency": 1.67,
     "resources_count": 3,
     "skills_missing": [],
-    "time_ms": 0.135,
+    "time_ms": 0.095,
     "llm_active": true
   },
   {
@@ -864,7 +860,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.753,
+    "time_ms": 0.62,
     "llm_active": true
   },
   {
@@ -878,7 +874,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 2.502,
+    "time_ms": 1.532,
     "llm_active": true
   },
   {
@@ -892,7 +888,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.316,
+    "time_ms": 0.199,
     "llm_active": true
   },
   {
@@ -906,7 +902,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.704,
+    "time_ms": 0.496,
     "llm_active": true
   },
   {
@@ -920,7 +916,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 2.349,
+    "time_ms": 2.427,
     "llm_active": true
   },
   {
@@ -934,7 +930,7 @@
     "efficiency": 2.78,
     "resources_count": 5,
     "skills_missing": [],
-    "time_ms": 0.484,
+    "time_ms": 0.337,
     "llm_active": true
   },
   {
@@ -948,7 +944,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.144,
+    "time_ms": 0.102,
     "llm_active": true
   },
   {
@@ -962,7 +958,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.165,
+    "time_ms": 0.099,
     "llm_active": true
   },
   {
@@ -976,7 +972,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.038,
+    "time_ms": 0.025,
     "llm_active": true
   },
   {
@@ -990,7 +986,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.141,
+    "time_ms": 0.131,
     "llm_active": true
   },
   {
@@ -1004,7 +1000,7 @@
     "efficiency": 12.5,
     "resources_count": 1,
     "skills_missing": [],
-    "time_ms": 0.149,
+    "time_ms": 0.139,
     "llm_active": true
   },
   {
@@ -1017,176 +1013,176 @@
     "coverage_pct": 100.0,
     "efficiency": 12.5,
     "resources_count": 1,
+    "skills_missing": [],
+    "time_ms": 0.023,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 186,
+    "coverage_pct": 100.0,
+    "efficiency": 0.54,
+    "resources_count": 18,
+    "skills_missing": [],
+    "time_ms": 4.178,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 186,
+    "coverage_pct": 100.0,
+    "efficiency": 0.54,
+    "resources_count": 18,
+    "skills_missing": [],
+    "time_ms": 10.927,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 131,
+    "coverage_pct": 100.0,
+    "efficiency": 0.76,
+    "resources_count": 9,
+    "skills_missing": [],
+    "time_ms": 2.91,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 182,
+    "coverage_pct": 100.0,
+    "efficiency": 0.55,
+    "resources_count": 18,
+    "skills_missing": [],
+    "time_ms": 2.558,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 182,
+    "coverage_pct": 100.0,
+    "efficiency": 0.55,
+    "resources_count": 18,
+    "skills_missing": [],
+    "time_ms": 9.498,
+    "llm_active": true
+  },
+  {
+    "id": "TC12",
+    "profile": "Estudiante con todo el tiempo del mundo",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 131,
+    "coverage_pct": 100.0,
+    "efficiency": 0.76,
+    "resources_count": 9,
+    "skills_missing": [],
+    "time_ms": 2.566,
+    "llm_active": true
+  },
+  {
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.227,
+    "llm_active": true
+  },
+  {
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "beam_search",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.526,
+    "llm_active": true
+  },
+  {
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_on",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.043,
+    "llm_active": true
+  },
+  {
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "greedy",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.271,
+    "llm_active": true
+  },
+  {
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "beam_search",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
+    "skills_missing": [],
+    "time_ms": 0.513,
+    "llm_active": true
+  },
+  {
+    "id": "TC13",
+    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
+    "feasibility": "factible",
+    "condition": "llm_off",
+    "algorithm": "a_star",
+    "hours": 13,
+    "coverage_pct": 100.0,
+    "efficiency": 7.69,
+    "resources_count": 2,
     "skills_missing": [],
     "time_ms": 0.035,
-    "llm_active": true
-  },
-  {
-    "id": "TC12",
-    "profile": "Estudiante con todo el tiempo del mundo",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 186,
-    "coverage_pct": 100.0,
-    "efficiency": 0.54,
-    "resources_count": 18,
-    "skills_missing": [],
-    "time_ms": 2.256,
-    "llm_active": true
-  },
-  {
-    "id": "TC12",
-    "profile": "Estudiante con todo el tiempo del mundo",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 186,
-    "coverage_pct": 100.0,
-    "efficiency": 0.54,
-    "resources_count": 18,
-    "skills_missing": [],
-    "time_ms": 11.176,
-    "llm_active": true
-  },
-  {
-    "id": "TC12",
-    "profile": "Estudiante con todo el tiempo del mundo",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 131,
-    "coverage_pct": 100.0,
-    "efficiency": 0.76,
-    "resources_count": 9,
-    "skills_missing": [],
-    "time_ms": 2.779,
-    "llm_active": true
-  },
-  {
-    "id": "TC12",
-    "profile": "Estudiante con todo el tiempo del mundo",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "greedy",
-    "hours": 182,
-    "coverage_pct": 100.0,
-    "efficiency": 0.55,
-    "resources_count": 18,
-    "skills_missing": [],
-    "time_ms": 2.042,
-    "llm_active": true
-  },
-  {
-    "id": "TC12",
-    "profile": "Estudiante con todo el tiempo del mundo",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "beam_search",
-    "hours": 182,
-    "coverage_pct": 100.0,
-    "efficiency": 0.55,
-    "resources_count": 18,
-    "skills_missing": [],
-    "time_ms": 10.332,
-    "llm_active": true
-  },
-  {
-    "id": "TC12",
-    "profile": "Estudiante con todo el tiempo del mundo",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "a_star",
-    "hours": 131,
-    "coverage_pct": 100.0,
-    "efficiency": 0.76,
-    "resources_count": 9,
-    "skills_missing": [],
-    "time_ms": 2.734,
-    "llm_active": true
-  },
-  {
-    "id": "TC13",
-    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "greedy",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.347,
-    "llm_active": true
-  },
-  {
-    "id": "TC13",
-    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "beam_search",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.61,
-    "llm_active": true
-  },
-  {
-    "id": "TC13",
-    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
-    "feasibility": "factible",
-    "condition": "llm_on",
-    "algorithm": "a_star",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.049,
-    "llm_active": true
-  },
-  {
-    "id": "TC13",
-    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "greedy",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.487,
-    "llm_active": true
-  },
-  {
-    "id": "TC13",
-    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "beam_search",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.616,
-    "llm_active": true
-  },
-  {
-    "id": "TC13",
-    "profile": "Bachiller que quiere repasar conceptos básicos antes de universidad",
-    "feasibility": "factible",
-    "condition": "llm_off",
-    "algorithm": "a_star",
-    "hours": 13,
-    "coverage_pct": 100.0,
-    "efficiency": 7.69,
-    "resources_count": 2,
-    "skills_missing": [],
-    "time_ms": 0.049,
     "llm_active": true
   },
   {
@@ -1196,15 +1192,14 @@
     "condition": "llm_on",
     "algorithm": "greedy",
     "hours": 54,
-    "coverage_pct": 50.0,
-    "efficiency": 0.93,
+    "coverage_pct": 66.7,
+    "efficiency": 1.24,
     "resources_count": 7,
     "skills_missing": [
       "storage",
-      "json",
-      "poo"
+      "json"
     ],
-    "time_ms": 0.968,
+    "time_ms": 0.83,
     "llm_active": true
   },
   {
@@ -1218,7 +1213,7 @@
     "efficiency": 1.82,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 5.055,
+    "time_ms": 3.766,
     "llm_active": true
   },
   {
@@ -1232,7 +1227,7 @@
     "efficiency": 1.82,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 2.272,
+    "time_ms": 1.595,
     "llm_active": true
   },
   {
@@ -1248,7 +1243,7 @@
     "skills_missing": [
       "streamlit"
     ],
-    "time_ms": 1.509,
+    "time_ms": 0.843,
     "llm_active": true
   },
   {
@@ -1264,7 +1259,7 @@
     "skills_missing": [
       "streamlit"
     ],
-    "time_ms": 6.985,
+    "time_ms": 4.387,
     "llm_active": true
   },
   {
@@ -1278,7 +1273,7 @@
     "efficiency": 1.82,
     "resources_count": 8,
     "skills_missing": [],
-    "time_ms": 3.011,
+    "time_ms": 1.62,
     "llm_active": true
   }
 ]

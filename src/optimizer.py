@@ -8,9 +8,19 @@ class PathOptimizer:
         self.graph = graph
         self.llm_scores = llm_scores or {}  # {rid: 0.0-1.0}
 
-    def _llm_boost(self, rid: str) -> float:
-        """Retorna el boost del LLM para un recurso (neutro 0.5 si no hay score)."""
-        return self.llm_scores.get(rid, 0.5) * 20  # escala el score al rango del scoring
+    def _llm_boost(self, rid: str, contributes: bool = True) -> float:
+        """Ajuste de relevancia del LLM como DESVIACIÓN con signo alrededor de 0.5
+        (neutro), escalada a [-10, +10].
+
+        item 4: solo se aplica a recursos que CONTRIBUYEN a la cobertura (están en
+        la cadena hacia alguna skill objetivo pendiente); los demás reciben 0. Esto
+        impide que el prior semántico del LLM arrastre la búsqueda hacia recursos
+        irrelevantes al objetivo (regresión de TC14). Con scores vacíos da 0 para
+        todos -> la condición OFF de la ablación sigue neutra; y un recurso útil con
+        score bajo nunca queda por debajo de uno no-útil (que vale 0)."""
+        if not contributes:
+            return 0.0
+        return (self.llm_scores.get(rid, 0.5) - 0.5) * 20
 
     # ------------------------------------------------------------------
     # Política de puntuación compartida (greedy y beam)
@@ -29,7 +39,7 @@ class PathOptimizer:
         return max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
 
     def _score_resource(self, *, future: int, direct: int, hours: float,
-                        rid: str, selected: list) -> float:
+                        rid: str, selected: list, contributes: bool = True) -> float:
         """
         Política de puntuación común a greedy y beam_search (mayor = mejor).
 
@@ -50,7 +60,7 @@ class PathOptimizer:
             (future * 100)
             + (direct * 10)
             - (hours * 0.1)
-            + self._llm_boost(rid)
+            + self._llm_boost(rid, contributes)
             - self._difficulty_jump_penalty(rid, selected)
         )
 
@@ -196,6 +206,10 @@ class PathOptimizer:
             best = None
             best_score = -1
             budget_left = (max_hours - total_hours) if max_hours else None
+            
+            # item 4: recursos en cadena hacia el objetivo; solo estos reciben la
+            # señal real del LLM (los demás, 0). Se recalcula porque 'known' crece.
+            useful = self._get_useful_candidates(known, target_skills)
 
             for rid in all_candidates:
                 if rid in selected:
@@ -223,7 +237,7 @@ class PathOptimizer:
                 direct = len(new_skills & remaining)
                 score = self._score_resource(
                     future=future, direct=direct, hours=hours,
-                    rid=rid, selected=selected
+                    rid=rid, selected=selected, contributes=(rid in useful)
                 )
 
                 if score > best_score:
