@@ -106,7 +106,8 @@ def run_evaluation():
     print("=" * 80)
 
     for tc in TEST_CASES:
-        feas_label, _ = _classify_feasibility(graph, tc)
+        feas_label, feas = _classify_feasibility(graph, tc)
+        min_hours = feas["min_hours_needed"]   # óptimo exacto (Dijkstra)
 
         # Señal del LLM: una sola muestra cacheada -> benchmark reproducible.
         llm_scores = llm.score_resources_for_goal(tc["profile"], all_resources)
@@ -131,6 +132,10 @@ def run_evaluation():
                 hours = result["total_hours"]
                 cov = result["coverage_pct"]
                 efficiency = round(cov / hours, 2) if hours > 0 else 0.0
+                # item 6: gap de optimalidad (horas de más vs el óptimo). Solo
+                # comparable cuando se cubre el 100% de un objetivo factible.
+                opt_gap = (hours - min_hours) if (cov == 100.0 and feas_label == "factible") else None
+
 
                 results.append({
                     "id": tc["id"],
@@ -143,6 +148,8 @@ def run_evaluation():
                     "efficiency": efficiency,
                     "resources_count": len(result["path"]),
                     "skills_missing": result["skills_missing"],
+                    "min_hours": min_hours,
+                    "opt_gap": opt_gap,
                     "time_ms": t_ms,
                     "llm_active": llm_active,
                 })
@@ -150,6 +157,7 @@ def run_evaluation():
     _print_per_case_overview(results)
     _print_ablation_summary(results)
     _print_feasibility_summary(results)
+    _print_optimality_gap(results)
     _print_ablation_deltas(results)
 
     with open("data/evaluation_results.json", "w", encoding="utf-8") as f:
@@ -226,6 +234,28 @@ def _print_feasibility_summary(results: list):
             perfect = sum(1 for r in rows if r["coverage_pct"] == 100.0)
             print(f"  {algo:<14} {_avg(rows, 'coverage_pct'):>11} "
                   f"{f'{perfect}/{len(rows)}':>16}")
+
+
+def _print_optimality_gap(results: list):
+    """RQ3 — Gap de optimalidad en horas: en casos FACTIBLES resueltos al 100%,
+    cuántas horas de más usó cada algoritmo respecto al óptimo exacto (Dijkstra
+    de check_feasibility). A* debe dar 0 (es admisible); greedy/beam cuantifican
+    su sub-optimalidad."""
+    print("\n" + "=" * 80)
+    print("RQ3 — GAP DE OPTIMALIDAD EN HORAS (factibles al 100%, LLM ON)")
+    print("=" * 80)
+    print(f"  {'Algoritmo':<14} {'n':>4} {'gap medio':>11} {'gap máx':>9} {'óptimos':>9}")
+    for algo in ALGORITHMS:
+        rows = [r for r in results
+                if r["algorithm"] == algo and r["condition"] == "llm_on"
+                and r.get("opt_gap") is not None]
+        if not rows:
+            print(f"  {algo:<14}  (ningún caso al 100% factible)")
+            continue
+        gaps = [r["opt_gap"] for r in rows]
+        optimal = sum(1 for gp in gaps if gp == 0)
+        print(f"  {algo:<14} {len(rows):>4} {sum(gaps) / len(gaps):>11.1f} "
+              f"{max(gaps):>9.1f} {f'{optimal}/{len(rows)}':>9}")
 
 
 def _print_ablation_deltas(results: list):
