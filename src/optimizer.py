@@ -205,7 +205,7 @@ class PathOptimizer:
             iterations += 1
             best = None
             best_score = -1
-            budget_left = (max_hours - total_hours) if max_hours else None
+            budget_left = (max_hours - total_hours) if max_hours is not None else None
             
             # item 4: recursos en cadena hacia el objetivo; solo estos reciben la
             # señal real del LLM (los demás, 0). Se recalcula porque 'known' crece.
@@ -220,7 +220,10 @@ class PathOptimizer:
                 r = self.graph.get_resource(rid)
                 hours = r["duration_hours"]
 
-                if budget_left and hours > budget_left:
+                # budget_left puede ser 0 exacto (presupuesto agotado): '0' es
+                # falsy, así que el guard antiguo 'if budget_left and ...' dejaba
+                # pasar un recurso que excedía max_hours. Comparar contra None.
+                if budget_left is not None and hours > budget_left:
                     continue
 
                 new_skills = set(r["teaches"]) - known
@@ -312,7 +315,7 @@ class PathOptimizer:
                     r = self.graph.get_resource(rid)
                     new_hours = hours + r["duration_hours"]
 
-                    if max_hours and new_hours > max_hours:
+                    if max_hours is not None and new_hours > max_hours:
                         continue
 
                     new_skills = set(r["teaches"]) - known
@@ -468,7 +471,7 @@ class PathOptimizer:
                 r = self.graph.get_resource(rid)
                 new_hours = hours + r["duration_hours"]
 
-                if max_hours and new_hours > max_hours:
+                if max_hours is not None and new_hours > max_hours:
                     continue
 
                 new_known = known | frozenset(r["teaches"])
