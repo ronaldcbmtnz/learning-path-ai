@@ -2,6 +2,7 @@ import os
 import json
 import time
 import hashlib
+from collections.abc import Callable
 from openai import OpenAI, RateLimitError
 from dotenv import load_dotenv
 
@@ -9,7 +10,7 @@ load_dotenv()
 
 
 class LLMClient:
-    def __init__(self):
+    def __init__(self) -> None:
         self.client = OpenAI(
             api_key=os.getenv("OPENROUTER_API_KEY"),
             base_url="https://openrouter.ai/api/v1"
@@ -20,17 +21,17 @@ class LLMClient:
             "OPENROUTER_MODEL",
             "openai/gpt-oss-120b:free, qwen/qwen3-coder:free"
         )
-        self.model_list = [m.strip() for m in models_str.split(",") if m.strip()]
-        self.model_name = self.model_list[0]  # modelo activo (para logs)
+        self.model_list: list[str] = [m.strip() for m in models_str.split(",") if m.strip()]
+        self.model_name: str = self.model_list[0]  # modelo activo (para logs)
         # Caché para evitar múltiples llamadas a la API con los mismos inputs
-        self._cache = {
+        self._cache: dict[str, dict] = {
             "parse_user_goal": {},
             "score_resources": {},
             "compare_algorithms": {},
             "explain_path": {}
         }
 
-    def _make_cache_key(self, data) -> str:
+    def _make_cache_key(self, data: str | list | dict | set | tuple) -> str:
         """Genera una clave de caché usando hash SHA256 del input."""
         if isinstance(data, (list, dict, set)):
             data = json.dumps(data, sort_keys=True, default=str)
@@ -85,7 +86,7 @@ class LLMClient:
         )
         return response.choices[0].message.content.strip()
 
-    def parse_user_goal(self, user_input: str, available_skills: list) -> dict:
+    def parse_user_goal(self, user_input: str, available_skills: list[str]) -> dict:
         """Extrae habilidades objetivo, previas y límite de horas del input del usuario."""
         fallback = {
             "target_skills": [],
@@ -144,7 +145,7 @@ class LLMClient:
             return fallback
 
     def explain_path(self, path_result: dict, goal_summary: str,
-                     get_resource_fn) -> str:
+                     get_resource_fn: Callable[[str], dict | None]) -> str:
         """Genera una explicación motivadora de la ruta recomendada."""
         fallback = (
             f"Tu ruta de aprendizaje cubre el {path_result['coverage_pct']}% de tu objetivo "
@@ -263,7 +264,8 @@ class LLMClient:
             print("Continuando con recomendación por defecto...")
             return fallback
 
-    def score_resources_for_goal(self, goal_summary: str, resources: list) -> dict:
+    def score_resources_for_goal(self, goal_summary: str,
+                                  resources: list[dict]) -> dict[str, float]:
         """Evalúa la relevancia de cada recurso para el objetivo del usuario."""
         fallback = {r["id"]: 0.5 for r in resources}
 

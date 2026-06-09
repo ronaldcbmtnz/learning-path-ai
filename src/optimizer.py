@@ -4,9 +4,9 @@ from src.graph import ResourceGraph
 
 
 class PathOptimizer:
-    def __init__(self, graph: ResourceGraph, llm_scores: dict = None):
+    def __init__(self, graph: ResourceGraph, llm_scores: dict[str, float] | None = None) -> None:
         self.graph = graph
-        self.llm_scores = llm_scores or {}  # {rid: 0.0-1.0}
+        self.llm_scores: dict[str, float] = llm_scores or {}  # {rid: 0.0-1.0}
 
     def _llm_boost(self, rid: str, contributes: bool = True) -> float:
         """Ajuste de relevancia del LLM como DESVIACIÓN con signo alrededor de 0.5
@@ -25,7 +25,7 @@ class PathOptimizer:
     # ------------------------------------------------------------------
     # Política de puntuación compartida (greedy y beam)
     # ------------------------------------------------------------------
-    def _difficulty_jump_penalty(self, rid: str, selected: list) -> float:
+    def _difficulty_jump_penalty(self, rid: str, selected: list[str]) -> float:
         """
         Penaliza elegir un recurso mucho más difícil que lo visto hasta ahora en
         la ruta parcial 'selected'. Se permite subir un nivel de dificultad sin
@@ -39,7 +39,7 @@ class PathOptimizer:
         return max(0, resource_difficulty - max_difficulty_so_far - 1) * 5
 
     def _score_resource(self, *, future: int, direct: int, hours: float,
-                        rid: str, selected: list, contributes: bool = True) -> float:
+                        rid: str, selected: list[str], contributes: bool = True) -> float:
         """
         Política de puntuación común a greedy y beam_search (mayor = mejor).
 
@@ -64,7 +64,7 @@ class PathOptimizer:
             - self._difficulty_jump_penalty(rid, selected)
         )
 
-    def _get_useful_candidates(self, known: frozenset, target: set) -> set:
+    def _get_useful_candidates(self, known: frozenset[str], target: set[str]) -> set[str]:
         """
         Retorna los recursos que podrían formar parte de una ruta válida hacia el
         objetivo: los que enseñan habilidades objetivo pendientes MÁS, de forma
@@ -97,8 +97,9 @@ class PathOptimizer:
 
         return useful if useful else set(self.graph.resources.keys())
 
-    def _min_hours_to_cover(self, target_skills: set, known_skills: set = None,
-                            max_hours: float = None):
+    def _min_hours_to_cover(self, target_skills: set[str],
+                            known_skills: set[str] | None = None,
+                            max_hours: float | None = None) -> float | None:
         """
         Mínimo EXACTO de horas para cubrir target_skills, vía búsqueda de costo
         uniforme (Dijkstra) sobre el espacio de estados = conjunto de habilidades
@@ -137,7 +138,7 @@ class PathOptimizer:
                     heapq.heappush(heap, (new_cost, next(counter), new_known))
         return None
 
-    def _get_skills_from_resources(self, resource_ids: list) -> set:
+    def _get_skills_from_resources(self, resource_ids: list[str]) -> set[str]:
         skills = set()
         for rid in resource_ids:
             r = self.graph.get_resource(rid)
@@ -145,19 +146,19 @@ class PathOptimizer:
                 skills.update(r["teaches"])
         return skills
 
-    def _can_unlock(self, rid: str, current_skills: set) -> bool:
+    def _can_unlock(self, rid: str, current_skills: set[str]) -> bool:
         r = self.graph.get_resource(rid)
         return set(r["requires"]).issubset(current_skills)
 
-    def _get_max_difficulty(self, selected: list) -> int:
+    def _get_max_difficulty(self, selected: list[str]) -> int:
         """Retorna la dificultad máxima alcanzada en el path actual.
         Si el path está vacío, inicia en 1 para no penalizar recursos básicos."""
         if not selected:
             return 1
         return max(self.graph.get_resource(rid).get("difficulty", 1) for rid in selected)
 
-    def _forward_coverage(self, known: set, selected: set,
-                          target: set, max_hours: float,
+    def _forward_coverage(self, known: set[str], selected: set[str],
+                          target: set[str], max_hours: float | None,
                           hours_used: float) -> int:
         sim_known = known.copy()
         sim_hours = hours_used
@@ -183,8 +184,8 @@ class PathOptimizer:
     # ------------------------------------------------------------------
     # Algoritmo 1: Greedy con lookahead
     # ------------------------------------------------------------------
-    def greedy(self, target_skills: set, known_skills: set = None,
-               max_hours: float = None) -> dict:
+    def greedy(self, target_skills: set[str], known_skills: set[str] | None = None,
+               max_hours: float | None = None) -> dict:
 
         known = set(known_skills) if known_skills else set()
         remaining = set(target_skills) - known
@@ -287,8 +288,8 @@ class PathOptimizer:
     # ------------------------------------------------------------------
     # Algoritmo 2: Beam Search con forward simulation
     # ------------------------------------------------------------------
-    def beam_search(self, target_skills: set, known_skills: set = None,
-                    max_hours: float = None, beam_width: int = 4) -> dict:
+    def beam_search(self, target_skills: set[str], known_skills: set[str] | None = None,
+                    max_hours: float | None = None, beam_width: int = 4) -> dict:
 
         known_base = set(known_skills) if known_skills else set()
         all_candidates = list(self.graph.resources.keys())
@@ -405,8 +406,8 @@ class PathOptimizer:
     # Cualquier término extra rompería la admisibilidad (era el bug de la versión
     # anterior). Coincide con el hallazgo experimental de que el LLM no aporta a A*.
     # ------------------------------------------------------------------
-    def astar(self, target_skills: set, known_skills: set = None,
-              max_hours: float = None) -> dict:
+    def astar(self, target_skills: set[str], known_skills: set[str] | None = None,
+              max_hours: float | None = None) -> dict:
 
         known_base = frozenset(known_skills) if known_skills else frozenset()
         all_candidates_list = list(self.graph.resources.keys())
@@ -509,8 +510,9 @@ class PathOptimizer:
             "coverage_pct": round(coverage * 100, 1)
         }
 
-    def check_feasibility(self, target_skills: set, known_skills: set = None,
-                      max_hours: float = None) -> dict:
+    def check_feasibility(self, target_skills: set[str],
+                          known_skills: set[str] | None = None,
+                          max_hours: float | None = None) -> dict:
         """
         Analiza si el objetivo es alcanzable antes de optimizar.
         Retorna un dict con: is_feasible, unreachable_skills, min_hours_needed,
@@ -564,8 +566,8 @@ class PathOptimizer:
             "message": " ".join(messages)
         }
 
-    def compare(self, target_skills: set, known_skills: set = None,
-                max_hours: float = None) -> dict:
+    def compare(self, target_skills: set[str], known_skills: set[str] | None = None,
+                max_hours: float | None = None) -> dict:
         """
         Compara los tres algoritmos:
         - beam_width se calcula dinámicamente: max(3, min(6, |target_skills|))

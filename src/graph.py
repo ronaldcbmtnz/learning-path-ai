@@ -3,21 +3,21 @@ from pathlib import Path
 
 
 class ResourceGraph:
-    def __init__(self, data_path: str = "data/resources.json"):
-        self.resources = {}
-        self.adjacency = {}
+    def __init__(self, data_path: str = "data/resources.json") -> None:
+        self.resources: dict[str, dict] = {}
+        self.adjacency: dict[str, set[str]] = {}
         self._load(data_path)
         self._build_graph()
 
-    def _load(self, path: str):
+    def _load(self, path: str) -> None:
         with open(Path(path), "r", encoding="utf-8") as f:
             data = json.load(f)
         for r in data["resources"]:
             self.resources[r["id"]] = r
 
-    def _build_graph(self):
+    def _build_graph(self) -> None:
         # Mapeo: habilidad → recursos que la enseñan
-        skill_providers = {}
+        skill_providers: dict[str, list[str]] = {}
         for rid, r in self.resources.items():
             for skill in r["teaches"]:
                 skill_providers.setdefault(skill, []).append(rid)
@@ -29,7 +29,7 @@ class ResourceGraph:
                 for provider in skill_providers.get(skill, []):
                     if provider != rid:
                         self.adjacency[rid].add(provider)
-        
+
         # Validar que no hay ciclos en el grafo
         cycles = self.detect_cycles()
         if cycles:
@@ -38,16 +38,16 @@ class ResourceGraph:
                 "Revisa la estructura de prerequisitos en resources.json"
             )
 
-    def get_resource(self, rid: str) -> dict:
+    def get_resource(self, rid: str) -> dict | None:
         return self.resources.get(rid)
 
-    def get_prerequisites(self, rid: str) -> set:
+    def get_prerequisites(self, rid: str) -> set[str]:
         return self.adjacency.get(rid, set())
 
-    def get_all_prerequisites(self, rid: str) -> set:
+    def get_all_prerequisites(self, rid: str) -> set[str]:
         """Obtiene TODOS los prerequisitos transitivos de un recurso."""
-        visited = set()
-        stack = list(self.adjacency.get(rid, set()))
+        visited: set[str] = set()
+        stack: list[str] = list(self.adjacency.get(rid, set()))
         while stack:
             current = stack.pop()
             if current not in visited:
@@ -55,20 +55,20 @@ class ResourceGraph:
                 stack.extend(self.adjacency.get(current, set()))
         return visited
 
-    def get_resources_teaching(self, skill: str) -> list:
+    def get_resources_teaching(self, skill: str) -> list[dict]:
         """Retorna todos los recursos que enseñan una habilidad dada."""
         return [
             r for r in self.resources.values()
             if skill in r["teaches"]
         ]
 
-    def topological_sort(self, resource_ids: list) -> list:
+    def topological_sort(self, resource_ids: list[str]) -> list[str]:
         """Ordena una lista de recursos respetando sus dependencias."""
         ids = set(resource_ids)
-        visited = set()
-        result = []
+        visited: set[str] = set()
+        result: list[str] = []
 
-        def visit(rid):
+        def visit(rid: str) -> None:
             if rid in visited:
                 return
             visited.add(rid)
@@ -82,16 +82,16 @@ class ResourceGraph:
 
         return result
 
-    def detect_cycles(self) -> list:
+    def detect_cycles(self) -> list[list[str]]:
         """
         Detecta ciclos en el grafo de dependencias usando DFS.
         Retorna lista de ciclos encontrados, vacía si no hay ciclos.
         """
-        visited = set()
-        rec_stack = set()
-        cycles = []
+        visited: set[str] = set()
+        rec_stack: set[str] = set()
+        cycles: list[list[str]] = []
 
-        def dfs(node, path):
+        def dfs(node: str, path: list[str]) -> None:
             visited.add(node)
             rec_stack.add(node)
             path.append(node)
@@ -113,7 +113,7 @@ class ResourceGraph:
 
         return cycles
 
-    def summary(self):
+    def summary(self) -> None:
         print(f"Recursos cargados : {len(self.resources)}")
         print(f"Relaciones totales: {sum(len(v) for v in self.adjacency.values())}")
         print()

@@ -3,7 +3,7 @@ from src.optimizer import PathOptimizer
 from src.llm_client import LLMClient
 
 
-def print_path(result: dict, graph: ResourceGraph):
+def print_path(result: dict, graph: ResourceGraph) -> None:
     algo_labels = {
         "greedy": "GREEDY",
         "beam_search": "BEAM SEARCH",
@@ -20,7 +20,7 @@ def print_path(result: dict, graph: ResourceGraph):
         print(f"\n  Habilidades no cubiertas: {', '.join(result['skills_missing'])}")
 
 
-def run():
+def run() -> None:
     print("=" * 60)
     print("   GENERADOR DE RUTAS DE APRENDIZAJE CON IA")
     print("=" * 60)
