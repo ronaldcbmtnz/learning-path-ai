@@ -218,5 +218,7 @@ __marimo__/
 .streamlit/secrets.toml
 
 
+# Documentos de handoff internos (no van al repo público)
 CLAUDE.md
 claude.md
+HANDOFF.md
