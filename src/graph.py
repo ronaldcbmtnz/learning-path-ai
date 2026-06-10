@@ -62,6 +62,18 @@ class ResourceGraph:
             if skill in r["teaches"]
         ]
 
+    def skills_by_domain(self) -> dict[str, list[str]]:
+        """Agrupa las habilidades enseñadas por dominio (clave 'domain').
+
+        Capa de datos para la acotación de dominio: el banner del catálogo (CLI y
+        futura UI) deriva de aquí qué áreas cubre el sistema, sin nada hardcodeado.
+        Las skills de cada dominio se devuelven ordenadas y sin duplicados.
+        """
+        grouped: dict[str, set[str]] = {}
+        for r in self.resources.values():
+            grouped.setdefault(r["domain"], set()).update(r["teaches"])
+        return {d: sorted(skills) for d, skills in grouped.items()}
+
     def topological_sort(self, resource_ids: list[str]) -> list[str]:
         """Ordena una lista de recursos respetando sus dependencias."""
         ids = set(resource_ids)

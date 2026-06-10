@@ -197,7 +197,8 @@ def _print_per_case_overview(results: list):
 def _print_ablation_summary(results: list):
     """RQ1: impacto agregado del LLM por algoritmo (todas las instancias)."""
     print("\n" + "=" * 80)
-    print("RQ1 — ABLATION: IMPACTO DEL LLM (promedio sobre las 14 instancias)")
+    n_cases = len(set(r["id"] for r in results))
+    print(f"RQ1 — ABLATION: IMPACTO DEL LLM (promedio sobre las {n_cases} instancias)")
     print("=" * 80)
     print(f"{'Algoritmo':<14} {'Cond':<9} {'Cob%':>7} {'Horas':>7} "
           f"{'Efic':>7} {'100%':>7} {'t(ms)':>8}")

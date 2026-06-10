@@ -1,6 +1,7 @@
 from src.graph import ResourceGraph
 from src.optimizer import PathOptimizer
 from src.llm_client import LLMClient
+from src import domain
 
 
 def print_path(result: dict, graph: ResourceGraph) -> None:
@@ -27,6 +28,10 @@ def run() -> None:
 
     graph = ResourceGraph()
     llm = LLMClient()                          # 1. llm primero
+
+    # Acotación de dominio: el sistema es mono-dominio (tecnología). Mostrar el
+    # alcance por adelantado evita que el usuario pida "a ciegas".
+    print("\n" + domain.catalog_banner(graph))
 
     print("\nEscribe tu objetivo de aprendizaje en tus propias palabras.")
     print("Ejemplo: 'quiero aprender machine learning, se python basico y tengo 50 horas'\n")
@@ -55,7 +60,10 @@ def run() -> None:
     max_hours = parsed["max_hours"]
 
     if not target_skills:
-        print("\nNo se detectaron habilidades objetivo. Intenta ser más específico.")
+        # Fuera de alcance: el LLM no pudo mapear el objetivo a ninguna habilidad
+        # del catálogo (petición de otro dominio o demasiado vaga). No se generan
+        # recursos; se explica el alcance.
+        print("\n" + domain.out_of_scope_message(graph))
         return
 
     
@@ -76,11 +84,13 @@ def run() -> None:
     print(f"\n  {feasibility['message']}")
 
     if feasibility["unreachable_skills"]:
-        print(f"  Habilidades inalcanzables ignoradas: {', '.join(feasibility['unreachable_skills'])}")
+        print(f"  Habilidades fuera del catálogo ignoradas: {', '.join(feasibility['unreachable_skills'])}")
         # Continuar solo con las habilidades alcanzables
         target_skills = set(feasibility["reachable_skills"])
         if not target_skills:
-            print("\nNinguna habilidad objetivo es alcanzable con los recursos disponibles.")
+            # Todo el objetivo cayó fuera del catálogo: explicar el alcance en vez
+            # de generar recursos sintéticos (fallback generativo descartado).
+            print("\n" + domain.out_of_scope_message(graph))
             return
 
     if not feasibility["is_feasible"] and max_hours:

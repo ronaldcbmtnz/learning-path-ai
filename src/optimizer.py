@@ -109,10 +109,24 @@ class PathOptimizer:
         Devuelve el mínimo de horas, o None si no se puede cubrir (dentro de
         max_hours, si se especifica). Se usa para la verificación de factibilidad,
         donde necesitamos un límite inferior fiable y no la heurística del A*.
+
+        Poda al subgrafo ÚTIL: solo se expanden recursos que enseñan una skill
+        objetivo o un prerequisito (transitivo) de éstos (``_get_useful_candidates``,
+        la misma poda que usa A*). Sin ella, la UCS itera sobre TODO el catálogo en
+        cada estado y el espacio de skill-subsets EXPLOTA de forma combinatoria al
+        crecer el dataset: recursos irrelevantes al objetivo (web, devops, ...) se
+        añaden en todos los órdenes posibles. Excluirlos NO altera el óptimo —solo
+        sumarían horas sin cubrir ni desbloquear nada del objetivo—, así que el
+        mínimo devuelto es idéntico, pero la búsqueda pasa de intratable a inmediata.
+        El conjunto útil se calcula una vez con ``known_base`` (el known más pequeño),
+        lo que da el superconjunto válido para toda la búsqueda (al crecer ``known``
+        el conjunto necesario solo se reduce).
         """
         known_base = frozenset(known_skills) if known_skills else frozenset()
         if target_skills.issubset(known_base):
             return 0.0
+
+        useful = self._get_useful_candidates(known_base, set(target_skills))
 
         counter = itertools.count()  # desempate para no comparar frozensets en el heap
         heap = [(0.0, next(counter), known_base)]
@@ -124,7 +138,8 @@ class PathOptimizer:
                 continue
             if target_skills.issubset(known):
                 return cost
-            for rid, r in self.graph.resources.items():
+            for rid in useful:
+                r = self.graph.resources[rid]
                 if not set(r["requires"]).issubset(known):
                     continue
                 new_known = known | frozenset(r["teaches"])

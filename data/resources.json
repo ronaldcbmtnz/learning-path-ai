@@ -199,6 +199,286 @@
       "difficulty": 2,
       "teaches": ["cloud_basico", "storage", "compute"],
       "requires": ["python_basico", "apis_rest"]
+    },
+    {
+      "id": "r21",
+      "name": "HTML y CSS desde cero",
+      "type": "curso",
+      "domain": "web",
+      "duration_hours": 6,
+      "difficulty": 1,
+      "teaches": ["html", "css", "diseno_responsive"],
+      "requires": []
+    },
+    {
+      "id": "r22",
+      "name": "JavaScript moderno",
+      "type": "curso",
+      "domain": "web",
+      "duration_hours": 10,
+      "difficulty": 2,
+      "teaches": ["javascript", "dom", "async_js"],
+      "requires": ["logica_programacion"]
+    },
+    {
+      "id": "r23",
+      "name": "Frontend con React",
+      "type": "curso",
+      "domain": "web",
+      "duration_hours": 12,
+      "difficulty": 2,
+      "teaches": ["react", "componentes", "hooks"],
+      "requires": ["javascript", "html", "css"]
+    },
+    {
+      "id": "r24",
+      "name": "Backend web con FastAPI",
+      "type": "curso",
+      "domain": "web",
+      "duration_hours": 10,
+      "difficulty": 2,
+      "teaches": ["fastapi", "rutas_web", "orm"],
+      "requires": ["python_basico", "apis_rest", "poo"]
+    },
+    {
+      "id": "r25",
+      "name": "Testing y calidad de software",
+      "type": "curso",
+      "domain": "programacion",
+      "duration_hours": 6,
+      "difficulty": 2,
+      "teaches": ["testing", "pruebas_unitarias", "tdd"],
+      "requires": ["poo"]
+    },
+    {
+      "id": "r26",
+      "name": "Linux y línea de comandos",
+      "type": "video",
+      "domain": "devops",
+      "duration_hours": 5,
+      "difficulty": 1,
+      "teaches": ["linux", "bash", "shell_scripting"],
+      "requires": []
+    },
+    {
+      "id": "r27",
+      "name": "CI/CD con GitHub Actions",
+      "type": "curso",
+      "domain": "devops",
+      "duration_hours": 6,
+      "difficulty": 2,
+      "teaches": ["ci_cd", "pipelines_devops", "automatizacion"],
+      "requires": ["git", "testing"]
+    },
+    {
+      "id": "r28",
+      "name": "Docker en profundidad",
+      "type": "curso",
+      "domain": "devops",
+      "duration_hours": 7,
+      "difficulty": 2,
+      "teaches": ["contenedores", "dockerfiles", "docker_compose"],
+      "requires": ["linux"]
+    },
+    {
+      "id": "r29",
+      "name": "Kubernetes para desarrolladores",
+      "type": "curso",
+      "domain": "devops",
+      "duration_hours": 14,
+      "difficulty": 3,
+      "teaches": ["kubernetes", "orquestacion_contenedores", "helm"],
+      "requires": ["contenedores", "cloud_basico"]
+    },
+    {
+      "id": "r30",
+      "name": "Infraestructura como código con Terraform",
+      "type": "curso",
+      "domain": "devops",
+      "duration_hours": 8,
+      "difficulty": 3,
+      "teaches": ["terraform", "iac", "provisioning"],
+      "requires": ["cloud_basico", "linux"]
+    },
+    {
+      "id": "r31",
+      "name": "Observabilidad y monitoreo",
+      "type": "curso",
+      "domain": "devops",
+      "duration_hours": 6,
+      "difficulty": 2,
+      "teaches": ["monitoreo", "logging", "metricas"],
+      "requires": ["contenedores"]
+    },
+    {
+      "id": "r32",
+      "name": "ETL y pipelines de datos",
+      "type": "curso",
+      "domain": "datos",
+      "duration_hours": 9,
+      "difficulty": 2,
+      "teaches": ["etl", "pipelines_datos", "ingesta_datos"],
+      "requires": ["python_basico", "sql"]
+    },
+    {
+      "id": "r33",
+      "name": "Data Warehousing y modelado dimensional",
+      "type": "curso",
+      "domain": "datos",
+      "duration_hours": 8,
+      "difficulty": 2,
+      "teaches": ["data_warehouse", "modelado_dimensional", "olap"],
+      "requires": ["sql", "etl"]
+    },
+    {
+      "id": "r34",
+      "name": "Big Data con Spark",
+      "type": "curso",
+      "domain": "datos",
+      "duration_hours": 15,
+      "difficulty": 3,
+      "teaches": ["spark", "big_data", "procesamiento_distribuido"],
+      "requires": ["python_basico", "etl"]
+    },
+    {
+      "id": "r35",
+      "name": "Orquestación de datos con Airflow",
+      "type": "curso",
+      "domain": "datos",
+      "duration_hours": 7,
+      "difficulty": 2,
+      "teaches": ["airflow", "orquestacion_datos", "scheduling"],
+      "requires": ["etl", "python_basico"]
+    },
+    {
+      "id": "r36",
+      "name": "Calidad y gobernanza de datos",
+      "type": "libro",
+      "domain": "datos",
+      "duration_hours": 5,
+      "difficulty": 2,
+      "teaches": ["calidad_datos", "data_governance", "validacion_datos"],
+      "requires": ["etl"]
+    },
+    {
+      "id": "r37",
+      "name": "Árboles de decisión y Random Forest",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 8,
+      "difficulty": 2,
+      "teaches": ["arboles_decision", "random_forest", "bagging"],
+      "requires": ["ml_supervisado"]
+    },
+    {
+      "id": "r38",
+      "name": "Máquinas de soporte vectorial (SVM)",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 7,
+      "difficulty": 3,
+      "teaches": ["svm", "kernels", "margen_maximo"],
+      "requires": ["ml_supervisado", "algebra_lineal"]
+    },
+    {
+      "id": "r39",
+      "name": "Clustering y reducción de dimensionalidad",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 9,
+      "difficulty": 3,
+      "teaches": ["clustering", "kmeans", "pca"],
+      "requires": ["ml_no_supervisado", "algebra_lineal"]
+    },
+    {
+      "id": "r40",
+      "name": "Series temporales y forecasting",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 10,
+      "difficulty": 3,
+      "teaches": ["series_temporales", "forecasting", "arima"],
+      "requires": ["estadistica", "pandas"]
+    },
+    {
+      "id": "r41",
+      "name": "Optimización de hiperparámetros",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 6,
+      "difficulty": 2,
+      "teaches": ["tuning_hiperparametros", "validacion_cruzada", "grid_search"],
+      "requires": ["ml_supervisado", "evaluacion_modelos"]
+    },
+    {
+      "id": "r42",
+      "name": "Transformers y mecanismos de atención",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 16,
+      "difficulty": 3,
+      "teaches": ["atencion", "arquitectura_transformer", "fine_tuning"],
+      "requires": ["transformers", "redes_neuronales"]
+    },
+    {
+      "id": "r43",
+      "name": "Grandes modelos de lenguaje (LLMs)",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 14,
+      "difficulty": 3,
+      "teaches": ["llms", "prompt_engineering", "generacion_texto"],
+      "requires": ["arquitectura_transformer"]
+    },
+    {
+      "id": "r44",
+      "name": "Sistemas RAG y bases vectoriales",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 12,
+      "difficulty": 3,
+      "teaches": ["rag", "bases_vectoriales", "recuperacion_aumentada"],
+      "requires": ["llms", "embeddings"]
+    },
+    {
+      "id": "r45",
+      "name": "Despliegue y monitoreo de modelos en producción",
+      "type": "curso",
+      "domain": "ml",
+      "duration_hours": 10,
+      "difficulty": 3,
+      "teaches": ["despliegue_modelos", "model_serving", "drift_monitoring"],
+      "requires": ["mlops", "contenedores"]
+    },
+    {
+      "id": "r46",
+      "name": "Cálculo multivariable",
+      "type": "libro",
+      "domain": "matematicas",
+      "duration_hours": 8,
+      "difficulty": 2,
+      "teaches": ["calculo_multivariable", "gradientes", "derivadas_parciales"],
+      "requires": ["calculo"]
+    },
+    {
+      "id": "r47",
+      "name": "Optimización matemática",
+      "type": "curso",
+      "domain": "matematicas",
+      "duration_hours": 9,
+      "difficulty": 3,
+      "teaches": ["optimizacion", "descenso_gradiente", "optimizacion_convexa"],
+      "requires": ["calculo_multivariable", "algebra_lineal"]
+    },
+    {
+      "id": "r48",
+      "name": "Inferencia bayesiana",
+      "type": "libro",
+      "domain": "matematicas",
+      "duration_hours": 10,
+      "difficulty": 3,
+      "teaches": ["inferencia_bayesiana", "teorema_bayes", "mcmc"],
+      "requires": ["probabilidad", "estadistica"]
     }
   ]
 }

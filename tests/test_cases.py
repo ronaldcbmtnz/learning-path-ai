@@ -104,4 +104,40 @@ TEST_CASES = [
         "known_skills": {"ml_supervisado"},
         "max_hours": 56,
     },
+    # --- Fase 4: casos in-domain sobre las cadenas nuevas del catálogo ampliado ---
+    {
+        "id": "TC15",
+        "profile": "Aspirante a desarrollador web full-stack desde cero",
+        "target_skills": {"react", "fastapi", "testing"},
+        "known_skills": set(),
+        "max_hours": 80,  # min 69h -> factible; cadena profunda (js<-logica, react<-js+html+css)
+    },
+    {
+        "id": "TC16",
+        "profile": "Desarrollador que quiere dar el salto a DevOps/Cloud",
+        "target_skills": {"kubernetes", "ci_cd", "terraform"},
+        "known_skills": {"git"},
+        "max_hours": 90,  # min 76h -> factible; k8s<-contenedores<-linux, ci_cd<-testing
+    },
+    {
+        "id": "TC17",
+        "profile": "ML engineer que quiere especializarse en LLMs y sistemas RAG",
+        "target_skills": {"llms", "rag", "fine_tuning"},
+        "known_skills": {"python_basico", "ml_supervisado"},
+        "max_hours": 110,  # min 102h -> factible; cadena MUY profunda (rag<-llms<-transformer<-redes)
+    },
+    {
+        "id": "TC18",
+        "profile": "Analista que quiere convertirse en ingeniero de datos",
+        "target_skills": {"spark", "data_warehouse", "airflow"},
+        "known_skills": {"python_basico", "sql"},
+        "max_hours": 45,  # min 39h -> factible; todo cuelga de etl
+    },
+    {
+        "id": "TC19",
+        "profile": "Data scientist que quiere dominar ML clásico con presupuesto justo",
+        "target_skills": {"random_forest", "svm", "clustering", "series_temporales"},
+        "known_skills": {"python_basico", "estadistica"},
+        "max_hours": 90,  # min 96h -> INFACTIBLE por presupuesto (mejor parcial)
+    },
 ]
