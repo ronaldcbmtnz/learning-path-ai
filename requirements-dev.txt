@@ -1,0 +1,4 @@
+# Dependencias de desarrollo/tests (además de las de runtime).
+# Instalar:  python -m pip install -r requirements-dev.txt
+-r requirements.txt
+pytest==9.0.3           # suite de invariantes (tests/test_invariants.py)

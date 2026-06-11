@@ -1,0 +1,5 @@
+# Dependencias de runtime (gasto cero: LLM vía modelos free-tier de OpenRouter).
+# Instalar:  python -m pip install -r requirements.txt
+openai==2.41.0          # SDK compatible con OpenRouter (LLMClient)
+python-dotenv==1.2.2    # carga OPENROUTER_API_KEY desde .env
+streamlit==1.58.0       # UI (app.py); el CLI (src/main.py) no la necesita
