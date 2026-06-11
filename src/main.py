@@ -66,6 +66,13 @@ def run() -> None:
         print("\n" + domain.out_of_scope_message(graph))
         return
 
+    if target_skills.issubset(known_skills):
+        # Ya sabes todo lo que pides: no hay ruta que construir.
+        print("\nYa dominas todo lo que pediste aprender "
+              f"({', '.join(sorted(target_skills))}). No hace falta construir una "
+              "ruta. Si quieres ir mas alla, anade habilidades nuevas a tu objetivo.")
+        return
+
     
     # 3. Ahora sí: evaluar relevancia con LLM y crear optimizer
     print("\nEvaluando relevancia de recursos con IA...")

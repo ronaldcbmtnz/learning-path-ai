@@ -184,6 +184,13 @@ def render_results(req_mode: str) -> None:
     c2.markdown(f"**Ya sabes**\n\n{', '.join(sorted(known)) or '_nada aún_'}")
     c3.markdown(f"**Horas**\n\n{max_hours if max_hours is not None else 'sin límite'}")
 
+    # --- Caso borde: ya sabes todo lo que pides (target ⊆ known) ---
+    # No hay nada nuevo que aprender: cortar antes de optimizar/llamar al LLM.
+    if not (target - known):
+        st.write("")
+        st.markdown(ui.already_known_card(sorted(target)), unsafe_allow_html=True)
+        return
+
     # --- Factibilidad ---
     feas = PathOptimizer(graph, {}).check_feasibility(target, known, max_hours)
     feas_label = classify(feas)

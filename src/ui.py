@@ -217,6 +217,28 @@ def section_header(title: str, icon: str = "") -> str:
     return f'<div class="section-h"><span class="bar"></span>{icon} {title}</div>'
 
 
+def already_known_card(skills: list[str]) -> str:
+    """Caso borde: el objetivo ya está cubierto por lo que el usuario sabe
+    (target ⊆ known). No hay ruta que construir; se felicita y se sugiere ampliar."""
+    chips = "".join(f'<span class="dchip">{s}</span>' for s in skills)
+    return f"""
+<div class="card" style="border:1px solid {GREEN}55;
+     background:linear-gradient(160deg, {GREEN}14, rgba(255,255,255,0.03));">
+  <div style="font-family:'Space Grotesk'; font-size:1.35rem; font-weight:700; color:{GREEN};">
+     🎉 ¡Ya dominas lo que pediste!
+  </div>
+  <p style="color:{TEXT}; margin:10px 0 6px;">
+     Las habilidades de tu objetivo ya están entre las que dices conocer, así que
+     <b>no hace falta construir una ruta</b>: no hay nada nuevo que aprender aquí.
+  </p>
+  <div style="margin:6px 0 10px;">{chips}</div>
+  <p class="muted" style="margin:0;">¿Quieres ir más allá? Añade habilidades
+     <i>nuevas</i> a tu objetivo (p. ej. un nivel más avanzado o un área distinta)
+     y vuelve a generar la ruta.</p>
+</div>
+"""
+
+
 def feasibility_badge(feas_label: str, message: str) -> str:
     meta = FEAS_META.get(feas_label, FEAS_META["infactible_catalogo"])
     c = meta["color"]
