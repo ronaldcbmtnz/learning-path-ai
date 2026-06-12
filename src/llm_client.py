@@ -1,6 +1,7 @@
 import os
 import json
 import time
+import difflib
 import hashlib
 from collections.abc import Callable
 from openai import OpenAI, RateLimitError
@@ -86,6 +87,31 @@ class LLMClient:
         )
         return response.choices[0].message.content.strip()
 
+    @staticmethod
+    def _snap_skills(skills: list, available_skills: list[str]) -> list[str]:
+        """Sanea las skills que devuelve el LLM contra el catálogo real.
+
+        El LLM free-tier a veces devuelve un nombre *casi* correcto que no está en
+        la lista permitida (p.ej. `api_rest` por `apis_rest`, singular/plural). Sin
+        este saneo, `check_feasibility` lo marca como "fuera del catálogo" pese a
+        existir el recurso. Estrategia: exacto -> se mantiene; si no, se "ajusta" al
+        más parecido del catálogo (difflib, umbral alto); si no hay parecido (skill
+        de otro dominio), se descarta. Preserva el orden y elimina duplicados.
+        """
+        out: list[str] = []
+        for s in skills:
+            if not isinstance(s, str):
+                continue
+            if s in available_skills:
+                out.append(s)
+                continue
+            match = difflib.get_close_matches(s, available_skills, n=1, cutoff=0.8)
+            if match:
+                out.append(match[0])
+            # sin match cercano -> se descarta (fuera de dominio)
+        seen: set[str] = set()
+        return [s for s in out if not (s in seen or seen.add(s))]
+
     def parse_user_goal(self, user_input: str, available_skills: list[str]) -> dict:
         """Extrae habilidades objetivo, previas y límite de horas del input del usuario."""
         fallback = {
@@ -131,6 +157,11 @@ class LLMClient:
             for key in ["target_skills", "known_skills", "max_hours", "goal_summary"]:
                 if key not in result:
                     result[key] = fallback[key]
+
+            # Sanear las skills contra el catálogo real (corrige near-misses del LLM
+            # como api_rest -> apis_rest; descarta lo que sea de otro dominio).
+            result["target_skills"] = self._snap_skills(result["target_skills"], available_skills)
+            result["known_skills"] = self._snap_skills(result["known_skills"], available_skills)
 
             self._cache["parse_user_goal"][cache_key] = result
             return result

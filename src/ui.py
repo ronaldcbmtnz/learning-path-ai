@@ -86,9 +86,15 @@ def css() -> str:
 html, body, [class*="css"] {{ font-family: 'Inter', system-ui, sans-serif; }}
 h1, h2, h3, h4 {{ font-family: 'Space Grotesk', sans-serif !important; letter-spacing: -0.5px; }}
 
-/* Ocultar chrome por defecto de Streamlit */
-#MainMenu, header[data-testid="stHeader"], footer {{ visibility: hidden; }}
-[data-testid="stHeader"] {{ height: 0; }}
+/* Ocultar chrome por defecto, PERO conservar el control para reabrir el sidebar.
+   El botón de expandir (stExpandSidebarButton) vive DENTRO del toolbar que
+   ocultamos; visibility se revierte en el hijo para mostrar solo ese botón. */
+#MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {{ visibility: hidden; }}
+header[data-testid="stHeader"] {{ background: transparent; }}
+[data-testid="stExpandSidebarButton"],
+[data-testid="stSidebarCollapsedControl"], [data-testid="collapsedControl"] {{
+  visibility: visible !important; z-index: 1000;
+}}
 .block-container {{ padding-top: 2.2rem; padding-bottom: 4rem; max-width: 1180px; }}
 
 /* ---------- Hero ---------- */
