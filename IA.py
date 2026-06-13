@@ -149,23 +149,37 @@ with tab_ctrl:
                         use_container_width=True, key="go_ctrl")
 
 
-# Registrar la petición al pulsar generar (la fuente de input según la pestaña)
+# Al pulsar generar, CONGELAR los inputs actuales en una instantánea. La ruta solo
+# se (re)genera con el click: Streamlit re-ejecuta el script en cada cambio de widget,
+# pero render_results lee de esta instantánea, no de los widgets en vivo, así que
+# editar el texto o los controles después NO dispara una ruta nueva.
 if go_nl:
-    st.session_state["request"] = {"mode": "nl"}
+    st.session_state["request"] = {
+        "mode": "nl",
+        "nl_input": st.session_state.get("nl_input", ""),
+        "sel_target": [], "sel_known": [], "sel_hours": None,
+    }
 elif go_ctrl:
-    st.session_state["request"] = {"mode": "ctrl"}
+    st.session_state["request"] = {
+        "mode": "ctrl",
+        "nl_input": "",
+        "sel_target": list(st.session_state.get("sel_target", [])),
+        "sel_known": list(st.session_state.get("sel_known", [])),
+        "sel_hours": st.session_state.get("sel_hours", None),
+    }
 
 
 # ----------------------------------------------------------------------
 # Resultados
 # ----------------------------------------------------------------------
-def render_results(req_mode: str) -> None:
+def render_results(req: dict) -> None:
+    # Lee de la instantánea congelada al pulsar generar, NO de los widgets en vivo.
     goal = resolve_goal(
-        req_mode,
-        st.session_state.get("nl_input", ""),
-        st.session_state.get("sel_target", []),
-        st.session_state.get("sel_known", []),
-        st.session_state.get("sel_hours", None),
+        req["mode"],
+        req.get("nl_input", ""),
+        req.get("sel_target", []),
+        req.get("sel_known", []),
+        req.get("sel_hours", None),
     )
 
     # --- Fuera de alcance / sin objetivo mapeable ---
@@ -307,7 +321,7 @@ def render_results(req_mode: str) -> None:
 
 if "request" in st.session_state:
     st.write("")
-    render_results(st.session_state["request"]["mode"])
+    render_results(st.session_state["request"])
 else:
     st.write("")
     st.markdown('<p class="muted">⬆️ Describe tu objetivo o usa los controles, y '
