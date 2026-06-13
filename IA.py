@@ -7,12 +7,15 @@ Capa de PRESENTACIÓN: orquesta el mismo backend que el CLI (`ResourceGraph`,
 
 Ejecutar:  streamlit run IA.py
 """
+import json
+
 import streamlit as st
 
 from src.graph import ResourceGraph
 from src.optimizer import PathOptimizer
 from src.llm_client import LLMClient
 from src import domain, ui
+from tests.test_cases import TEST_CASES
 
 st.set_page_config(
     page_title="Rutas de Aprendizaje · IA",
@@ -118,7 +121,73 @@ def _set_example(text: str) -> None:
     st.session_state["nl_input"] = text
 
 
-tab_nl, tab_ctrl = st.tabs(["💬  Lenguaje natural", "🎛️  Controles precisos"])
+BENCH_ALGOS = ["greedy", "beam_search", "a_star"]
+ALGO_NAMES = {"greedy": "Greedy", "beam_search": "Beam Search", "a_star": "A*"}
+FEAS_ICON = {"factible": "✅ factible",
+             "infactible_presupuesto": "🟠 presupuesto",
+             "infactible_catalogo": "🔴 catálogo"}
+
+
+@st.cache_data(show_spinner=False)
+def _load_score_snapshot() -> dict | None:
+    """Scores reales del LLM congelados a disco (data/llm_scores_snapshot.json).
+    Permiten la condición ON sin llamar al LLM -> banco de pruebas reproducible."""
+    try:
+        with open("data/llm_scores_snapshot.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
+
+
+def _run_benchmark(snapshot: dict | None) -> list[dict]:
+    """Corre los 19 casos × 3 algoritmos en ON (scores del snapshot) y OFF (sin
+    señal). Reutiliza PathOptimizer; CERO llamadas nuevas al LLM (reproducible).
+    Es el experimento de tests/evaluator.py llevado a la UI."""
+    graph = get_graph()
+    rows: list[dict] = []
+    for tc in TEST_CASES:
+        feas = PathOptimizer(graph, {}).check_feasibility(
+            tc["target_skills"], tc["known_skills"], tc["max_hours"])
+        if feas["unreachable_skills"]:
+            label = "infactible_catalogo"
+        elif not feas["is_feasible"]:
+            label = "infactible_presupuesto"
+        else:
+            label = "factible"
+        min_hours = feas["min_hours_needed"]
+        scores_on = (snapshot or {}).get(tc["id"], {}).get("scores", {})
+        opts = {"on": PathOptimizer(graph, scores_on),
+                "off": PathOptimizer(graph, {})}
+        bw = max(3, min(6, len(tc["target_skills"])))
+        for cond, opt in opts.items():
+            for algo in BENCH_ALGOS:
+                if algo == "beam_search":
+                    r = opt.beam_search(tc["target_skills"], tc["known_skills"],
+                                        tc["max_hours"], beam_width=bw)
+                elif algo == "a_star":
+                    r = opt.astar(tc["target_skills"], tc["known_skills"], tc["max_hours"])
+                else:  # greedy
+                    r = opt.greedy(tc["target_skills"], tc["known_skills"], tc["max_hours"])
+                cov, hrs = r["coverage_pct"], r["total_hours"]
+                gap = (hrs - min_hours) if (cov == 100.0 and label == "factible") else None
+                rows.append({
+                    "id": tc["id"], "profile": tc["profile"],
+                    "target": ", ".join(sorted(tc["target_skills"])),
+                    "feasibility": label, "condition": cond, "algorithm": algo,
+                    "coverage": cov, "hours": hrs, "resources": len(r["path"]),
+                    "path": list(r["path"]), "gap": gap, "min_hours": min_hours,
+                })
+    return rows
+
+
+def _bench_get(rows: list[dict], tc_id: str, algo: str, cond: str) -> dict:
+    return next(r for r in rows if r["id"] == tc_id
+               and r["algorithm"] == algo and r["condition"] == cond)
+
+
+tab_nl, tab_ctrl, tab_tests = st.tabs(
+    ["💬  Lenguaje natural", "🎛️  Controles precisos", "🧪  Tests automatizados"]
+)
 
 with tab_nl:
     st.markdown(ui.section_header("¿Qué quieres aprender?", "💬"), unsafe_allow_html=True)
@@ -147,6 +216,136 @@ with tab_ctrl:
     sel_hours = st.slider("⏱️ Horas disponibles", 0, 200, 60, step=5, key="sel_hours")
     go_ctrl = st.button("🚀  Generar mi ruta", type="primary",
                         use_container_width=True, key="go_ctrl")
+
+with tab_tests:
+    st.markdown(ui.section_header("Banco de pruebas — 19 perfiles × 3 algoritmos", "🧪"),
+                unsafe_allow_html=True)
+    st.caption("Genera la ruta de cada perfil (TC01–TC19) con greedy, beam y A*, en "
+               "condición LLM ON (scores congelados) y OFF (sin señal), y resume la "
+               "ablación. Es el experimento de tests/evaluator.py en vivo, sin "
+               "llamadas nuevas al LLM (reproducible).")
+    snap = _load_score_snapshot()
+    if snap is None:
+        st.warning("No se encontró `data/llm_scores_snapshot.json` (scores del LLM "
+                   "congelados): la columna **ON** saldrá igual que **OFF**. Genéralo "
+                   "con `python -m tools.build_llm_snapshot`.")
+    if st.button("▶  Ejecutar banco de pruebas (19 casos)", type="primary",
+                 use_container_width=True, key="run_bench"):
+        with st.spinner("Generando 19 casos × 3 algoritmos × ON/OFF…"):
+            st.session_state["bench"] = _run_benchmark(snap)
+
+    rows = st.session_state.get("bench")
+    if rows is None:
+        st.info("Pulsa **Ejecutar banco de pruebas** para correr los 19 casos.")
+    else:
+        n_cases = len({r["id"] for r in rows})
+        case_ids = sorted({r["id"] for r in rows})
+
+        def _avg(rs, k):
+            v = [x[k] for x in rs]
+            return round(sum(v) / len(v), 1) if v else 0.0
+
+        # --- RQ1: ablación del LLM ---
+        st.markdown("#### Ablación del LLM (RQ1) — ON vs OFF")
+        abl = []
+        for algo in BENCH_ALGOS:
+            on = [r for r in rows if r["algorithm"] == algo and r["condition"] == "on"]
+            off = [r for r in rows if r["algorithm"] == algo and r["condition"] == "off"]
+            p_on = sum(1 for r in on if r["coverage"] == 100.0)
+            p_off = sum(1 for r in off if r["coverage"] == 100.0)
+            abl.append({
+                "Algoritmo": ALGO_NAMES[algo],
+                "Cob% OFF": _avg(off, "coverage"), "Cob% ON": _avg(on, "coverage"),
+                "Lift (pts)": round(_avg(on, "coverage") - _avg(off, "coverage"), 1),
+                "100% OFF": f"{p_off}/{n_cases}", "100% ON": f"{p_on}/{n_cases}",
+            })
+        st.dataframe(abl, hide_index=True, use_container_width=True)
+        st.caption("A* es independiente del LLM por construcción: su columna ON == OFF "
+                   "siempre. El LLM compensa la miopía de greedy/beam (lift positivo).")
+
+        # --- Vista por caso (cobertura LLM ON) ---
+        st.markdown("#### Cobertura por caso (LLM ON)")
+        per = []
+        for cid in case_ids:
+            sample = next(r for r in rows if r["id"] == cid)
+            row = {"ID": cid, "Factib.": FEAS_ICON[sample["feasibility"]],
+                   "Objetivo": sample["target"]}
+            for algo in BENCH_ALGOS:
+                rr = _bench_get(rows, cid, algo, "on")
+                row[ALGO_NAMES[algo]] = f"{rr['coverage']:g}%"
+            per.append(row)
+        st.dataframe(per, hide_index=True, use_container_width=True)
+
+        c1, c2 = st.columns(2)
+        # --- RQ2: por factibilidad (ON) ---
+        with c1:
+            st.markdown("#### Por factibilidad (RQ2, ON)")
+            feas_rows = []
+            for feas in ["factible", "infactible_presupuesto", "infactible_catalogo"]:
+                sub = [r for r in rows if r["feasibility"] == feas and r["condition"] == "on"]
+                if not sub:
+                    continue
+                nc = len({r["id"] for r in sub})
+                d = {"Factibilidad": FEAS_ICON[feas], "casos": nc}
+                for algo in BENCH_ALGOS:
+                    rs = [r for r in sub if r["algorithm"] == algo]
+                    d[ALGO_NAMES[algo]] = f"{_avg(rs, 'coverage')}%"
+                feas_rows.append(d)
+            st.dataframe(feas_rows, hide_index=True, use_container_width=True)
+        # --- RQ3: gap de optimalidad (ON) ---
+        with c2:
+            st.markdown("#### Gap de optimalidad (RQ3, ON)")
+            gap_rows = []
+            for algo in BENCH_ALGOS:
+                rs = [r for r in rows if r["algorithm"] == algo
+                      and r["condition"] == "on" and r["gap"] is not None]
+                if not rs:
+                    gap_rows.append({"Algoritmo": ALGO_NAMES[algo], "n": 0,
+                                     "gap medio": "—", "gap máx": "—", "óptimos": "—"})
+                    continue
+                gaps = [r["gap"] for r in rs]
+                opt = sum(1 for g in gaps if g == 0)
+                gap_rows.append({
+                    "Algoritmo": ALGO_NAMES[algo], "n": len(rs),
+                    "gap medio": f"+{sum(gaps) / len(gaps):.1f}h",
+                    "gap máx": f"+{max(gaps):.0f}h", "óptimos": f"{opt}/{len(rs)}"})
+            st.dataframe(gap_rows, hide_index=True, use_container_width=True)
+
+        # --- Casos donde el LLM cambió la ruta ---
+        with st.expander("Casos donde el LLM cambió la ruta (ON vs OFF)"):
+            changed = []
+            for cid in case_ids:
+                for algo in BENCH_ALGOS:
+                    on = _bench_get(rows, cid, algo, "on")
+                    off = _bench_get(rows, cid, algo, "off")
+                    if (on["coverage"], on["hours"], on["resources"]) != \
+                       (off["coverage"], off["hours"], off["resources"]):
+                        changed.append({
+                            "ID": cid, "Algoritmo": ALGO_NAMES[algo],
+                            "ON": f"{on['coverage']:g}% · {on['hours']:g}h · {on['resources']}r",
+                            "OFF": f"{off['coverage']:g}% · {off['hours']:g}h · {off['resources']}r"})
+            if changed:
+                st.dataframe(changed, hide_index=True, use_container_width=True)
+            else:
+                st.caption("Ninguna ruta cambió con el snapshot actual.")
+
+        # --- Detalle de ruta por caso ---
+        with st.expander("Ver la ruta generada de un caso"):
+            dcid = st.selectbox("Caso", case_ids,
+                                format_func=lambda c: f"{c} — {next(r for r in rows if r['id']==c)['profile']}",
+                                key="bench_detail")
+            dcond = st.radio("Condición", ["on", "off"], horizontal=True,
+                             format_func=lambda c: "LLM ON" if c == "on" else "LLM OFF",
+                             key="bench_cond")
+            for algo in BENCH_ALGOS:
+                r = _bench_get(rows, dcid, algo, dcond)
+                st.markdown(f"**{ALGO_NAMES[algo]}** — {r['coverage']:g}% · "
+                            f"{r['hours']:g}h · {len(r['path'])} recursos")
+                if r["path"]:
+                    pasos = " → ".join(graph.get_resource(rid)["name"] for rid in r["path"])
+                    st.caption(pasos)
+                else:
+                    st.caption("_(ruta vacía)_")
 
 
 # Al pulsar generar, CONGELAR los inputs actuales en una instantánea. La ruta solo
