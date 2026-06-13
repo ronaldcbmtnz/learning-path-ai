@@ -1,0 +1,6 @@
+# Dependencias EXTRA del modulo de Simulacion.
+# AISLAMIENTO: NO modifica requirements.txt del modulo de IA. Instalar con:
+#   pip install -r requirements-sim.txt
+# (incluye las de IA via -r y agrega matplotlib para las graficas de la pagina).
+-r requirements.txt
+matplotlib==3.10.3

@@ -1,0 +1,6036 @@
+{
+  "sigmas": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4
+  ],
+  "n_runs": 100,
+  "seed": 0,
+  "per_case": {
+    "TC01": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 24.0,
+      "n_target": 2,
+      "astar_cov": 50.0,
+      "astar_hours": 10,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10.12,
+          "hours_var": 0.713,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10.14,
+          "hours_var": 0.97,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 10,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC02": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 48.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 48,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 53,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 53,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 80,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 54.05,
+          "hours_var": 6.674,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 57.16,
+          "hours_var": 34.055,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 80,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58.3,
+          "hours_var": 49.99,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 53.85,
+          "hours_var": 12.189,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58.04,
+          "hours_var": 32.443,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 79.85,
+          "hours_var": 0.432,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 59.82,
+          "hours_var": 72.351,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55.06,
+          "hours_var": 34.138,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 59.58,
+          "hours_var": 42.973,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 79.49,
+          "hours_var": 1.949,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 63.22,
+          "hours_var": 79.567,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55.27,
+          "hours_var": 41.149,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 61.88,
+          "hours_var": 59.824,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 79.18,
+          "hours_var": 7.321,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 64.51,
+          "hours_var": 89.0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 48,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC03": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 33.0,
+      "n_target": 4,
+      "astar_cov": 75.0,
+      "astar_hours": 25,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 28,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 28,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 28,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 27.78,
+          "hours_var": 0.234,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 26.62,
+          "hours_var": 2.258,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 26.74,
+          "hours_var": 2.215,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 27.5,
+          "hours_var": 0.859,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 26.05,
+          "hours_var": 2.068,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 70.5,
+          "cov_var": 320.455,
+          "hours_mean": 25.18,
+          "hours_var": 42.937,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25.23,
+          "hours_var": 0.563,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 27.22,
+          "hours_var": 1.204,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25.84,
+          "hours_var": 1.833,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 65.25,
+          "cov_var": 642.614,
+          "hours_mean": 23.31,
+          "hours_var": 83.913,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25.44,
+          "hours_var": 0.996,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 27.01,
+          "hours_var": 1.283,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25.63,
+          "hours_var": 1.508,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 65.25,
+          "cov_var": 642.614,
+          "hours_mean": 23.76,
+          "hours_var": 86.608,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 74.75,
+          "cov_var": 6.25,
+          "hours_mean": 25.69,
+          "hours_var": 1.327,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 25,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC04": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 63.0,
+      "n_target": 3,
+      "astar_cov": 0.0,
+      "astar_hours": 0,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC05": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 15.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 15,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 96.0,
+          "cov_var": 387.879,
+          "hours_mean": 14.46,
+          "hours_var": 8.978,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 99.0,
+          "cov_var": 100.0,
+          "hours_mean": 14.85,
+          "hours_var": 2.25,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 99.0,
+          "cov_var": 100.0,
+          "hours_mean": 14.93,
+          "hours_var": 2.591,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 85.0,
+          "cov_var": 1287.879,
+          "hours_mean": 12.84,
+          "hours_var": 29.651,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 96.0,
+          "cov_var": 387.879,
+          "hours_mean": 14.4,
+          "hours_var": 8.727,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 96.0,
+          "cov_var": 387.879,
+          "hours_mean": 14.5,
+          "hours_var": 9.343,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 15,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC06": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 78.0,
+      "n_target": 2,
+      "astar_cov": 0.0,
+      "astar_hours": 0,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC07": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 58.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 58,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 89.0,
+          "cov_var": 988.889,
+          "hours_mean": 52.7,
+          "hours_var": 354.253,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 69.0,
+          "cov_var": 2160.606,
+          "hours_mean": 40.85,
+          "hours_var": 762.654,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 1893.939,
+          "hours_mean": 44.57,
+          "hours_var": 673.743,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 35.0,
+          "cov_var": 2297.98,
+          "hours_mean": 20.98,
+          "hours_var": 829.454,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 58.0,
+          "cov_var": 2460.606,
+          "hours_mean": 34.03,
+          "hours_var": 848.332,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 31.0,
+          "cov_var": 2160.606,
+          "hours_mean": 18.47,
+          "hours_var": 769.848,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 1.0,
+          "cov_var": 100.0,
+          "hours_mean": 0.68,
+          "hours_var": 46.24,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 48.0,
+          "cov_var": 2521.212,
+          "hours_mean": 28.63,
+          "hours_var": 900.7,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 17.0,
+          "cov_var": 1425.253,
+          "hours_mean": 10.48,
+          "hours_var": 544.636,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 58,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC08": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 13.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 13,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC09": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 60.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 60,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 1.0,
+          "cov_var": 100.0,
+          "hours_mean": 0.76,
+          "hours_var": 57.76,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 7.0,
+          "cov_var": 657.576,
+          "hours_mean": 5.6,
+          "hours_var": 420.848,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 38.0,
+          "cov_var": 2379.798,
+          "hours_mean": 26.03,
+          "hours_var": 1147.322,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 12.0,
+          "cov_var": 1066.667,
+          "hours_mean": 7.87,
+          "hours_var": 462.498,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 10.0,
+          "cov_var": 909.091,
+          "hours_mean": 7.25,
+          "hours_var": 481.664,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 27.0,
+          "cov_var": 1990.909,
+          "hours_mean": 17.56,
+          "hours_var": 858.916,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 20.0,
+          "cov_var": 1616.162,
+          "hours_mean": 12.5,
+          "hours_var": 635.889,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 18.0,
+          "cov_var": 1490.909,
+          "hours_mean": 12.44,
+          "hours_var": 722.673,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 28.0,
+          "cov_var": 2036.364,
+          "hours_mean": 18.33,
+          "hours_var": 888.001,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 13.0,
+          "cov_var": 1142.424,
+          "hours_mean": 8.14,
+          "hours_var": 450.101,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 12.0,
+          "cov_var": 1066.667,
+          "hours_mean": 8.17,
+          "hours_var": 502.042,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 18.0,
+          "cov_var": 1490.909,
+          "hours_mean": 12.03,
+          "hours_var": 679.585,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 60,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC10": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 36.0,
+      "n_target": 4,
+      "astar_cov": 100.0,
+      "astar_hours": 36,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 35,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 37.25,
+          "hours_var": 4.23,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 37.88,
+          "hours_var": 5.884,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 96.75,
+          "cov_var": 71.402,
+          "hours_mean": 34.09,
+          "hours_var": 26.022,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 36.52,
+          "hours_var": 21.585,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 93.25,
+          "cov_var": 124.432,
+          "hours_mean": 31.95,
+          "hours_var": 44.795,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 35.95,
+          "hours_var": 32.735,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 92.25,
+          "cov_var": 135.038,
+          "hours_mean": 31.49,
+          "hours_var": 48.596,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 36,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC11": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 8.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 8,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 8,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC12": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 131.0,
+      "n_target": 5,
+      "astar_cov": 100.0,
+      "astar_hours": 131,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 141,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 168,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 166,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 80.0,
+          "cov_var": 0.0,
+          "hours_mean": 195,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 136.56,
+          "hours_var": 17.663,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 99.0,
+          "cov_var": 19.192,
+          "hours_mean": 183.53,
+          "hours_var": 130.615,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 166,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 80.6,
+          "cov_var": 11.758,
+          "hours_mean": 191.4,
+          "hours_var": 149.556,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 137.32,
+          "hours_var": 60.26,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 98.6,
+          "cov_var": 26.303,
+          "hours_mean": 181.97,
+          "hours_var": 171.585,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 166,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 80.8,
+          "cov_var": 15.515,
+          "hours_mean": 189.24,
+          "hours_var": 162.245,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 143.31,
+          "hours_var": 327.57,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 97.6,
+          "cov_var": 42.667,
+          "hours_mean": 183.3,
+          "hours_var": 165.828,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 96.0,
+          "cov_var": 64.646,
+          "hours_mean": 168.69,
+          "hours_var": 143.307,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 80.2,
+          "cov_var": 28.242,
+          "hours_mean": 186.5,
+          "hours_var": 233.707,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 99.0,
+          "cov_var": 19.192,
+          "hours_mean": 153.44,
+          "hours_var": 570.107,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 97.4,
+          "cov_var": 45.697,
+          "hours_mean": 184.7,
+          "hours_var": 158.01,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 89.6,
+          "cov_var": 100.848,
+          "hours_mean": 168.55,
+          "hours_var": 329.907,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 80.0,
+          "cov_var": 48.485,
+          "hours_mean": 189.47,
+          "hours_var": 154.979,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 131,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC13": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 13.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 13,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 44,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 21,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39.14,
+          "hours_var": 90.667,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 21.69,
+          "hours_var": 1.307,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 34.34,
+          "hours_var": 166.853,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 22.42,
+          "hours_var": 4.428,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 29.97,
+          "hours_var": 205.706,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 22.74,
+          "hours_var": 8.275,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 32.83,
+          "hours_var": 199.759,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 25.27,
+          "hours_var": 43.532,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 13,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC14": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 55.0,
+      "n_target": 6,
+      "astar_cov": 100.0,
+      "astar_hours": 55,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 54,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 16.7,
+          "cov_var": 0.0,
+          "hours_mean": 6,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 33.3,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 54,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 54.5,
+          "cov_var": 206.818,
+          "hours_mean": 55.16,
+          "hours_var": 0.136,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 65.32,
+          "cov_var": 883.08,
+          "hours_mean": 42.5,
+          "hours_var": 497.727,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 33.3,
+          "cov_var": 0.0,
+          "hours_mean": 54.66,
+          "hours_var": 0.954,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 50.0,
+          "cov_var": 0.0,
+          "hours_mean": 54.01,
+          "hours_var": 0.01,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 60.33,
+          "cov_var": 408.402,
+          "hours_mean": 55.14,
+          "hours_var": 0.283,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 59.32,
+          "cov_var": 1032.276,
+          "hours_mean": 38,
+          "hours_var": 581.818,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 33.8,
+          "cov_var": 13.832,
+          "hours_mean": 53.79,
+          "hours_var": 5.218,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 51.66,
+          "cov_var": 53.204,
+          "hours_mean": 54.25,
+          "hours_var": 0.351,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 64.33,
+          "cov_var": 477.015,
+          "hours_mean": 55.02,
+          "hours_var": 0.585,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 63.65,
+          "cov_var": 903.835,
+          "hours_mean": 41.68,
+          "hours_var": 503.553,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 36.97,
+          "cov_var": 76.512,
+          "hours_mean": 53.78,
+          "hours_var": 11.224,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 52.17,
+          "cov_var": 70.951,
+          "hours_mean": 54.35,
+          "hours_var": 0.391,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 62.83,
+          "cov_var": 459.288,
+          "hours_mean": 54.75,
+          "hours_var": 0.573,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 64.99,
+          "cov_var": 887.813,
+          "hours_mean": 42.53,
+          "hours_var": 477.726,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 40.48,
+          "cov_var": 164.654,
+          "hours_mean": 52.7,
+          "hours_var": 20.677,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 55,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC15": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 69.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 69,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 33.3,
+          "cov_var": 0.0,
+          "hours_mean": 31,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 66.7,
+          "cov_var": 0.0,
+          "hours_mean": 79,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 66.7,
+          "cov_var": 0.0,
+          "hours_mean": 74,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 33.3,
+          "cov_var": 0.0,
+          "hours_mean": 31,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 66.37,
+          "cov_var": 11.156,
+          "hours_mean": 78.52,
+          "hours_var": 23.04,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 67.03,
+          "cov_var": 11.089,
+          "hours_mean": 73.99,
+          "hours_var": 0.01,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 37.64,
+          "cov_var": 261.907,
+          "hours_mean": 33.73,
+          "hours_var": 100.442,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 68.35,
+          "cov_var": 480.183,
+          "hours_mean": 69.13,
+          "hours_var": 327.629,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 67.68,
+          "cov_var": 369.663,
+          "hours_mean": 68.32,
+          "hours_var": 204.503,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 42.31,
+          "cov_var": 536.008,
+          "hours_mean": 37.15,
+          "hours_var": 224.694,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 65.0,
+          "cov_var": 727.498,
+          "hours_mean": 61.41,
+          "hours_var": 403.982,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 67.34,
+          "cov_var": 561.246,
+          "hours_mean": 64.32,
+          "hours_var": 277.775,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 41.31,
+          "cov_var": 564.36,
+          "hours_mean": 35.66,
+          "hours_var": 238.55,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 59.33,
+          "cov_var": 709.813,
+          "hours_mean": 56.44,
+          "hours_var": 431.804,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 63.34,
+          "cov_var": 550.663,
+          "hours_mean": 63.7,
+          "hours_var": 298.152,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 69,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC16": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 76.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 76,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 87,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 89,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 66.7,
+          "cov_var": 0.0,
+          "hours_mean": 74,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 61.98,
+          "cov_var": 1101.437,
+          "hours_mean": 58.67,
+          "hours_var": 352.102,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 88.01,
+          "cov_var": 370.63,
+          "hours_mean": 85.43,
+          "hours_var": 67.884,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 90.34,
+          "cov_var": 230.627,
+          "hours_mean": 86.89,
+          "hours_var": 7.129,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 56.99,
+          "cov_var": 1421.447,
+          "hours_mean": 53.13,
+          "hours_var": 714.276,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 81.34,
+          "cov_var": 590.973,
+          "hours_mean": 81.57,
+          "hours_var": 133.379,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 82.68,
+          "cov_var": 459.586,
+          "hours_mean": 81.67,
+          "hours_var": 102.122,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 45.33,
+          "cov_var": 1583.341,
+          "hours_mean": 42.34,
+          "hours_var": 1005.802,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 70.0,
+          "cov_var": 819.875,
+          "hours_mean": 75.38,
+          "hours_var": 300.076,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 76.01,
+          "cov_var": 540.537,
+          "hours_mean": 78.7,
+          "hours_var": 211,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 34.33,
+          "cov_var": 1492.014,
+          "hours_mean": 32.33,
+          "hours_var": 1076.385,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 58.0,
+          "cov_var": 800.382,
+          "hours_mean": 71.91,
+          "hours_var": 449.335,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 61.68,
+          "cov_var": 659.946,
+          "hours_mean": 73.06,
+          "hours_var": 446.178,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 76,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC17": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 102.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 102,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 15.33,
+          "cov_var": 1221.64,
+          "hours_mean": 17.83,
+          "hours_var": 1569.86,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 2.0,
+          "cov_var": 197.98,
+          "hours_mean": 2.04,
+          "hours_var": 205.978,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 2.0,
+          "cov_var": 108.238,
+          "hours_mean": 4.27,
+          "hours_var": 442.037,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 21.0,
+          "cov_var": 1586.016,
+          "hours_mean": 23.94,
+          "hours_var": 1939.794,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 5.0,
+          "cov_var": 277.788,
+          "hours_mean": 10.39,
+          "hours_var": 982.463,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 2.0,
+          "cov_var": 63.173,
+          "hours_mean": 6,
+          "hours_var": 569.919,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 30.67,
+          "cov_var": 2125.277,
+          "hours_mean": 32.05,
+          "hours_var": 2310.755,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 11.67,
+          "cov_var": 749.33,
+          "hours_mean": 18.6,
+          "hours_var": 1593.576,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 6.0,
+          "cov_var": 277.769,
+          "hours_mean": 14.71,
+          "hours_var": 1344.753,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 21.67,
+          "cov_var": 1691.95,
+          "hours_mean": 22.8,
+          "hours_var": 1862.747,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 9.67,
+          "cov_var": 612.763,
+          "hours_mean": 16.75,
+          "hours_var": 1490.492,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 3.67,
+          "cov_var": 199.586,
+          "hours_mean": 8.11,
+          "hours_var": 766.018,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 102,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC18": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 39.0,
+      "n_target": 3,
+      "astar_cov": 100.0,
+      "astar_hours": 39,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 98.67,
+          "cov_var": 88.079,
+          "hours_mean": 39.11,
+          "hours_var": 0.604,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 50.33,
+          "cov_var": 1874.514,
+          "hours_mean": 26.1,
+          "hours_var": 359.04,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 94.67,
+          "cov_var": 308.22,
+          "hours_mean": 39.44,
+          "hours_var": 2.33,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 46.33,
+          "cov_var": 1928.341,
+          "hours_mean": 23.5,
+          "hours_var": 375.465,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 80.33,
+          "cov_var": 1281.833,
+          "hours_mean": 34.48,
+          "hours_var": 167.242,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 48.0,
+          "cov_var": 1937.89,
+          "hours_mean": 23.97,
+          "hours_var": 375.08,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 81.67,
+          "cov_var": 1198.292,
+          "hours_mean": 35.12,
+          "hours_var": 156.511,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 44.33,
+          "cov_var": 1842.162,
+          "hours_mean": 23.68,
+          "hours_var": 381.674,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 100.0,
+          "cov_var": 0.0,
+          "hours_mean": 39,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    },
+    "TC19": {
+      "sigmas": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ],
+      "n_runs": 100,
+      "seed": 0,
+      "min_hours": 96.0,
+      "n_target": 4,
+      "astar_cov": 75.0,
+      "astar_hours": 57,
+      "records": [
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 68,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 68,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.0,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.0,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 68.12,
+          "hours_var": 0.713,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 74.5,
+          "cov_var": 12.374,
+          "hours_mean": 68.96,
+          "hours_var": 71.736,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 30.5,
+          "cov_var": 562.879,
+          "hours_mean": 61.15,
+          "hours_var": 1270.452,
+          "constant": false
+        },
+        {
+          "sigma": 0.1,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.1,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 67.98,
+          "hours_var": 9.192,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 68.0,
+          "cov_var": 215.657,
+          "hours_mean": 64.57,
+          "hours_var": 285.864,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 30.25,
+          "cov_var": 622.412,
+          "hours_mean": 56.29,
+          "hours_var": 1407.865,
+          "constant": false
+        },
+        {
+          "sigma": 0.2,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.2,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 67.88,
+          "hours_var": 17.682,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 62.0,
+          "cov_var": 384.848,
+          "hours_mean": 63.21,
+          "hours_var": 482.329,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 27.75,
+          "cov_var": 629.987,
+          "hours_mean": 51.82,
+          "hours_var": 1441.846,
+          "constant": false
+        },
+        {
+          "sigma": 0.3,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.3,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "greedy",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 67.11,
+          "hours_var": 32.968,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "beam_search",
+          "cov_mean": 60.0,
+          "cov_var": 416.667,
+          "hours_mean": 59.61,
+          "hours_var": 517.513,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "greedy",
+          "cov_mean": 0.0,
+          "cov_var": 0.0,
+          "hours_mean": 0,
+          "hours_var": 0,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "beam_search",
+          "cov_mean": 32.75,
+          "cov_var": 665.341,
+          "hours_mean": 55.28,
+          "hours_var": 1265.274,
+          "constant": false
+        },
+        {
+          "sigma": 0.4,
+          "policy": "lineal",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        },
+        {
+          "sigma": 0.4,
+          "policy": "difuso",
+          "algorithm": "astar",
+          "cov_mean": 75.0,
+          "cov_var": 0.0,
+          "hours_mean": 57,
+          "hours_var": 0.0,
+          "constant": true
+        }
+      ]
+    }
+  }
+}

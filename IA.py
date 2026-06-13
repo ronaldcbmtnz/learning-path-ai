@@ -5,7 +5,7 @@ Capa de PRESENTACIÓN: orquesta el mismo backend que el CLI (`ResourceGraph`,
 `PathOptimizer`, `LLMClient`, `domain`) sin duplicar lógica de negocio. Todo el
 "look" vive en `src/ui.py`; la acotación de dominio en `src/domain.py`.
 
-Ejecutar:  streamlit run app.py
+Ejecutar:  streamlit run IA.py
 """
 import streamlit as st
 
