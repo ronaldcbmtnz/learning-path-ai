@@ -225,6 +225,7 @@ HANDOFF.md
 HANDOFF_SIMULACION.md
 FINDINGS_SIMULACION.md
 REPORTE_INFO.md
+MANUAL_INTERFAZ.md
 
 # Tooling local (preview) y logs temporales
 .claude/launch.json
