@@ -1,154 +1,192 @@
 # Learning Path AI
 
-AI-powered personalized learning path generator that combines graph optimization algorithms with large language models to create tailored educational routes.
+AI-powered personalized learning-path generator that combines graph search /
+optimization algorithms with a large language model to turn a natural-language
+goal into a valid, hour-budgeted sequence of learning resources that respects
+prerequisite dependencies.
+
+> University AI final project (Topic 9 — "Building learning paths"). Domain-scoped
+> planner for **Technology: Software Development, Data & AI**. The LLM is a
+> *functional* component (not decorative): it interprets the goal and scores
+> resource relevance, and an ablation experiment measures exactly what it adds.
 
 ## What it does
 
-The user describes their learning goal in plain language. The system then:
+The user describes a learning goal in plain language. The system then:
 
-1. Uses an LLM to extract target skills and constraints from the natural language input
-2. Scores resources based on goal relevance using the LLM
-3. Builds a dependency graph of learning resources with difficulty levels
-4. Runs three optimization algorithms (Greedy, Beam Search, A*) to find the best learning sequence
-5. Uses the LLM to compare all three routes and recommend the optimal one
-6. Generates a motivational explanation of the recommended path
+1. **LLM** parses the goal → `target_skills`, `known_skills`, `max_hours`
+   (constrained to the catalog; near-miss skill names are snapped to the catalog,
+   and the time budget is robustly extracted from the text).
+2. **LLM** scores each resource's relevance to the goal (0–1).
+3. Builds a **DAG** of resources from their prerequisites (cycle-checked).
+4. Runs **three search algorithms** — Greedy (with lookahead), Beam Search, and
+   A\* — to produce candidate sequences.
+5. **LLM** compares the three routes and recommends one.
+6. **LLM** writes a short, motivating explanation of the recommended path.
+
+Out-of-domain requests (medicine, art, languages…) are **not** answered with
+invented resources: the system states its scope and declines (`src/domain.py`).
 
 ## Example
 
-Input: "I want to learn advanced machine learning, I know nothing and have 8 hours a day for 7 days"  
-Output:  
-Algorithm : GREEDY  
-Hours     : 56h  
-Coverage  : 58.3%  
-Path:  
-1. Python for beginners (10h)
-2. Mathematics for Machine Learning (15h)
-3. Applied Statistics with Python (8h)
-4. Introduction to Machine Learning (20h)
+Input: *"I want to learn machine learning from scratch. I have about 80 hours."*
+
+```
+Algorithm : A*  (optimal in hours)
+Coverage  : 100%
+Hours     : 48h
+Path:
+  1. Probability & basic statistics (6h)
+  2. Visual linear algebra (4h)
+  3. Python for beginners (10h)
+  4. Applied statistics with Python (8h)
+  5. Introduction to Machine Learning (20h)
+```
+
+Note how A\* covers the goal in the **minimum** number of hours — it picks the cheap
+math resources (6h + 4h) instead of the broader 15h "Maths for ML" course.
 
 ## Tech stack
 
-- Python 3.13
-- OpenRouter API (LLaMA 3.3 70B Instruct) — natural language understanding + resource scoring
-- Custom graph engine — dependency resolution, cycle detection, topological sorting
-- Three optimization algorithms — Greedy, Beam Search, and A* 
-- Difficulty-aware path optimization — penalizes abrupt difficulty jumps
-- LLM response caching — reduces API calls and costs
+- **Python 3.13** (native 3.10+ typing).
+- **OpenRouter API** via the `openai` SDK — **free-tier models only, zero cost**
+  (`openai/gpt-oss-120b:free`, `qwen/qwen3-coder:free`), with automatic model
+  rotation on rate-limit (429) and SHA-256 response caching.
+- **Custom graph engine** — prerequisite DAG, cycle detection, topological sort.
+- **Three search algorithms** — Greedy + lookahead, Beam Search, and an
+  **admissible & consistent A\*** (provably hour-optimal).
+- **Streamlit UI** (dark "tech/AI" theme) + interactive CLI.
+
+## Algorithms
+
+**Greedy (with lookahead)** — at each step picks the resource that maximizes
+forward-simulated target coverage, with a soft hours term and a difficulty-jump
+penalty. Fast but myopic: fails some deep-chain goals that A\* solves.
+
+**Beam Search** — keeps the K best partial paths (dynamic width 3–6), exploring
+more of the space before committing. Same scoring policy as Greedy (accumulated
+form).
+
+**A\*** — `f = g + h`, with `g` = accumulated hours and an **admissible &
+consistent** heuristic: *the max over the still-missing target skills of the
+cheapest resource (in hours) that teaches it*. The LLM is deliberately kept **out**
+of the cost (any extra term breaks admissibility), so A\* is **independent of the
+LLM by construction**. Its hour-optimality is verified to match an exact
+uniform-cost (Dijkstra) search on every feasible case.
+
+### Benchmark — LLM ablation (19 test cases)
+
+The central experiment runs each algorithm with the LLM signal **on** vs **off**.
+The OFF column is deterministic (official baseline); the ON column is a
+representative snapshot (the free-tier LLM is non-deterministic across runs).
+
+| Algorithm   | Coverage OFF | Coverage ON | 100% OFF | 100% ON | Optimality gap (feasible, 100%) |
+|-------------|:-----------:|:-----------:|:--------:|:-------:|:-------------------------------:|
+| Greedy      | 43.0%       | 60.5%       | 6/19     | 9/19    | avg +2.4h / max +17h            |
+| Beam Search | 48.2%       | 71.1%       | 7/19     | 11/19   | avg +7.6h / max +50h            |
+| **A\***     | **84.2%**   | **84.2%**   | **14/19**| **14/19** | **0 (14/14 optimal)**         |
+
+**LLM lift:** Greedy **+17.5 pts**, Beam **+22.9 pts**, A\* **+0**.
+Feasibility of the 19 cases: **14 feasible, 5 infeasible-by-budget, 0
+infeasible-by-catalog**.
+
+**Key finding.** A\* already tops 100% on feasible cases and ignores the LLM, so the
+LLM cannot improve it. The LLM acts as a **relevance prior that compensates the
+myopia of Greedy/Beam** (rescuing several 0%→100% deep-chain cases) — but it is
+**double-edged**: on scattered goals under a tight budget it can *lower* coverage
+(e.g. Beam 100%→50%), because semantic relevance diverges from concrete skill
+coverage. This is reported honestly as a finding, not hidden.
+
+## Dataset
+
+Hand-authored catalog (not LLM-generated): **48 resources, 141 skills, 6
+sub-domains** (programming, web, maths-for-AI, ML, data/data-engineering, DevOps),
+with deep dependency chains (e.g. `rag ← llms ← transformer ← neural-nets ←
+supervised-ML`). Validity is enforced and tested: acyclic (`detect_cycles() == []`)
+and no unreachable in-domain skill. Each resource has `id`, `name`, `type`,
+`domain`, `duration_hours`, `difficulty` (1–3), `teaches`, `requires`.
 
 ## Project structure
 
-learning-path-ai/  
-├── data/  
-│   ├── resources.json            # Dataset of 20 learning resources with skills, dependencies, and difficulty
-│   └── evaluation_results.json   # Benchmark results from evaluator  
-├── src/  
-│   ├── graph.py                  # ResourceGraph: cycle detection, dependency resolution, topological sort    
-│   ├── optimizer.py              # PathOptimizer: Greedy, Beam Search, and A* algorithms
-│   ├── llm_client.py             # LLMClient: OpenRouter API integration with caching
-│   └── main.py                   # Main pipeline connecting all components  
-├── tests/  
-│   ├── evaluator.py              # Comparative benchmarking of all algorithms
-│   ├── test_cases.py             # 14 test profiles for evaluation
-│   
-└── CAMBIOS_IMPLEMENTADOS.md      # Detailed changelog of improvements  
+```
+learning-path-ai/
+├── IA.py                       # Streamlit UI (entry point)
+├── data/
+│   ├── resources.json          # Catalog: 48 resources / 141 skills / 6 domains
+│   └── evaluation_results.json # LLM-ablation benchmark output
+├── src/
+│   ├── graph.py                # ResourceGraph: DAG, cycle detection, topo-sort
+│   ├── optimizer.py            # PathOptimizer: Greedy, Beam, A* + helpers
+│   ├── llm_client.py           # LLMClient: OpenRouter, caching, rotation, fallbacks
+│   ├── domain.py               # Domain scoping (mono-domain) + out-of-scope message
+│   ├── main.py                 # Interactive CLI pipeline
+│   └── ui.py                   # Pure HTML/CSS/Markdown builders for the UI theme
+├── pages/
+│   └── 2_Simulacion.py         # Simulation module page (isolated; see below)
+├── tests/
+│   ├── test_cases.py           # 19 user profiles (TC01–TC19)
+│   ├── test_invariants.py      # 224 property-based invariants (deterministic)
+│   ├── evaluator.py            # LLM-ablation experiment
+│   └── …                       # simulation tests / evaluator
+└── requirements*.txt           # runtime / dev / simulation deps
+```
 
 ## How to run
 
 ```bash
-# Install dependencies
-pip install openai python-dotenv
+# 1. Install runtime dependencies (zero-cost LLM via OpenRouter free tier)
+python -m pip install -r requirements.txt
+#    For the test suite:           python -m pip install -r requirements-dev.txt
+#    For the simulation module:     python -m pip install -r requirements-sim.txt
 
-# Add your Groq API key to .env
-echo "OPENROUTER_API_KEY=your-key-here" > .env
+# 2. Configure the LLM (get a free key at openrouter.ai)
+cat > .env <<'EOF'
+OPENROUTER_API_KEY=sk-or-v1-your-key-here
+OPENROUTER_MODEL=openai/gpt-oss-120b:free, qwen/qwen3-coder:free
+EOF
 
-# Run
-python -m src.main
+# 3. Run
+python -m src.main          # interactive CLI
+streamlit run IA.py         # web UI (Streamlit)
 ```
 
-## Algorithms
+The Streamlit UI shows the visible catalog, clickable example prompts, structured
+controls (skill multiselects + hours slider), a feasibility badge, the 3-route
+comparison, the LLM recommendation/explanation, a step-by-step timeline, Markdown
+export, and a live **LLM on/off ablation** toggle.
 
-Three algorithms are implemented and compared:
+## Evaluation & testing
 
-**Greedy** — At each step selects the resource that maximizes future target coverage 
-using forward simulation. Fast (avg 0.5ms) with good coverage. Considers resource difficulty 
-and penalizes abrupt difficulty jumps to ensure smooth learning progression.
-Achieves 100% coverage in 6/14 test cases.
-
-**Beam Search** — Maintains the K best partial paths simultaneously (beam width 3-6), 
-exploring more of the solution space before committing. Similar coverage to Greedy 
-but uses fewer hours on average. Also respects difficulty levels. 
-Achieves 100% coverage in 6/14 test cases.
-
-** A* ** — Heuristic-based search using a non-admissible heuristics 
-on missing skills and resource difficulty. Explores paths more intelligently than Greedy/Beam.
-Outperforms both in coverage while maintaining efficiency. 
-Trade-off: slightly slower on large search spaces but still practical (avg 0.7ms).
-Achieves 100% coverage in 8/14 test cases.
-
-### Benchmark Results (14 test cases)
-
-| Algorithm   | Avg Coverage | Avg Hours | Perfect (100%) | Avg Time |
-|-------------|-------------|-----------|----------------|----------|
-| Greedy      | 57.7%       | 45.4h     | 6/14           | 0.5ms    |
-| Beam Search | 57.7%       | 28.6h     | 6/14           | 2.0ms    |
-| A* | **66.1%** | **25.3h** | **8/14**       | **0.7ms**|
-
-## Optimizations
-
-### Cycle Detection
-- Validates learning resource graph on load to detect circular dependencies
-- Prevents infinite loops in prerequisite resolution
-- Raises clear error messages with cycle details
-
-### LLM Caching
-- Caches API responses using SHA256 hashing on inputs
-- Reduces API calls by ~70% on repeated evaluations
-- Transparent fallback to default scores if API unavailable
-
-### Difficulty-Aware Paths
-- Resources have difficulty levels (1=basic, 2=intermediate, 3=advanced)
-- Algorithms penalize jumping more than 1 difficulty level at once
-- Produces smoother, more pedagogically sound learning paths
-- Penalty formula: `max(0, difficulty - max_so_far - 1) * 5`
-
-### Optimized A* Search
-- Filters candidates to only resources that help achieve targets
-- 2-3x performance improvement over naive A* implementation
-- Explores more intelligently than Greedy/Beam while keeping runtime practical.
-
-## Evaluation & Testing
-
-### Run Evaluator
 ```bash
-# Run comparative benchmark on all 14 test cases
-python -m tests.evaluator
+# Reproducible invariants (acyclicity, budget, topo-validity, A* optimality,
+# OFF determinism, A* LLM-independence). 224 tests.
+PYTHONHASHSEED=0 python -m pytest tests/test_invariants.py -q
 
-# Output: CSV-style results with algorithm, coverage, hours, and timing
-# Saves results to: data/evaluation_results.json
+# LLM-ablation benchmark (writes data/evaluation_results.json)
+PYTHONHASHSEED=0 python -m tests.evaluator
 ```
 
-### Test Coverage
-- **14 diverse profiles**: From absolute beginners to ML engineers
-- **Realistic scenarios**: Time constraints, difficulty progressions, various domains
-- **Reproducible**: Fixed test cases with known expected behaviors
+The invariant suite is **property-based and dataset-agnostic**: it asserts
+structural properties (in the deterministic OFF condition), so it acts as a safety
+net for any catalog change.
 
-## Recent Improvements (May 2026)
+## Simulation module (extension)
 
-### Performance
-- **A* Optimization**: Reduced average time from 13ms to 0.7ms (18x faster)
-- **Candidate Filtering**: Smart resource selection based on goal relevance
-- **API Efficiency**: 70% reduction in LLM calls via intelligent caching
+An additional, **fully isolated** module (for a Simulation course) layers a
+**fuzzy-logic** decision policy (a hand-built Mamdani inference system) and a
+**Monte-Carlo** simulation that models the LLM's non-determinism as a random
+variable, to measure the agent's robustness to noise. A\* serves as the
+zero-variance control (it ignores the LLM). It lives in new files only
+(`src/fuzzy_scorer.py`, `src/sim_optimizer.py`, `src/random_gen.py`,
+`src/simulation.py`, `pages/2_Simulacion.py`, …) and **does not modify the AI
+module**: the AI behavior is byte-for-byte unchanged whether the simulation works
+or not.
 
-### Robustness
-- **Cycle Detection**: Validates graph integrity on initialization
-- **Error Handling**: Graceful fallbacks when LLM unavailable
-- **Per-Test-Case Scoring**: Each evaluation uses fresh LLM relevance scores
-
-### Quality
-- **Difficulty-Aware**: Smoother learning progressions (no jarring jumps)
-- **Better Coverage**: A* achieves 66.1% avg coverage (vs 57.7% for Greedy/Beam)
-- **More Efficient**: A* uses 25.3h on average (vs 45.4h for Greedy)
+```bash
+python -m pip install -r requirements-sim.txt
+PYTHONHASHSEED=0 python -m pytest tests/test_simulation.py -q   # 89 invariants
+```
 
 ## License
 
-MIT License - See LICENSE file for details
+MIT License — see the `LICENSE` file for details.
