@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import time
 import difflib
@@ -112,6 +113,34 @@ class LLMClient:
         seen: set[str] = set()
         return [s for s in out if not (s in seen or seen.add(s))]
 
+    @staticmethod
+    def _coerce_hours(value) -> float | None:
+        """Normaliza el max_hours que devuelve el LLM: número -> int si es entero;
+        string ('45', '50 horas') -> el número interno; bool/None/otros -> None."""
+        if value is None or isinstance(value, bool):
+            return None
+        if isinstance(value, (int, float)):
+            num = float(value)
+        elif isinstance(value, str):
+            m = re.search(r"\d+(?:[.,]\d+)?", value)
+            if not m:
+                return None
+            num = float(m.group().replace(",", "."))
+        else:
+            return None
+        return int(num) if num == int(num) else num
+
+    @staticmethod
+    def _extract_hours(text: str) -> float | None:
+        """Backstop determinista: extrae las horas del texto del usuario cuando el
+        LLM las deja en null pese a estar escritas. Reconoce '45 horas', '50h',
+        'unas 60 h', '30 hrs', etc. (número seguido de hora(s)/hr(s)/h)."""
+        m = re.search(r"(\d+(?:[.,]\d+)?)\s*(?:horas?|hrs?|hr|h)\b", text, re.IGNORECASE)
+        if not m:
+            return None
+        num = float(m.group(1).replace(",", "."))
+        return int(num) if num == int(num) else num
+
     def parse_user_goal(self, user_input: str, available_skills: list[str]) -> dict:
         """Extrae habilidades objetivo, previas y límite de horas del input del usuario."""
         fallback = {
@@ -139,14 +168,17 @@ class LLMClient:
                 "{\n"
                 "  \"target_skills\": [\"habilidades de la lista que mejor representan lo que quiere aprender\"],\n"
                 "  \"known_skills\": [\"habilidades de la lista que ya menciona tener, vacío si no menciona ninguna\"],\n"
-                "  \"max_hours\": null,\n"
+                "  \"max_hours\": número entero de horas si el usuario lo menciona, o null si no,\n"
                 "  \"goal_summary\": \"resumen del objetivo en una oración\"\n"
                 "}\n\n"
                 "Reglas estrictas:\n"
                 "- Usa ÚNICAMENTE habilidades que aparezcan en la lista proporcionada\n"
                 "- Si el usuario menciona \"machine learning\", mapéalo a las habilidades relevantes de la lista\n"
                 "- Si el usuario dice \"no sé nada\", known_skills debe ser una lista vacía\n"
-                "- Selecciona todas las habilidades relevantes al objetivo, no solo una"
+                "- Selecciona todas las habilidades relevantes al objetivo, no solo una\n"
+                "- max_hours: si el usuario menciona horas o tiempo disponible "
+                "(p.ej. \"tengo 50 horas\", \"unas 60h\", \"dispongo de 30 horas\"), "
+                "pon SOLO ese número entero en max_hours; si no menciona tiempo, deja null"
             )
 
             raw = self._call_llm(prompt)
@@ -162,6 +194,14 @@ class LLMClient:
             # como api_rest -> apis_rest; descarta lo que sea de otro dominio).
             result["target_skills"] = self._snap_skills(result["target_skills"], available_skills)
             result["known_skills"] = self._snap_skills(result["known_skills"], available_skills)
+
+            # max_hours robusto: el LLM a veces deja null aunque el texto diga las
+            # horas (copia el null de la plantilla). Coercionar y, si falta, extraer
+            # del texto del usuario con regex determinista.
+            mh = self._coerce_hours(result.get("max_hours"))
+            if mh is None:
+                mh = self._extract_hours(user_input)
+            result["max_hours"] = mh
 
             self._cache["parse_user_goal"][cache_key] = result
             return result
