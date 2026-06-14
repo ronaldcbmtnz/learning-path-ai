@@ -204,6 +204,9 @@ with tab_nl:
     )
     go_nl = st.button("🚀  Generar mi ruta", type="primary", use_container_width=True,
                       key="go_nl")
+    # La ruta se renderiza DENTRO de esta pestaña (no debajo de todas), así no
+    # aparece bajo la pestaña de tests al hacer scroll.
+    nl_results = st.container()
 
 with tab_ctrl:
     st.markdown(ui.section_header("Arma tu objetivo a mano", "🎛️"), unsafe_allow_html=True)
@@ -213,9 +216,10 @@ with tab_ctrl:
                                 key="sel_target")
     sel_known = st.multiselect("✅ Habilidades que ya tienes", ALL_SKILLS,
                                key="sel_known")
-    sel_hours = st.slider("⏱️ Horas disponibles", 0, 200, 60, step=5, key="sel_hours")
+    sel_hours = st.slider("⏱️ Horas disponibles", 0, 400, 60, step=5, key="sel_hours")
     go_ctrl = st.button("🚀  Generar mi ruta", type="primary",
                         use_container_width=True, key="go_ctrl")
+    ctrl_results = st.container()
 
 with tab_tests:
     st.markdown(ui.section_header("Banco de pruebas — 19 perfiles × 3 algoritmos", "🧪"),
@@ -518,10 +522,16 @@ def render_results(req: dict) -> None:
             ac2.markdown(f"{nm}: **{off_c:g}%** · {sign} {abs(delta):g} pts")
 
 
+# Renderizar la ruta DENTRO del contenedor de la pestaña donde se generó (NL o
+# controles), no debajo de todas las pestañas. Así, en la pestaña de tests no
+# aparece ninguna ruta vieja al hacer scroll.
 if "request" in st.session_state:
-    st.write("")
-    render_results(st.session_state["request"])
+    _req = st.session_state["request"]
+    with (nl_results if _req["mode"] == "nl" else ctrl_results):
+        st.write("")
+        render_results(_req)
 else:
-    st.write("")
-    st.markdown('<p class="muted">⬆️ Describe tu objetivo o usa los controles, y '
-                'pulsa <b>Generar mi ruta</b>.</p>', unsafe_allow_html=True)
+    with nl_results:
+        st.write("")
+        st.markdown('<p class="muted">⬆️ Describe tu objetivo o usa los controles, y '
+                    'pulsa <b>Generar mi ruta</b>.</p>', unsafe_allow_html=True)
